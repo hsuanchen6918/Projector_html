@@ -29,13 +29,11 @@ TARGET_FIELDS = [
     "Display Type",
     "Lamp Type",
     "Lens Shift",
-    "Optional Lenses",
     "DMD",
     "SoC",
     "Features",
     "Throw Ratio",
     "Digital Zoom",
-    "Included Lens",
     "Digital Keystone",
     "Size (cm)",
     "Weight (kg)",
@@ -235,8 +233,6 @@ def parse_detail(url, preset_model=None, preset_brand=None, preset_img="N/A"):
     data["Lens Shift"] = find_by_labels(soup, ["Lens Shift"])
     data["Digital Zoom"] = find_by_labels(soup, ["Digital Zoom"])
     data["Digital Keystone"] = find_by_labels(soup, ["Digital Keystone"])
-    data["Included Lens"] = find_by_labels(soup, ["Included Lens"])
-    data["Optional Lenses"]= find_by_labels(soup, ["Optional Lenses"])
     data["Size (cm)"] = find_by_labels(soup, ["Projector Size", "WxHxD"])
     data["Weight (kg)"] = find_by_labels(soup, ["Weight"])
     data["3D Modes"] = find_by_labels(soup, ["3D Modes"])
@@ -249,6 +245,45 @@ def parse_detail(url, preset_model=None, preset_brand=None, preset_img="N/A"):
 
 
 # --- 以下類別 (Worker, App) 邏輯與前述相同，僅在呼叫 parse_detail 時傳入 m['img'] ---
+
+import os 
+
+# ... (existing imports)
+
+# helper function for downloading images
+def download_image(url, model_name):
+    if not url or url == "N/A":
+        return "N/A"
+    
+    # Create images directory if not exists
+    if not os.path.exists("images"):
+        os.makedirs("images")
+        
+    try:
+        # Sanitize filename
+        safe_name = re.sub(r'[\\/*?:"<>|]', "", model_name).replace(" ", "_")
+        ext = url.split(".")[-1].split("?")[0]
+        if len(ext) > 4 or not ext: ext = "jpg" # default fallback
+        
+        filename = f"images/{safe_name}.{ext}"
+        
+        # Check if file already exists to skip download
+        if os.path.exists(filename):
+            return filename
+            
+        # Download
+        r = requests.get(url, headers=HEADERS, timeout=10)
+        if r.status_code == 200:
+            with open(filename, 'wb') as f:
+                f.write(r.content)
+            return filename
+        else:
+            return "N/A"
+    except Exception as e:
+        print(f"Download failed for {model_name}: {e}")
+        return "N/A"
+
+# ... (rest of the file until Worker class)
 
 class Worker(QThread):
     progress = pyqtSignal(str)
@@ -268,12 +303,17 @@ class Worker(QThread):
 
             for i, m in enumerate(model_links, 1):
                 self.progress.emit(f"[{i}/{len(model_links)}] {m['name']}")
-                # 這裡傳入圖片網址
-                row = parse_detail(m["url"], m["name"], m["brand"], m["img"])
+                
+                # 自動下載圖片並更新路徑
+                local_img_path = download_image(m['img'], m['name'])
+                
+                # 這裡傳入圖片網址 (現在是本地路徑)
+                row = parse_detail(m["url"], m["name"], m["brand"], local_img_path)
                 rows.append(row);
                 self.row_parsed.emit(row)
             self.finished.emit(rows)
         except Exception as e:
+            print(f"Worker Error: {e}")
             self.finished.emit(rows)
 
 
@@ -378,11 +418,37 @@ class App(QWidget):
         json_filename = f"data_{selected_brand}.json"
 
         try:
+            # --- 新增：合併邏輯，保留手動更新的欄位 ---
+            existing_data = []
+            if os.path.exists(json_filename):
+                try:
+                    with open(json_filename, "r", encoding="utf-8") as f:
+                        existing_data = json.load(f)
+                except:
+                    pass
+            
+            # 建立現有資料的索引 (以 Model 為 key)
+            existing_map = {item.get("Model"): item for item in existing_data if item.get("Model")}
+            
+            # 合併新舊資料
+            merged_rows = []
+            for new_item in rows:
+                model_name = new_item.get("Model")
+                if model_name in existing_map:
+                    # 如果型號已存在，把現有的手動欄位 (不屬於 TARGET_FIELDS 的) 併入新抓取的資料
+                    old_item = existing_map[model_name]
+                    for key, val in old_item.items():
+                        # 如果是手動欄位 (不管是自訂的還是 IsSWQE)，只要新抓的沒這欄位，就保留舊的
+                        if key not in new_item or (new_item[key] == "N/A" and val != "N/A"):
+                            new_item[key] = val
+                merged_rows.append(new_item)
+
             with open(json_filename, "w", encoding="utf-8") as f:
-                json.dump(rows, f, ensure_ascii=False, indent=4)
-            print(f"網頁用數據已更新: {json_filename}")
+                json.dump(merged_rows, f, ensure_ascii=False, indent=4)
+                
+            print(f"網頁用數據已更新 (已保留手動欄位): {json_filename}")
             QMessageBox.information(self, "存檔成功",
-                                    f"品牌 {selected_brand} 的資料已抓取完畢。\n已自動產出網頁專用 JSON：{json_filename}")
+                                    f"品牌 {selected_brand} 的資料已抓取完畢。\n已自動產出網頁專用 JSON：{json_filename}\n(原有的手動欄位如 IsSWQE 已自動保留)")
         except Exception as e:
             QMessageBox.warning(self, "JSON 存檔失敗", f"雖然抓取成功，但存成 JSON 時出錯：\n{str(e)}")
 
