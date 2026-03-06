@@ -1,7 +1,6 @@
 [
     {
         "3D Modes": "Full HD 3D",
-        "Aspect Ratio": "16:9 (4K HD)",
         "Brand": "BenQ",
         "Brightness": "2,600 Lumens (ANSI)",
         "Contrast": "1,200:1",
@@ -27,7 +26,6 @@
     },
     {
         "3D Modes": "Full HD 3D",
-        "Aspect Ratio": "16:10 (WXGA)",
         "Brand": "BenQ",
         "Brightness": "4,000 Lumens (ANSI)",
         "Contrast": "20,000:1",
@@ -53,7 +51,6 @@
     },
     {
         "3D Modes": "N/A",
-        "Aspect Ratio": "16:9 (HD)",
         "Brand": "BenQ",
         "Brightness": "500 Lumens (ANSI)",
         "Contrast": "100,000:1",

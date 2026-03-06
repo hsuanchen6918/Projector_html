@@ -8,6 +8,15 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- PPTX Viewer Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/meshesha/PPTXjs@master/dist/pptxjs.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/meshesha/PPTXjs@master/dist/nv.d3.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/meshesha/PPTXjs@master/dist/d3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/meshesha/PPTXjs@master/dist/nv.d3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/meshesha/PPTXjs@master/dist/pptxjs.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/meshesha/PPTXjs@master/dist/divs2slides.js"></script>
     <style>
         body {
             font-family: 'Inter', 'Noto Sans TC', sans-serif;
@@ -53,6 +62,20 @@
             color: #94a3b8;
             font-weight: 800;
         }
+
+        #pptx-container {
+            width: 100%;
+            height: calc(100vh - 200px);
+            border-radius: 12px;
+            overflow: auto;
+            background: white;
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Customize PPTX styles to fit our layout */
+        .pptx-wrapper {
+            margin: 0 auto !important;
+        }
     </style>
 </head>
 
@@ -72,9 +95,8 @@
                 <button @click="currentView = 'list'; scrollToTop();" :class="navClass('list')"
                     class="px-6 py-1.5 rounded-lg font-bold transition-all text-xs">產品總覽</button>
                 <button @click="currentView = 'compare'; scrollToTop();" :class="navClass('compare')"
-                    :disabled="compareQueue.length < 2"
-                    class="px-6 py-1.5 rounded-lg font-bold transition-all disabled:opacity-50 text-xs">
-                    比較機型 ({{ compareQueue.length }})
+                    class="px-6 py-1.5 rounded-lg font-bold transition-all text-xs">
+                    比較機型 ({{ filledSlotsCount }})
                 </button>
             </nav>
         </header>
@@ -160,9 +182,15 @@
                             </div>
 
                             <div class="p-4 flex-1 flex flex-col">
-                                <span
-                                    class="text-[9px] font-black bg-slate-900 text-white px-2 py-0.5 rounded uppercase self-start mb-2 tracking-wider">{{
-                                    item.Brand }}</span>
+                                <div class="flex justify-between items-start mb-2">
+                                    <span
+                                        class="text-[9px] font-black bg-slate-900 text-white px-2 py-0.5 rounded uppercase tracking-wider">{{
+                                        item.Brand }}</span>
+                                    <button v-if="item.IsSWQE === 'Yes'" @click.stop="showUnboxing(item)"
+                                        class="text-[10px] font-black text-amber-600 hover:text-amber-700 flex items-center gap-1 bg-amber-50 px-2 py-0.5 rounded transition border border-amber-100">
+                                        <i class="fas fa-box-open"></i>詳細開箱
+                                    </button>
+                                </div>
                                 <h3
                                     class="font-black text-slate-800 text-[15px] leading-snug mb-3 min-h-[2.5rem] line-clamp-2">
                                     {{ item.Model }}</h3>
@@ -215,15 +243,47 @@
                                     <th
                                         class="p-6 border-b text-[10px] text-slate-400 uppercase font-black tracking-widest w-48 bg-slate-100/50 sticky left-0 z-20">
                                         規格參數</th>
-                                    <th v-for="item in compareQueue" :key="item.Model" class="p-6 border-b">
-                                        <div class="flex flex-col items-center">
+                                    <th v-for="(slot, slotIndex) in comparisonSlots" :key="slotIndex"
+                                        class="p-6 border-b align-top relative">
+                                        <div v-if="slot" class="flex flex-col items-center">
+                                            <button @click="clearSlot(slotIndex)"
+                                                class="absolute top-2 right-2 text-slate-300 hover:text-rose-500 transition">
+                                                <i class="fas fa-times-circle text-lg"></i>
+                                            </button>
                                             <div class="h-20 flex items-center justify-center mb-4">
-                                                <img :src="getImageUrl(item)"
+                                                <img :src="getImageUrl(slot)"
                                                     class="max-h-full object-contain mix-blend-multiply">
                                             </div>
                                             <p
-                                                class="font-black text-xs text-center leading-tight text-slate-800 line-clamp-2">
-                                                {{ item.Model }}</p>
+                                                class="font-black text-[11px] text-center leading-tight text-slate-800 line-clamp-2">
+                                                {{ slot.Model }}</p>
+                                        </div>
+                                        <div v-else
+                                            class="flex flex-col gap-3 p-2 bg-slate-50 border-2 border-dashed border-slate-200 rounded-xl min-h-[140px] justify-center">
+                                            <div class="space-y-2">
+                                                <label
+                                                    class="block text-[9px] font-black text-slate-400 uppercase tracking-widest text-center">選擇品牌</label>
+                                                <select @change="onCompareBrandChange($event, slotIndex)"
+                                                    class="w-full bg-white border border-slate-200 rounded-lg px-2 py-1.5 text-[10px] font-bold outline-none focus:ring-2 focus:ring-indigo-500/20 transition">
+                                                    <option value="">請選擇品牌</option>
+                                                    <option v-for="brand in allBrands" :key="brand" :value="brand">{{
+                                                        brand }}</option>
+                                                </select>
+                                            </div>
+                                            <div v-if="slotBrandSelections[slotIndex]" class="space-y-2">
+                                                <label
+                                                    class="block text-[9px] font-black text-slate-400 uppercase tracking-widest text-center">選擇型號</label>
+                                                <select @change="onCompareModelChange($event, slotIndex)"
+                                                    class="w-full bg-white border border-slate-200 rounded-lg px-2 py-1.5 text-[10px] font-bold outline-none focus:ring-2 focus:ring-indigo-500/20 transition">
+                                                    <option value="">請選擇型號</option>
+                                                    <option
+                                                        v-for="m in getModelsByBrand(slotBrandSelections[slotIndex])"
+                                                        :key="m.Model" :value="m.Model">{{ m.Model }}</option>
+                                                </select>
+                                            </div>
+                                            <div v-else class="text-center py-4">
+                                                <i class="fas fa-plus text-slate-300 text-xl"></i>
+                                            </div>
                                         </div>
                                     </th>
                                 </tr>
@@ -232,7 +292,7 @@
                                 <template v-for="group in fieldGroups" :key="group.name">
                                     <!-- 類別大標題列 -->
                                     <tr class="bg-indigo-50/30">
-                                        <td :colspan="compareQueue.length + 1"
+                                        <td :colspan="comparisonSlots.length + 1"
                                             class="p-3 px-6 font-black text-indigo-700 text-xs uppercase tracking-widest border-y border-indigo-100/50">
                                             <i class="fas fa-tag mr-2 text-[10px]"></i>{{ group.name }}
                                         </td>
@@ -244,18 +304,55 @@
                                             class="p-4 px-6 border-b font-black text-slate-500 text-[13px] uppercase tracking-wide bg-slate-50/80 sticky left-0 z-10 group-hover:text-indigo-600">
                                             {{ translateField(field) }}
                                         </td>
-                                        <td v-for="item in compareQueue" :key="item.Model+field"
+                                        <td v-for="(slot, slotIndex) in comparisonSlots" :key="slotIndex+field"
                                             class="p-4 px-6 border-b text-xs font-bold text-slate-700 text-center leading-relaxed">
-                                            <template v-if="field.includes('URL')">
-                                                <a :href="item[field]" target="_blank"
-                                                    class="text-indigo-600 font-black border-b border-indigo-200 hover:border-indigo-600 transition pb-0.5">查看詳情</a>
+                                            <template v-if="slot">
+                                                <template v-if="field.includes('URL')">
+                                                    <a :href="slot[field]" target="_blank"
+                                                        class="text-indigo-600 font-black border-b border-indigo-200 hover:border-indigo-600 transition pb-0.5">查看詳情</a>
+                                                </template>
+                                                <template v-else>
+                                                    <span class="whitespace-pre-line">{{ formatSpecValue(field,
+                                                        slot[field]) }}</span>
+                                                </template>
                                             </template>
-                                            <template v-else>{{ item[field] || '—' }}</template>
+                                            <template v-else>—</template>
                                         </td>
                                     </tr>
                                 </template>
                             </tbody>
                         </table>
+                    </div>
+                </div>
+
+                <!-- Unboxing Page -->
+                <div v-if="currentView === 'unboxing'" class="max-w-[1200px] mx-auto">
+                    <div class="flex items-center justify-between mb-8">
+                        <div class="flex items-center gap-4">
+                            <button @click="currentView = 'list'"
+                                class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-800 hover:border-slate-300 transition shadow-sm">
+                                <i class="fas fa-arrow-left"></i>
+                            </button>
+                            <div>
+                                <h2 class="text-2xl font-black text-slate-800 tracking-tight">{{ unboxingItem?.Model }}
+                                </h2>
+                                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">詳細開箱簡報</p>
+                            </div>
+                        </div>
+                        <div
+                            class="px-4 py-2 bg-amber-100 border border-amber-200 rounded-xl text-amber-700 font-black text-xs flex items-center gap-2">
+                            <i class="fas fa-crown"></i> SWQE 專屬開箱
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+                        <div id="pptx-container">
+                            <div class="flex flex-col items-center justify-center h-full text-slate-400 py-20">
+                                <i class="fas fa-spinner fa-spin text-3xl mb-4 text-indigo-500"></i>
+                                <p class="font-bold">正在將簡報內容載入瀏覽器...</p>
+                                <p class="text-[10px] mt-2 opacity-60">如果檔案較大，請耐心等候</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </main>
@@ -310,6 +407,12 @@
                                 class="fas fa-times"></i></button>
                     </div>
                     <div class="flex-1 overflow-y-auto p-8 text-xs">
+                        <!-- Unboxing Button in Side Panel -->
+                        <button v-if="selectedItem?.IsSWQE === 'Yes'"
+                            @click="showUnboxing(selectedItem); selectedItem = null;"
+                            class="w-full mb-6 py-4 bg-amber-500 hover:bg-amber-600 text-white rounded-2xl font-black text-sm flex items-center justify-center gap-3 shadow-lg shadow-amber-200 transition-all active:scale-[0.98]">
+                            <i class="fas fa-box-open"></i> 查看產品詳細開箱 (PPTX)
+                        </button>
                         <div
                             class="bg-slate-50 rounded-[2rem] p-12 mb-8 flex justify-center shadow-inner relative overflow-hidden">
                             <img :src="getImageUrl(selectedItem)"
@@ -332,8 +435,9 @@
                                             class="w-1/3 text-slate-400 font-extrabold uppercase text-[11px] tracking-widest pt-0.5">
                                             {{ translateField(field) }}
                                         </dt>
-                                        <dd class="w-2/3 font-bold text-slate-700 text-xs pl-6 break-words">
-                                            {{ selectedItem[field] || '—' }}
+                                        <dd
+                                            class="w-2/3 font-bold text-slate-700 text-xs pl-6 break-words whitespace-pre-line">
+                                            {{ formatSpecValue(field, selectedItem[field]) }}
                                         </dd>
                                     </div>
                                 </div>
@@ -356,12 +460,19 @@
                 const filterSWQE = ref(false);
                 const compareQueue = ref([]);
                 const selectedItem = ref(null);
+                const unboxingItem = ref(null);
                 const currentPage = ref(1);
                 const pageSize = 15;
 
                 const barPos = ref({ x: 0, y: 0 });
                 const isDragging = ref(false);
                 let startX, startY;
+
+                // 比較插槽管理 (最多4個)
+                const comparisonSlots = ref([null, null, null, null]);
+                const slotBrandSelections = ref(['', '', '', '']);
+
+                const filledSlotsCount = computed(() => comparisonSlots.value.filter(s => s !== null).length);
 
                 // 強制捲動置頂函式
                 const scrollToTop = () => {
@@ -395,26 +506,65 @@
                     "St. Price": "市場售價",
                     "Released": "發布日期",
                     "Brightness": "亮度",
-                    "Resolution": "解析度",
-                    "Aspect Ratio": "Aspect Ratio",
-                    "Display Type": "投影技術",
-                    "Lamp Type": "光源類型",
-                    "Contrast": "原生對比",
+                    "Resolution": "分辨率",
+                    "MEMC": "MEMC",
+                    "Dolby Vision": "Dolby Vision認證",
+                    "IMAX": "IMAX Enhanced",
+                    "Flimmaker": "Flimmaker Mode",
+                    "HDR10+": "HDR10+",
+                    "Lamp Type": "投影光源",
+                    "Contrast": "對比度",
                     "Throw Ratio": "投射比",
-                    "Zoom Ratio": "變焦倍率",
-                    "Lens Shift": "鏡頭位移",
+                    "Zoom Type": "焦距類型",
+                    "Lens Shift": "光學變焦",
                     "DMD": "DMD",
-                    "Auto Focus": "自動對焦",
-                    "Digital Keystone": "梯形修正",
-                    "Digital Zoom": "數位變焦",
-                    "Size (cm)": "外觀尺寸",
-                    "Features": "核心特色",
-                    "Weight (kg)": "重量",
-                    "Noise(dB(A))": "運行噪音",
-                    "3D Modes": "3D支援",
-                    "IsSWQE": "SWQE競品標記"
+                    "Screen Size": "投影畫面尺寸",
+                    "Size (cm)": "產品尺寸",
+                    "Features": "特殊功能",
+                    "Weight (kg)": "產品重量",
+                    "Noise(dB(A))": "噪音",
+                    "3D Modes": "3D撥放",
+                    "System": "操作系統",
+                    "IsSWQE": "SWQE競品標記",
+                    "SoC": "SoC",
+                    "Power": "整機功耗",
+                    "Projectorstand": "機座支架",
+                    "Projectorhead": "雲台",
+                    "Autofocus": "自動對焦",
+                    "AIscreen": "AI畫面定位",
+                    "Autokeystone": "自動梯形校正",
+                    "Autofit": "自動對框",
+                    "Automove": "自動避障",
+                    "Eyesprotect": "護眼模式",
+                    "3.5output": "3.5mm音頻輸出",
+                    "Speakerpower": "音效瓦數",
+                    "Dolby Audio": "Dolby Audio",
+                    "Audiocontrol": "語音遙控",
+                    "Appcontrol": "APP遙控",
+
                 };
                 const translateField = (field) => fieldMap[field] || field;
+
+                const formatSpecValue = (field, value) => {
+                    if (!value || value === '—' || value === 'N/A') return '—';
+                    if (field === 'Features') {
+                        // Regex to find numbering like "1.", "2.", "3." or "1 " (at start or preceded by space)
+                        // It ensures that "Wifi 6" or "HDMI 2.0" aren't broken if possible
+                        // But usually numbering is "1. xxx 2. yyy"
+                        let formatted = value.toString();
+                        // Insert newline before digits followed by dot or space if it looks like a list
+                        // e.g. " 2." or " 2 "
+                        formatted = formatted.replace(/(\s)(\d+[\.\)])\s*/g, '\n$2 ');
+                        // Handle the case where someone forgot the first space but there's a number
+                        // e.g. "Something 2. Else" -> "Something \n2. Else"
+                        // But be careful with "Wifi 6.0"
+                        // Let's use a more specific one for numbering starts
+                        formatted = formatted.replace(/([^\n])\s+(\d+\.)/g, '$1\n$2');
+
+                        return formatted.trim();
+                    }
+                    return value;
+                };
 
                 const fieldGroups = [
                     {
@@ -422,20 +572,40 @@
                         fields: ["Brand", "Model", "St. Price", "Released"]
                     },
                     {
+                        name: "相關認證",
+                        fields: ["Dolby Vision", "IMAX", "Flimmaker", "HDR10+"]
+                    },
+                    {
                         name: "顯示技術",
-                        fields: ["Brightness", "Resolution", "Aspect Ratio", "Contrast", "Display Type", "DMD", "SoC"]
+                        fields: ["Brightness", "Resolution", "MEMC", "Contrast", "Lamp Type", "3D Modes", "DMD", "SoC"]
                     },
                     {
                         name: "光學投影",
-                        fields: ["Throw Ratio", "Lens Shift", "Digital Zoom", "Digital Keystone"]
+                        fields: ["Throw Ratio", "Lens Shift", "Zoom Type"]
                     },
                     {
                         name: "機身規格",
-                        fields: ["Size (cm)", "Weight (kg)", "Noise(dB(A))", "Lamp Type", "Features", "3D Modes"]
+                        fields: ["Size (cm)", "Screen Size", "Weight (kg)", "Power", "Noise(dB(A))", "Projectorstand", "Projectorhead"]
                     },
                     {
-                        name: "外部連結",
-                        fields: ["Detail URL"]
+                        name: "系統",
+                        fields: ["System"]
+                    },
+                    {
+                        name: "連接埠",
+                        fields: ["USB", "HDMI", "Wifi", "Typec"]
+                    },
+                    {
+                        name: "音效",
+                        fields: ["3.5output", "Speakerpower", "Dolby Audio", "Audiocontrol", "Appcontrol"]
+                    },
+                    {
+                        name: "智慧功能",
+                        fields: ["AIscreen", "Autokeystone", "Autofocus", "Autofit", "Automove", "Eyesprotect"]
+                    },
+                    {
+                        name: "特殊功能",
+                        fields: ["Features"]
                     }
                 ];
 
@@ -446,14 +616,20 @@
                 });
 
                 const loadData = async () => {
-                    const brands = ['epson', 'xgimi', 'jmgo', 'hisense', 'benq', 'viewsonic', 'acer', 'lg', 'samsung', 'dangbei'];
-                    const results = await Promise.all(brands.map(async b => {
-                        try {
-                            const r = await fetch(`data_${b}.json`);
-                            return r.ok ? await r.json() : [];
-                        } catch { return []; }
-                    }));
-                    allData.value = results.flat();
+                    try {
+                        const brandsRes = await fetch('/api/brands');
+                        const brands = brandsRes.ok ? await brandsRes.json() : ['epson', 'xgimi', 'jmgo', 'hisense', 'benq', 'viewsonic', 'acer', 'lg', 'samsung', 'dangbei'];
+
+                        const results = await Promise.all(brands.map(async b => {
+                            try {
+                                const r = await fetch(`data_${b}.json`);
+                                return r.ok ? await r.json() : [];
+                            } catch { return []; }
+                        }));
+                        allData.value = results.flat();
+                    } catch (e) {
+                        console.error("Failed to load data", e);
+                    }
                 };
 
                 const allBrands = computed(() => [...new Set(allData.value.map(p => p.Brand))].sort());
@@ -474,14 +650,74 @@
                     scrollToTop();
                 });
 
+                // 當 compareQueue 改變時 (從列表點擊加入)，我們填入空的插槽
+                watch(compareQueue, (newQueue) => {
+                    newQueue.forEach(item => {
+                        if (!comparisonSlots.value.some(s => s && s.Model === item.Model)) {
+                            const emptyIdx = comparisonSlots.value.indexOf(null);
+                            if (emptyIdx > -1) {
+                                comparisonSlots.value[emptyIdx] = item;
+                            }
+                        }
+                    });
+                    // 同時也移除不在 newQueue 中的插槽項 (處理 external 移除)
+                    comparisonSlots.value.forEach((slot, i) => {
+                        if (slot && !newQueue.some(p => p.Model === slot.Model)) {
+                            comparisonSlots.value[i] = null;
+                        }
+                    });
+                }, { deep: true });
+
                 const toggleCompare = (item) => {
                     const idx = compareQueue.value.findIndex(p => p.Model === item.Model);
-                    if (idx > -1) compareQueue.value.splice(idx, 1);
-                    else if (compareQueue.value.length < 4) compareQueue.value.push(item);
+                    if (idx > -1) {
+                        compareQueue.value.splice(idx, 1);
+                    } else if (compareQueue.value.length < 4) {
+                        compareQueue.value.push(item);
+                    }
+                };
+
+                const clearSlot = (index) => {
+                    const item = comparisonSlots.value[index];
+                    if (item) {
+                        const qIdx = compareQueue.value.findIndex(p => p.Model === item.Model);
+                        if (qIdx > -1) compareQueue.value.splice(qIdx, 1);
+                    }
+                    comparisonSlots.value[index] = null;
+                    slotBrandSelections.value[index] = '';
+                };
+
+                const onCompareBrandChange = (e, index) => {
+                    slotBrandSelections.value[index] = e.target.value;
+                };
+
+                const onCompareModelChange = (e, index) => {
+                    const modelName = e.target.value;
+                    const brand = slotBrandSelections.value[index];
+                    const item = allData.value.find(p => p.Brand === brand && p.Model === modelName);
+                    if (item) {
+                        // 檢查是否已經在其他插槽中
+                        if (comparisonSlots.value.some(s => s && s.Model === item.Model)) {
+                            alert('該型號已在比較列表中');
+                            e.target.value = '';
+                            return;
+                        }
+                        comparisonSlots.value[index] = item;
+                        if (!compareQueue.value.some(p => p.Model === item.Model)) {
+                            compareQueue.value.push(item);
+                        }
+                    }
+                };
+
+                const getModelsByBrand = (brand) => {
+                    return allData.value.filter(p => p.Brand === brand).sort((a, b) => a.Model.localeCompare(b.Model));
                 };
 
                 const isCompared = (item) => compareQueue.value.some(p => p.Model === item.Model);
-                const getImageUrl = (item) => (item['Image URL'] && item['Image URL'] !== 'N/A') ? item['Image URL'] : 'https://via.placeholder.com/400x300?text=No+Image';
+                const getImageUrl = (item) => {
+                    const url = item['Image URL'];
+                    return (url && url !== '—' && url !== 'N/A') ? url : 'https://via.placeholder.com/400x300?text=No+Image';
+                };
 
                 const navClass = (v) => currentView.value === v
                     ? 'bg-white text-indigo-600 shadow-md ring-1 ring-slate-200'
@@ -494,6 +730,34 @@
                         : 'bg-white/90 backdrop-blur-sm border-slate-200 text-slate-500 hover:text-indigo-600 hover:border-indigo-600';
                 };
 
+                const showUnboxing = (item) => {
+                    currentView.value = 'unboxing';
+                    unboxingItem.value = item;
+                    scrollToTop();
+
+                    // Allow DOM to update for the container to exist
+                    setTimeout(() => {
+                        const pptxPath = `unboxing_pptx/${item.Model}.pptx`;
+                        $("#pptx-container").pptxToHtml({
+                            pptxFileUrl: pptxPath,
+                            slidesScale: "100%",
+                            slideMode: false,
+                            keyBoardShortCut: false,
+                            mediaProcess: true,
+                            processMessage: "Loading unboxing presentation...",
+                            errorHandler: function () {
+                                $("#pptx-container").html(`
+                                    <div class="flex flex-col items-center justify-center h-full text-slate-400 py-20">
+                                        <i class="fas fa-file-exclamation text-3xl mb-4 text-rose-500"></i>
+                                        <p class="font-bold text-slate-600">抱歉，找不到對應的開箱檔案</p>
+                                        <p class="text-[10px] mt-2">預期路徑: ${pptxPath}</p>
+                                    </div>
+                                `);
+                            }
+                        });
+                    }, 100);
+                };
+
                 onMounted(loadData);
 
                 return {
@@ -501,7 +765,11 @@
                     paginatedData, currentPage, totalPages,
                     compareQueue, toggleCompare, isCompared, specFields, fieldGroups, navClass,
                     compareBtnClass, selectedItem, getImageUrl, scrollToTop,
-                    barPos, startDrag, translateField, filterSWQE
+                    barPos, startDrag, translateField, filterSWQE,
+                    unboxingItem, showUnboxing,
+                    comparisonSlots, slotBrandSelections, filledSlotsCount,
+                    clearSlot, onCompareBrandChange, onCompareModelChange, getModelsByBrand,
+                    formatSpecValue
                 };
             }
         }).mount('#app');

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SWQE 投影機資料管理後台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+
+        .modal-overlay {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 font-sans">
+    <div id="app" v-cloak class="min-h-screen">
+
+        <!-- Login Screen -->
+        <div v-if="!isLoggedIn" class="flex items-center justify-center min-h-screen">
+            <div class="bg-white p-8 rounded-2xl shadow-xl border border-slate-200 w-full max-w-md">
+                <div class="flex flex-col items-center mb-6">
+                    <div class="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center shadow-lg mb-4">
+                        <i class="fas fa-lock text-white text-xl"></i>
+                    </div>
+                    <h1 class="text-2xl font-black text-slate-800">管理員登入</h1>
+                    <p class="text-slate-500 text-sm mt-1">請輸入密碼以進入後台管理系統</p>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-black text-slate-400 uppercase tracking-widest mb-2">密碼</label>
+                        <input v-model="password" type="password" @keyup.enter="login"
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 transition"
+                            placeholder="請輸入密碼">
+                    </div>
+                    <button @click="login" :disabled="loading"
+                        class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-black transition shadow-lg shadow-indigo-200 disabled:opacity-50">
+                        {{ loading ? '驗證中...' : '提交' }}
+                    </button>
+                    <p v-if="error" class="text-rose-500 text-xs font-bold text-center mt-2">{{ error }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Interface -->
+        <div v-else class="flex flex-col h-screen">
+            <header
+                class="bg-white border-b border-slate-200 px-8 h-16 flex items-center justify-between shrink-0 z-30">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center shadow-md shadow-indigo-200">
+                        <i class="fas fa-toolbox text-white text-xs"></i>
+                    </div>
+                    <h1 class="text-xl font-black tracking-tight text-slate-800">資料管理後台</h1>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-xs font-bold text-slate-400">登入身分: 管理員</span>
+                    <button @click="logout" class="text-xs font-bold text-rose-500 hover:text-rose-600">
+                        <i class="fas fa-sign-out-alt mr-1"></i>登出
+                    </button>
+                </div>
+            </header>
+
+            <div class="flex-1 flex overflow-hidden">
+                <!-- Sidebar -->
+                <aside class="w-64 bg-white border-r border-slate-200 p-6 flex flex-col shrink-0">
+                    <div class="mb-8">
+                        <h3
+                            class="text-[11px] font-black text-slate-400 uppercase mb-4 tracking-widest flex items-center justify-between">
+                            <span class="flex items-center gap-2"><i class="fas fa-database text-[10px]"></i>
+                                選擇資料庫</span>
+                            <button @click="promptNewBrand" class="text-indigo-600 hover:text-indigo-700">
+                                <i class="fas fa-plus-circle text-sm"></i>
+                            </button>
+                        </h3>
+                        <div class="space-y-1">
+                            <button v-for="brand in brands" :key="brand" @click="selectBrand(brand)"
+                                :class="[selectedBrand === brand ? 'bg-indigo-50 text-indigo-700 border-indigo-100' : 'text-slate-600 hover:bg-slate-50 border-transparent']"
+                                class="w-full text-left px-4 py-2 rounded-xl text-xs font-bold border transition flex items-center justify-between group">
+                                <span>{{ brand.toUpperCase() }}</span>
+                                <i v-if="selectedBrand === brand" class="fas fa-check text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="mt-auto">
+                        <button @click="addNewItem"
+                            class="w-full py-3 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-black text-xs transition shadow-lg shadow-emerald-200 flex items-center justify-center gap-2">
+                            <i class="fas fa-plus"></i>新增機型
+                        </button>
+                        <button @click="saveToServer" :disabled="!hasUnsavedChanges || loading"
+                            :class="[hasUnsavedChanges ? 'bg-indigo-600 hover:bg-indigo-700 shadow-indigo-200' : 'bg-slate-200 text-slate-400 cursor-not-allowed']"
+                            class="w-full mt-3 py-3 text-white rounded-xl font-black text-xs transition shadow-lg flex items-center justify-center gap-2">
+                            <i class="fas fa-cloud-upload-alt"></i>{{ loading ? '儲存中...' : '發送到伺服器' }}
+                        </button>
+                    </div>
+                </aside>
+
+                <!-- Content -->
+                <main class="flex-1 overflow-y-auto p-8 bg-slate-50">
+                    <div class="max-w-6xl mx-auto">
+                        <div class="flex items-center justify-between mb-8">
+                            <div>
+                                <h2 class="text-2xl font-black text-slate-800">{{ selectedBrand.toUpperCase() }} 產品列表
+                                </h2>
+                                <p class="text-slate-500 text-xs font-bold mt-1">共 {{ filteredList.length }} 筆產品</p>
+                            </div>
+                            <div class="relative w-64">
+                                <i
+                                    class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                                <input v-model="search" type="text" placeholder="搜尋型號..."
+                                    class="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3 py-2 text-xs font-bold outline-none focus:ring-4 focus:ring-indigo-500/10 transition">
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-slate-50 border-b border-slate-100">
+                                        <th
+                                            class="p-4 pl-6 text-[10px] font-black text-slate-400 uppercase tracking-widest">
+                                            型號</th>
+                                        <th class="p-4 text-[10px] font-black text-slate-400 uppercase tracking-widest">
+                                            市場售價</th>
+                                        <th class="p-4 text-[10px] font-black text-slate-400 uppercase tracking-widest">
+                                            亮度</th>
+                                        <th class="p-4 text-[10px] font-black text-slate-400 uppercase tracking-widest">
+                                            最後更新</th>
+                                        <th
+                                            class="p-4 text-[10px] font-black text-slate-400 uppercase tracking-widest text-right pr-6">
+                                            操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-50">
+                                    <tr v-for="(item, index) in filteredList" :key="item.Model"
+                                        class="hover:bg-slate-50/50 transition group">
+                                        <td class="p-4 pl-6">
+                                            <div class="flex items-center gap-3">
+                                                <div v-if="item.IsSWQE === 'Yes'"
+                                                    class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></div>
+                                                <span class="font-bold text-slate-700 text-xs">{{ item.Model }}</span>
+                                            </div>
+                                        </td>
+                                        <td class="p-4 text-xs font-bold text-indigo-600">{{ item['St. Price'] }}</td>
+                                        <td class="p-4 text-xs font-bold text-slate-500">{{ item.Brightness }}</td>
+                                        <td class="p-4 text-xs font-bold text-slate-400">{{ item.Released }}</td>
+                                        <td class="p-4 text-right pr-6">
+                                            <div class="flex items-center justify-end gap-2">
+                                                <button @click="editItem(item)"
+                                                    class="w-8 h-8 flex items-center justify-center rounded-lg bg-slate-100 text-slate-500 hover:bg-indigo-600 hover:text-white transition">
+                                                    <i class="fas fa-edit text-[10px]"></i>
+                                                </button>
+                                                <button @click="deleteItem(item)"
+                                                    class="w-8 h-8 flex items-center justify-center rounded-lg bg-slate-100 text-slate-500 hover:bg-rose-500 hover:text-white transition">
+                                                    <i class="fas fa-trash text-[10px]"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <!-- Edit Modal -->
+        <transition name="fade">
+            <div v-if="editingItem" class="fixed inset-0 z-50 flex items-center justify-center p-6">
+                <div class="absolute inset-0 modal-overlay" @click="editingItem = null"></div>
+                <div
+                    class="bg-white w-full max-w-4xl max-h-[90vh] rounded-[2rem] shadow-2xl relative z-10 overflow-hidden flex flex-col">
+                    <div class="p-8 border-b border-slate-100 flex justify-between items-center shrink-0">
+                        <div>
+                            <h2 class="text-xl font-black text-slate-800">編輯產品資訊</h2>
+                            <p class="text-slate-500 text-xs font-bold mt-1">{{ editingItem.Model || '新產品' }}</p>
+                        </div>
+                        <button @click="editingItem = null"
+                            class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-50 hover:bg-slate-100 transition text-slate-400">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <div class="flex-1 overflow-y-auto p-8 grid grid-cols-2 gap-x-8 gap-y-6">
+                        <div v-for="field in formFields" :key="field.key" :class="field.fullWidth ? 'col-span-2' : ''">
+                            <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">{{
+                                field.label }}</label>
+
+                            <select v-if="field.type === 'select'" v-model="editingItem[field.key]"
+                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 transition">
+                                <option v-for="opt in field.options" :key="opt" :value="opt">{{ opt }}</option>
+                            </select>
+
+                            <input v-else v-model="editingItem[field.key]" :type="field.type || 'text'"
+                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 transition"
+                                :placeholder="'請輸入'+field.label">
+                        </div>
+                    </div>
+
+                    <div class="p-8 border-t border-slate-100 flex justify-end gap-3 shrink-0">
+                        <button @click="editingItem = null"
+                            class="px-6 py-2.5 text-xs font-black text-slate-400 hover:text-slate-600 transition">取消</button>
+                        <button @click="saveEdit"
+                            class="px-8 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-black text-xs transition shadow-lg shadow-indigo-100">
+                            保存變更 (尚未存檔)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+        const { createApp, ref, computed, onMounted, watch } = Vue;
+        createApp({
+            setup() {
+                const isLoggedIn = ref(false);
+                const password = ref('');
+                const loading = ref(false);
+                const error = ref('');
+                const token = ref(localStorage.getItem('admin_token') || '');
+
+                const brands = ref([]);
+                const selectedBrand = ref('');
+                const list = ref([]);
+                const search = ref('');
+                const hasUnsavedChanges = ref(false);
+                const editingItem = ref(null);
+
+                const formFields = [
+                    { label: '品牌', key: 'Brand' },
+                    { label: '型號', key: 'Model' },
+                    { label: '市場售價', key: 'St. Price' },
+                    { label: '發布日期', key: 'Released' },
+                    { label: 'Dolby Vision認證', key: 'Dolby Vision', type: 'select', options: ['No', 'Yes'] },
+                    { label: 'IMAX Enhanced', key: 'IMAX', type: 'select', options: ['No', 'Yes'] },
+                    { label: 'Flimmaker Mode', key: 'Flimmaker', type: 'select', options: ['No', 'Yes'] },
+                    { label: 'HDR10+', key: 'HDR10+', type: 'select', options: ['No', 'Yes'] },
+                    { label: '亮度', key: 'Brightness' },
+                    { label: '分辨率', key: 'Resolution' },
+                    { label: 'MEMC', key: 'MEMC', type: 'select', options: ['Yes', "No"] },
+                    { label: '投影光源', key: 'Lamp Type' },
+                    { label: '對比度', key: 'Contrast' },
+                    { label: '投射比', key: 'Throw Ratio' },
+                    { label: 'SWQE競品', key: 'IsSWQE', type: 'select', options: ['No', 'Yes'] },
+                    { label: 'DMD', key: 'DMD' },
+                    { label: 'SoC', key: 'SoC' },
+                    { label: '光學變焦', key: 'Lens Shift', type: 'select', options: ['Yes', "No"] },
+                    { label: '焦距類型', key: 'Zoom Type' },
+                    { label: '自動梯形校正', key: 'Autokeystone', type: 'select', options: ['Yes', "No"] },
+                    { label: '自動對焦', key: 'Autofocus', type: 'select', options: ['Yes', "No"] },
+                    { label: '產品尺寸', key: 'Size (cm)' },
+                    { label: '投影畫面尺寸', key: 'Screen Size' },
+                    { label: '重量', key: 'Weight (kg)' },
+                    { label: '噪音', key: 'Noise(dB(A))' },
+                    { label: '操作系統', key: 'System' },
+                    { label: '投影畫面尺寸', key: 'Screen Size' },
+                    { label: '機座支架', key: 'Projectorstand' },
+                    { label: '雲台', key: 'Projectorhead' },
+                    { label: '整機功耗', key: 'Power' },
+                    { label: '自動對焦', key: 'Autofocus', type: 'select', options: ['Yes', "No"] },
+                    { label: 'AI畫面定位', key: 'AIscreen', type: 'select', options: ['Yes', "No"] },
+                    { label: '自動梯形校正', key: 'Autokeystone' },
+                    { label: '自動對框', key: 'Autofit', type: 'select', options: ['Yes', "No"] },
+                    { label: '自動避障', key: 'Automove', type: 'select', options: ['Yes', "No"] },
+                    { label: '護眼模式', key: 'Eyesprotect' },
+                    { label: '3.5mm音頻輸出', key: '3.5output' },
+                    { label: '音效瓦數', key: 'Speakerpower' },
+                    { label: 'Dolby Audio', key: 'Dolby Audio' },
+                    { label: '語音遙控', key: 'Audiocontrol' },
+                    { label: 'USB', key: 'USB' },
+                    { label: 'HDMI', key: 'HDMI' },
+                    { label: 'Wifi', key: 'Wifi' },
+                    { label: 'Typec', key: 'Typec' },
+                    { label: 'APP遙控', key: 'Appcontrol', type: 'select', options: ['Yes', "No"] },
+                    { label: '3D撥放', key: '3D Modes', type: 'select', options: ['Yes', 'No'] },
+                    { label: '圖片網址', key: 'Image URL', fullWidth: true },
+                    { label: '特殊功能', key: 'Features', fullWidth: true },
+                ];
+
+                const login = async () => {
+                    loading.value = true;
+                    error.value = '';
+                    try {
+                        const res = await fetch('/api/login', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ password: password.value })
+                        });
+                        const data = await res.json();
+                        if (data.success) {
+                            token.value = data.token;
+                            localStorage.setItem('admin_token', data.token);
+                            isLoggedIn.value = true;
+                            loadData();
+                        } else {
+                            error.value = data.message;
+                        }
+                    } catch (e) {
+                        error.value = '連線失敗，請檢查伺服器狀態';
+                    } finally {
+                        loading.value = false;
+                    }
+                };
+
+                const logout = () => {
+                    isLoggedIn.value = false;
+                    localStorage.removeItem('admin_token');
+                };
+
+                const loadBrands = async () => {
+                    try {
+                        const r = await fetch('/api/brands');
+                        brands.value = r.ok ? await r.json() : [];
+                        if (brands.value.length > 0 && !selectedBrand.value) {
+                            selectedBrand.value = brands.value[0];
+                            loadData();
+                        }
+                    } catch { brands.value = []; }
+                };
+
+                const loadData = async () => {
+                    if (!selectedBrand.value) return;
+                    try {
+                        const r = await fetch(`data_${selectedBrand.value}.json?t=${Date.now()}`);
+                        list.value = r.ok ? await r.json() : [];
+                        hasUnsavedChanges.value = false;
+                    } catch { list.value = []; }
+                };
+
+                const selectBrand = (brand) => {
+                    if (hasUnsavedChanges.value) {
+                        if (!confirm('您有尚未儲存的變更，切換品牌將遺失這些變更。確定切換？')) return;
+                    }
+                    selectedBrand.value = brand;
+                    loadData();
+                };
+
+                const filteredList = computed(() => {
+                    return list.value.filter(p =>
+                        (p.Model || '').toLowerCase().includes(search.value.toLowerCase())
+                    );
+                });
+
+                const editItem = (item) => {
+                    editingItem.value = JSON.parse(JSON.stringify(item));
+                };
+
+                const deleteItem = (item) => {
+                    if (confirm(`確定要刪除 ${item.Model} 嗎？`)) {
+                        list.value = list.value.filter(p => p.Model !== item.Model);
+                        hasUnsavedChanges.value = true;
+                    }
+                };
+
+                const addNewItem = () => {
+                    editingItem.value = {
+                        Brand: selectedBrand.value ? selectedBrand.value.toUpperCase() : '',
+                        Model: '',
+                        IsSWQE: 'No',
+                        'St. Price': 'N/A',
+                        Brightness: 'N/A'
+                    };
+                };
+
+                const promptNewBrand = () => {
+                    const name = prompt('請輸入新品牌名稱 (英文):');
+                    if (name) {
+                        const lowerName = name.trim().toLowerCase();
+                        if (brands.value.includes(lowerName)) {
+                            alert('該品牌已存在');
+                            return;
+                        }
+                        brands.value.push(lowerName);
+                        selectedBrand.value = lowerName;
+                        list.value = [];
+                        hasUnsavedChanges.value = true;
+                    }
+                };
+
+                const saveEdit = () => {
+                    if (!editingItem.value.Model) {
+                        alert('請輸入型號名稱');
+                        return;
+                    }
+                    const idx = list.value.findIndex(p => p.Model === editingItem.value.Model);
+                    if (idx > -1) {
+                        list.value[idx] = JSON.parse(JSON.stringify(editingItem.value));
+                    } else {
+                        list.value.unshift(JSON.parse(JSON.stringify(editingItem.value)));
+                    }
+                    editingItem.value = null;
+                    hasUnsavedChanges.value = true;
+                };
+
+                const saveToServer = async () => {
+                    loading.value = true;
+                    try {
+                        const res = await fetch('/api/save', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${token.value}`
+                            },
+                            body: JSON.stringify({
+                                brand: selectedBrand.value,
+                                data: list.value
+                            })
+                        });
+                        const data = await res.json();
+                        if (data.success) {
+                            alert('儲存成功！');
+                            hasUnsavedChanges.value = false;
+                            loadBrands(); // 重新整理品牌列表
+                        } else {
+                            alert('儲存失敗：' + data.message);
+                        }
+                    } catch (e) {
+                        alert('儲存發生錯誤');
+                    } finally {
+                        loading.value = false;
+                    }
+                };
+
+                onMounted(() => {
+                    // 簡易檢查 token 是否存在
+                    if (token.value === 'dummy-token-123') {
+                        isLoggedIn.value = true;
+                        loadBrands();
+                    }
+                });
+
+                return {
+                    isLoggedIn, password, loading, error, login, logout,
+                    brands, selectedBrand, list, search, filteredList,
+                    selectBrand, editItem, deleteItem, addNewItem,
+                    editingItem, formFields, saveEdit, saveToServer,
+                    hasUnsavedChanges, promptNewBrand
+                };
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>
