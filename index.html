@@ -777,12 +777,14 @@
                     return showOnlyDifferentSpecs.value ? differentSpecGroups.value : fieldGroups;
                 });
 
+                const projectorDataFiles = [
+                    'acer', 'anker', 'awol', 'benq', 'dangbei', 'dreame', 'epson', 'hisense',
+                    'jmgo', 'leica', 'lg', 'nexigo', 'optoma', 'samsung', 'sharp', 'viewsonic', 'xgimi'
+                ];
+
                 const loadData = async () => {
                     try {
-                        const brandsRes = await fetch('/api/brands');
-                        const brands = await brandsRes.json();
-
-                        const results = await Promise.all(brands.map(async b => {
+                        const results = await Promise.all(projectorDataFiles.map(async b => {
                             try {
                                 const r = await fetch(`data_${b}.json?t=${Date.now()}`);
                                 if (!r.ok) return [];
@@ -797,14 +799,73 @@
                     }
                 };
 
-                const loadAiTags = async () => {
-                    try {
-                        const res = await fetch('/api/ai/tags');
-                        const data = await res.json();
-                        aiTags.value = data.tags || [];
-                    } catch (e) {
-                        aiError.value = '無法載入 AI 標籤';
-                    }
+                const localAiTags = [
+                    { id: '4k', label: '4K' },
+                    { id: 'ultra-short-throw', label: '超短焦' },
+                    { id: 'low-noise', label: '低噪音' },
+                    { id: 'lightweight', label: '輕便' },
+                    { id: 'autofocus', label: '自動對焦' },
+                    { id: 'autokeystone', label: '自動梯形校正' },
+                    { id: 'ai-screen', label: '自動對框' },
+                    { id: 'dolby-vision', label: 'Dolby Vision' },
+                    { id: 'hdr', label: 'HDR10+' },
+                    { id: 'memc', label: 'MEMC' },
+                    { id: 'laser', label: '雷射光源' }
+                ];
+
+                const isMissing = (value) => {
+                    if (value === undefined || value === null) return true;
+                    return ['', '-', '--', '?', '??', 'N/A', 'NA', 'None'].includes(String(value).trim());
+                };
+
+                const parseNumber = (value) => {
+                    if (isMissing(value)) return null;
+                    const match = String(value).match(/(\d[\d,]*(?:\.\d+)?)/);
+                    return match ? Number(match[1].replace(/,/g, '')) : null;
+                };
+
+                const hasYes = (value) => {
+                    if (isMissing(value)) return false;
+                    const normalized = String(value).toLowerCase();
+                    return ['yes', 'y', 'true'].includes(normalized) || normalized.includes('支援') || normalized.includes('auto');
+                };
+
+                const hasText = (projector, fields, keywords) => {
+                    const haystack = fields.map(field => isMissing(projector[field]) ? '' : String(projector[field])).join(' ').toLowerCase();
+                    return keywords.some(keyword => haystack.includes(keyword.toLowerCase()));
+                };
+
+                const scoreProjector = (projector, selectedTags) => {
+                    let score = 0;
+                    const reasons = [];
+                    const cautions = [];
+                    const matchedTags = new Set();
+                    const add = (points, reason, tagId) => {
+                        score += points;
+                        reasons.push(reason);
+                        matchedTags.add(tagId);
+                    };
+                    const weight = parseNumber(projector['Weight (kg)']);
+                    const noise = parseNumber(projector['Noise(dB(A))']);
+                    const throwRatio = parseNumber(projector['Throw Ratio']);
+                    const resolution = isMissing(projector.Resolution) ? '' : String(projector.Resolution);
+                    const lampType = isMissing(projector['Lamp Type']) ? '' : String(projector['Lamp Type']);
+
+                    if (selectedTags.includes('4k') && hasText(projector, ['Resolution', 'Aspect Ratio', 'Features'], ['3840', '2160', '4k', 'uhd'])) add(18, `解析度為 ${resolution || '4K / UHD'}，符合高解析觀影需求`, '4k');
+                    if (selectedTags.includes('ultra-short-throw') && throwRatio && throwRatio < 0.5) add(18, `投射比約 ${throwRatio}，適合靠牆或小空間使用`, 'ultra-short-throw');
+                    if (selectedTags.includes('low-noise') && noise && noise <= 28) add(12, `噪音約 ${noise} dB，適合需要安靜觀影或簡報的環境`, 'low-noise');
+                    if (selectedTags.includes('lightweight') && weight && weight <= 4) add(12, `重量約 ${weight} kg，移動、收納或跨空間使用較方便`, 'lightweight');
+                    if (selectedTags.includes('autofocus') && hasYes(projector.Autofocus)) add(12, '畫面能自動變清晰', 'autofocus');
+                    if (selectedTags.includes('autokeystone') && !isMissing(projector.Autokeystone)) add(10, '畫面能自動變為矩形', 'autokeystone');
+                    if (selectedTags.includes('ai-screen') && hasYes(projector.AIscreen)) add(12, '投影機能自動入幕', 'ai-screen');
+                    if (selectedTags.includes('dolby-vision') && hasYes(projector['Dolby Vision'])) add(12, '適合重視電影HDR效果的使用者', 'dolby-vision');
+                    if (selectedTags.includes('hdr') && hasYes(projector['HDR10+'])) add(10, '能支援較完整的高動態範圍片源', 'hdr');
+                    if (selectedTags.includes('memc') && hasYes(projector.MEMC)) add(8, '觀看運動、遊戲或快速畫面時較有幫助', 'memc');
+                    if (selectedTags.includes('laser') && hasText(projector, ['Lamp Type'], ['laser', 'rgb', '激光', '雷射'])) add(10, `光源類型為 ${lampType || '雷射'}，適合重視亮度穩定與長效光源的需求`, 'laser');
+
+                    if (selectedTags.includes('low-noise') && noise === null) cautions.push('噪音資料缺漏，無法判斷低噪音表現');
+                    if (selectedTags.includes('lightweight') && weight === null) cautions.push('重量資料缺漏，無法判斷攜帶性');
+                    return { score, matchedTags: [...matchedTags], reasons: reasons.slice(0, 5), cautions: cautions.slice(0, 3), projector };
                 };
 
                 const toggleAiTag = (tagId) => {
@@ -821,35 +882,31 @@
                     aiError.value = '';
                 };
 
-                const postAi = async (url, body) => {
+                const generateRecommendations = () => {
+                    if (selectedAiTags.value.length === 0) return;
                     aiLoading.value = true;
                     aiError.value = '';
                     try {
-                        const res = await fetch(url, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(body)
-                        });
-                        if (!res.ok) throw new Error('AI API failed');
-                        return await res.json();
-                    } catch (e) {
-                        aiError.value = '本地 AI 分析暫時無法使用，請確認後端服務是否啟動。';
-                        return null;
+                        const requiredTags = selectedAiTags.value;
+                        const candidates = filterSWQE.value ? allData.value.filter(p => p.IsSWQE === 'Yes') : allData.value;
+                        const recommendations = candidates
+                            .map(projector => scoreProjector(projector, requiredTags))
+                            .filter(row => row.score > 0 && requiredTags.every(tag => row.matchedTags.includes(tag)));
+                        const numberValue = (row, field) => parseNumber(row.projector[field]);
+                        if (requiredTags.includes('lightweight')) {
+                            recommendations.sort((a, b) => (numberValue(a, 'Weight (kg)') ?? Infinity) - (numberValue(b, 'Weight (kg)') ?? Infinity) || b.score - a.score);
+                        } else if (requiredTags.includes('low-noise')) {
+                            recommendations.sort((a, b) => (numberValue(a, 'Noise(dB(A))') ?? Infinity) - (numberValue(b, 'Noise(dB(A))') ?? Infinity) || b.score - a.score);
+                        } else {
+                            recommendations.sort((a, b) => b.score - a.score);
+                        }
+                        aiRecommendations.value = recommendations.slice(0, 10);
+                        aiTotalMatches.value = recommendations.length;
+                        aiDisplayLimit.value = 10;
                     } finally {
                         aiLoading.value = false;
                     }
-                };
-
-                const generateRecommendations = async () => {
-                    if (selectedAiTags.value.length === 0) return;
-                    const data = await postAi('/api/ai/recommend', {
-                        tags: selectedAiTags.value,
-                        swqeOnly: filterSWQE.value
-                    });
-                    aiRecommendations.value = data?.recommendations || [];
-                    aiTotalMatches.value = data?.totalMatches ?? aiRecommendations.value.length;
-                    aiDisplayLimit.value = data?.displayLimit ?? 10;
-                    if (data && aiRecommendations.value.length === 0) {
+                    if (aiRecommendations.value.length === 0) {
                         aiError.value = '目前沒有符合標籤的推薦結果，請減少條件或補齊規格資料。';
                     }
                 };
@@ -1074,8 +1131,8 @@
                 };
 
                 onMounted(() => {
+                    aiTags.value = localAiTags;
                     loadData();
-                    loadAiTags();
                 });
 
                 return {
