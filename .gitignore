@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.pyo
+*.log
+nohup.out
+*.zip
+
+.deploy_tmp/
+pptxjs_temp/
+projector_web_deploy/
+.github_remote_check/
+
+.idea/
+.vscode/
+venv/
+.venv/

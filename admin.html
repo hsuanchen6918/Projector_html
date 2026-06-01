@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SWQE 投影機資料管理後台</title>
+    <script src="assets/tailwindcss.js"></script>
+    <script src="assets/vue.global.js"></script>
+    <link rel="stylesheet" href="assets/all.min.css">
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+
+        .modal-overlay {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #cbd5e1;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 font-sans h-screen overflow-hidden">
+    <div id="app" v-cloak class="h-full">
+
+        <!-- Login Screen -->
+        <div v-if="!isLoggedIn" class="flex items-center justify-center h-full">
+            <div class="bg-white p-8 rounded-2xl shadow-xl border border-slate-200 w-full max-w-md">
+                <div class="flex flex-col items-center mb-6">
+                    <div class="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center shadow-lg mb-4">
+                        <span class="text-white text-xl">🔒</span>
+                    </div>
+                    <h1 class="text-2xl font-black text-slate-800">管理員登入</h1>
+                    <p class="text-slate-500 text-sm mt-1">請輸入密碼以進入後台管理系統</p>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-black text-slate-400 uppercase tracking-widest mb-2">密碼</label>
+                        <input v-model="password" type="password" @keyup.enter="login"
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 transition"
+                            placeholder="請輸入密碼">
+                    </div>
+                    <button @click="login" :disabled="loading"
+                        class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-black transition shadow-lg shadow-indigo-200 disabled:opacity-50">
+                        {{ loading ? '驗證中...' : '提交' }}
+                    </button>
+                    <p v-if="error" class="text-rose-500 text-xs font-bold text-center mt-2">{{ error }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Interface -->
+        <div v-else class="flex flex-col h-full">
+            <header
+                class="bg-white border-b border-slate-200 px-8 h-16 flex items-center justify-between shrink-0 z-30">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center shadow-md shadow-indigo-200">
+                        <span class="text-white text-xs">🛠️</span>
+                    </div>
+                    <h1 class="text-xl font-black tracking-tight text-slate-800">資料管理後台</h1>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-xs font-bold text-slate-400">登入身分: 管理員</span>
+                    <button @click="logout" class="text-xs font-bold text-rose-500 hover:text-rose-600">
+                        🚪 登出
+                    </button>
+                </div>
+            </header>
+
+
+            <div class="flex-1 flex overflow-hidden">
+                <!-- Sidebar -->
+                <aside class="w-64 bg-white border-r border-slate-200 p-6 flex flex-col shrink-0">
+                    <div class="flex-1 flex flex-col min-h-0">
+                        <h3
+                            class="text-[11px] font-black text-slate-400 uppercase mb-4 tracking-widest flex items-center justify-between shrink-0">
+                            <span class="flex items-center gap-2">📂 選擇資料庫</span>
+                            <div class="flex items-center gap-2">
+                                <button @click="promptNewBrand" class="text-indigo-600 hover:text-indigo-700">
+                                    ➕
+                                </button>
+                            </div>
+                        </h3>
+                        <div class="space-y-1 flex-1 overflow-y-auto pr-2 custom-scrollbar">
+                            <div v-for="brand in brands" :key="brand" 
+                                class="flex items-center gap-2 group">
+                                <button @click="selectBrand(brand)"
+                                    :class="[selectedBrand === brand ? 'bg-indigo-50 text-indigo-700 border-indigo-100' : 'text-slate-600 hover:bg-slate-50 border-transparent']"
+                                    class="flex-1 text-left px-4 py-2 rounded-xl text-xs font-bold border transition flex items-center justify-between">
+                                    <span>{{ brand.toUpperCase() }}</span>
+                                    <span v-if="selectedBrand === brand">✅</span>
+                                </button>
+                                <button @click.stop="deleteBrand(brand)" 
+                                    class="hidden group-hover:block p-2 text-slate-400 hover:text-rose-500 transition"
+                                    title="刪除此品牌">
+                                    🗑️
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-4 border-t border-slate-100 shrink-0">
+                        <button @click="addNewItem"
+                            class="w-full py-3 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-black text-xs transition shadow-lg shadow-emerald-200 flex items-center justify-center gap-2">
+                            ➕ 新增機型
+                        </button>
+                        <button @click="saveToServer" :disabled="!hasUnsavedChanges || loading"
+                            :class="[hasUnsavedChanges ? 'bg-indigo-600 hover:bg-indigo-700 shadow-indigo-200' : 'bg-slate-200 text-slate-400 cursor-not-allowed']"
+                            class="w-full mt-3 py-3 text-white rounded-xl font-black text-xs transition shadow-lg flex items-center justify-center gap-2">
+                            💾 {{ loading ? '儲存中...' : '儲存變更到伺服器' }}
+                        </button>
+                    </div>
+                </aside>
+
+                <!-- Content -->
+                <main class="flex-1 overflow-y-auto p-8 bg-slate-50">
+                    <div class="max-w-6xl mx-auto">
+                        <div class="flex items-center justify-between mb-8">
+                            <div>
+                                <h2 class="text-2xl font-black text-slate-800">{{ selectedBrand.toUpperCase() }} 產品列表
+                                </h2>
+                                <p class="text-slate-500 text-xs font-bold mt-1">共 {{ filteredList.length }} 筆產品</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <button @click="runDataCheck" :disabled="loading || !selectedBrand"
+                                    class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-200 disabled:text-slate-400 text-white text-xs font-black transition shadow-lg shadow-indigo-100">
+                                    AI 缺漏資料檢查
+                                </button>
+                                <div class="relative w-64">
+                                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs">🔍</span>
+                                <input v-model="search" type="text" placeholder="搜尋型號..."
+                                    class="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3 py-2 text-xs font-bold outline-none focus:ring-4 focus:ring-indigo-500/10 transition">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div v-if="dataCheckResult.summary" class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 mb-6">
+                            <div class="flex flex-col lg:flex-row lg:items-start gap-4">
+                                <div class="lg:w-64 shrink-0">
+                                    <p class="text-[10px] font-black text-indigo-500 uppercase tracking-widest mb-1">Local AI</p>
+                                    <h3 class="text-lg font-black text-slate-800">資料品質檢查</h3>
+                                    <div class="grid grid-cols-3 gap-2 mt-3">
+                                        <div class="bg-rose-50 text-rose-700 rounded-xl p-3">
+                                            <p class="text-[10px] font-black">嚴重</p>
+                                            <p class="text-xl font-black">{{ dataCheckResult.summary.critical }}</p>
+                                        </div>
+                                        <div class="bg-amber-50 text-amber-700 rounded-xl p-3">
+                                            <p class="text-[10px] font-black">提醒</p>
+                                            <p class="text-xl font-black">{{ dataCheckResult.summary.warning }}</p>
+                                        </div>
+                                        <div class="bg-slate-50 text-slate-600 rounded-xl p-3">
+                                            <p class="text-[10px] font-black">資訊</p>
+                                            <p class="text-xl font-black">{{ dataCheckResult.summary.info }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex-1 max-h-72 overflow-y-auto custom-scrollbar pr-2">
+                                    <div v-if="dataCheckResult.issues.length === 0"
+                                        class="text-sm font-bold text-emerald-600 bg-emerald-50 border border-emerald-100 rounded-xl p-4">
+                                        目前沒有發現明顯缺漏。
+                                    </div>
+                                    <div v-for="issue in dataCheckResult.issues" :key="issue.model + issue.field + issue.message"
+                                        class="flex items-start gap-3 py-2 border-b border-slate-100 last:border-b-0">
+                                        <span :class="issue.severity === 'critical' ? 'bg-rose-100 text-rose-700' : issue.severity === 'warning' ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 text-slate-600'"
+                                            class="px-2 py-1 rounded-lg text-[10px] font-black uppercase shrink-0">{{ issue.severity }}</span>
+                                        <div class="min-w-0">
+                                            <p class="text-xs font-black text-slate-700">{{ issue.model }} / {{ issue.field }}</p>
+                                            <p class="text-xs font-bold text-slate-500 mt-0.5">{{ issue.message }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-slate-50 border-b border-slate-100">
+                                        <th
+                                            class="p-4 pl-6 text-[10px] font-black text-slate-400 uppercase tracking-widest">
+                                            型號</th>
+                                        <th class="p-4 text-[10px] font-black text-slate-400 uppercase tracking-widest">
+                                            市場售價</th>
+                                        <th class="p-4 text-[10px] font-black text-slate-400 uppercase tracking-widest">
+                                            亮度</th>
+                                        <th class="p-4 text-[10px] font-black text-slate-400 uppercase tracking-widest">
+                                            最後更新</th>
+                                        <th
+                                            class="p-4 text-[10px] font-black text-slate-400 uppercase tracking-widest text-right pr-6">
+                                            操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-50">
+                                    <tr v-for="(item, index) in filteredList" :key="item.Model"
+                                        class="hover:bg-slate-50/50 transition group">
+                                        <td class="p-4 pl-6">
+                                            <div class="flex items-center gap-3">
+                                                <div v-if="item.IsSWQE === 'Yes'"
+                                                    class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></div>
+                                                <span class="font-bold text-slate-700 text-xs">{{ item.Model }}</span>
+                                            </div>
+                                        </td>
+                                        <td class="p-4 text-xs font-bold text-indigo-600">{{ item['St. Price'] }}</td>
+                                        <td class="p-4 text-xs font-bold text-slate-500">{{ item.Brightness }}</td>
+                                        <td class="p-4 text-xs font-bold text-slate-400">{{ item.Released }}</td>
+                                        <td class="p-4 text-right pr-6">
+                                            <div class="flex items-center justify-end gap-2">
+                                                <button @click="editItem(item)"
+                                                    class="w-8 h-8 flex items-center justify-center rounded-lg bg-slate-100 text-slate-500 hover:bg-indigo-600 hover:text-white transition">
+                                                    ✏️
+                                                </button>
+                                                <button @click="deleteItem(item)"
+                                                    class="w-8 h-8 flex items-center justify-center rounded-lg bg-slate-100 text-slate-500 hover:bg-rose-500 hover:text-white transition">
+                                                    🗑️
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <!-- Edit Modal -->
+        <transition name="fade">
+            <div v-if="editingItem" class="fixed inset-0 z-50 flex items-center justify-center p-6">
+                <div class="absolute inset-0 modal-overlay" @click="editingItem = null"></div>
+                <div
+                    class="bg-white w-full max-w-4xl max-h-[85vh] rounded-[2rem] shadow-2xl relative z-10 overflow-hidden flex flex-col">
+                    <div class="p-8 border-b border-slate-100 flex justify-between items-center shrink-0">
+                        <div>
+                            <h2 class="text-xl font-black text-slate-800">編輯產品資訊</h2>
+                            <p class="text-slate-500 text-xs font-bold mt-1">{{ editingItem.Model || '新產品' }}</p>
+                        </div>
+                        <button @click="editingItem = null"
+                            class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-50 hover:bg-slate-100 transition text-slate-400 font-bold">
+                            ❌
+                        </button>
+                    </div>
+
+                    <div class="flex-1 overflow-y-auto p-8 grid grid-cols-2 gap-x-8 gap-y-6">
+                        <div v-for="field in formFields" :key="field.key" :class="field.fullWidth ? 'col-span-2' : ''">
+                            <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">{{
+                                field.label }}</label>
+
+                            <select v-if="field.type === 'select'" v-model="editingItem[field.key]"
+                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 transition">
+                                <option v-for="opt in field.options" :key="opt" :value="opt">{{ opt }}</option>
+                            </select>
+
+                            <div v-else-if="field.key === 'PPTX'" class="flex gap-2">
+                                <input v-model="editingItem.PPTX" type="text"
+                                    class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 transition"
+                                    placeholder="檔案名稱 (例如: benq.pdf)">
+                                <button @click="triggerUpload('pptx')"
+                                    class="px-4 bg-white border border-slate-200 rounded-xl text-[10px] font-black hover:bg-slate-50 transition">
+                                    📁 上傳 PDF
+                                </button>
+                            </div>
+
+                            <div v-else-if="field.key === 'Image URL'" class="flex gap-2">
+                                <input v-model="editingItem['Image URL']" type="text"
+                                    class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 transition"
+                                    placeholder="圖片路徑 (例如: images/benq.png)">
+                                <button @click="triggerUpload('image')"
+                                    class="px-4 bg-white border border-slate-200 rounded-xl text-[10px] font-black hover:bg-slate-50 transition">
+                                    🖼️ 上傳
+                                </button>
+                            </div>
+
+                            <input v-else v-model="editingItem[field.key]" :type="field.type || 'text'"
+                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 transition"
+                                :placeholder="'請輸入'+field.label">
+                        </div>
+                    </div>
+
+                    <div class="p-8 border-t border-slate-100 flex justify-end gap-3 shrink-0">
+                        <button @click="editingItem = null"
+                            class="px-6 py-2.5 text-xs font-black text-slate-400 hover:text-slate-600 transition">取消</button>
+                        <button @click="saveEdit"
+                            class="px-8 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-black text-xs transition shadow-lg shadow-indigo-100">
+                            保存變更 (尚未存檔)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </transition>
+
+        <!-- Hidden File Input for Uploads -->
+        <input type="file" ref="fileInput" class="hidden" @change="handleFileUpload">
+    </div>
+
+    <script>
+        const { createApp, ref, computed, onMounted, watch } = Vue;
+        createApp({
+            setup() {
+                const isLoggedIn = ref(false);
+                const password = ref('');
+                const loading = ref(false);
+                const error = ref('');
+                const token = ref(localStorage.getItem('admin_token') || '');
+
+                const brands = ref([]);
+                const selectedBrand = ref('');
+                const list = ref([]);
+                const search = ref('');
+                const hasUnsavedChanges = ref(false);
+                const editingItem = ref(null);
+                const dataCheckResult = ref({});
+
+                const formFields = [
+                    { label: '品牌', key: 'Brand' },
+                    { label: '型號', key: 'Model' },
+                    { label: 'SWQE競品', key: 'IsSWQE', type: 'select', options: ['Yes', 'No'] },
+                    { label: '市場售價', key: 'St. Price' },
+                    { label: '發布日期', key: 'Released' },
+                    { label: 'Dolby Vision認證', key: 'Dolby Vision', type: 'select', options: ['Yes', 'No'] },
+                    { label: 'IMAX Enhanced', key: 'IMAX', type: 'select', options: ['Yes', 'No'] },
+                    { label: 'Flimmaker Mode', key: 'Flimmaker', type: 'select', options: ['Yes', 'No'] },
+                    { label: 'HDR10+', key: 'HDR10+', type: 'select', options: ['Yes', 'No'] },
+                    { label: '亮度', key: 'Brightness' },
+                    { label: '分辨率', key: 'Resolution', type: 'select', options: ['1280x720', '1920x1080', '3840x2160'] },
+                    { label: '對比度', key: 'Contrast' },
+                    { label: 'MEMC', key: 'MEMC', type: 'select', options: ['Yes', "No"] },
+                    { label: '3D撥放', key: '3D Modes', type: 'select', options: ['Yes', 'No'] },
+                    { label: '焦距類型', key: 'Zoom Type' },
+                    { label: '投射比', key: 'Throw Ratio' },
+                    { label: '光學變焦', key: 'Lens Shift', type: 'select', options: ['Yes', "No"] },
+                    { label: '投影光源', key: 'Lamp Type' },
+                    { label: 'SoC', key: 'SoC' },
+                    { label: 'DMD', key: 'DMD' },
+                    { label: '操作系統', key: 'System' },
+                    { label: '投影畫面尺寸', key: 'Screen Size' },
+                    { label: '產品尺寸', key: 'Size (cm)' },
+                    { label: '重量', key: 'Weight (kg)' },
+                    { label: '噪音', key: 'Noise(dB(A))' },
+                    { label: '整機功耗', key: 'Power' },
+                    { label: 'USB', key: 'USB' },
+                    { label: 'HDMI', key: 'HDMI' },
+                    { label: 'Wifi', key: 'Wifi' },
+                    { label: 'Typec', key: 'Typec' },
+                    { label: '3.5mm音頻輸出', key: '3.5output' },
+                    { label: '音效瓦數', key: 'Speakerpower' },
+                    { label: 'Dolby Audio', key: 'Dolby Audio' },
+                    { label: '語音遙控', key: 'Audiocontrol' },
+                    { label: 'APP遙控', key: 'Appcontrol', type: 'select', options: ['Yes', "No"] },
+                    { label: 'AI畫面定位', key: 'AIscreen', type: 'select', options: ['Yes', "No"] },
+                    { label: '自動梯形校正', key: 'Autokeystone' },
+                    { label: '自動對焦', key: 'Autofocus', type: 'select', options: ['Yes', "No"] },
+                    { label: '自動對框', key: 'Autofit', type: 'select', options: ['Yes', "No"] },
+                    { label: '自動避障', key: 'Automove', type: 'select', options: ['Yes', "No"] },
+                    { label: '護眼模式', key: 'Eyesprotect' },
+                    { label: '機座支架', key: 'Projectorstand' },
+                    { label: '雲台', key: 'Projectorhead' },
+                    { label: '特殊功能', key: 'Features', fullWidth: true },
+                    { label: '圖片檔案', key: 'Image URL', fullWidth: true },
+                    { label: '詳細pdf開箱檔案(若有)', key: 'PPTX', fullWidth: true },
+
+                ];
+
+                const login = () => {
+                    loading.value = true;
+                    error.value = '';
+                    // 靜態密碼驗證 (免 Flask)
+                    if (password.value === 'r6337856') {
+                        const dummyToken = 'dummy-token-123';
+                        token.value = dummyToken;
+                        localStorage.setItem('admin_token', dummyToken);
+                        isLoggedIn.value = true;
+                        loadBrands(); // 登入成功後開始載入
+                        loading.value = false;
+                    } else {
+                        error.value = '密碼錯誤';
+                        loading.value = false;
+                    }
+                };
+
+                const logout = () => {
+                    isLoggedIn.value = false;
+                    localStorage.removeItem('admin_token');
+                };
+
+                const loadBrands = async () => {
+                    try {
+                        const r = await fetch('/api/brands');
+                        brands.value = await r.json();
+                        if (brands.value.length > 0 && !selectedBrand.value) {
+                            selectedBrand.value = brands.value[0];
+                            loadData();
+                        }
+                    } catch (e) {
+                        console.error('載入品牌失敗', e);
+                    }
+                };
+
+                const deleteBrand = async (brand) => {
+                    if (!confirm(`確定要刪除「${brand.toUpperCase()}」及其所有機型資料嗎？此操作不可恢復。`)) return;
+                    try {
+                        loading.value = true;
+                        const res = await fetch('/api/delete_brand', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${token.value}`
+                            },
+                            body: JSON.stringify({ brand })
+                        });
+                        const data = await res.json();
+                        if (data.success) {
+                            alert(data.message);
+                            await loadBrands();
+                            if (selectedBrand.value === brand) {
+                                selectedBrand.value = brands.value[0] || '';
+                                list.value = [];
+                                loadData();
+                            }
+                        } else {
+                            alert(data.message);
+                        }
+                    } catch (e) {
+                        alert('刪除失敗，請檢查後台連線');
+                    } finally {
+                        loading.value = false;
+                    }
+                };
+
+                const loadData = async () => {
+                    if (!selectedBrand.value) return;
+                    try {
+                        const r = await fetch(`data_${selectedBrand.value}.json?t=${Date.now()}`);
+                        list.value = r.ok ? await r.json() : [];
+                        hasUnsavedChanges.value = false;
+                        dataCheckResult.value = {};
+                    } catch { list.value = []; }
+                };
+
+                const selectBrand = (brand) => {
+                    if (hasUnsavedChanges.value) {
+                        if (!confirm('您有尚未儲存的變更，切換品牌將遺失這些變更。確定切換？')) return;
+                    }
+                    selectedBrand.value = brand;
+                    loadData();
+                };
+
+                const filteredList = computed(() => {
+                    return list.value.filter(p =>
+                        (p.Model || '').toLowerCase().includes(search.value.toLowerCase())
+                    );
+                });
+
+                const editItem = (item) => {
+                    editingItem.value = JSON.parse(JSON.stringify(item));
+                };
+
+                const deleteItem = (item) => {
+                    if (confirm(`確定要刪除 ${item.Model} 嗎？`)) {
+                        list.value = list.value.filter(p => p.Model !== item.Model);
+                        hasUnsavedChanges.value = true;
+                    }
+                };
+
+                const addNewItem = () => {
+                    editingItem.value = {
+                        Brand: selectedBrand.value ? selectedBrand.value.toUpperCase() : '',
+                        Model: '',
+                        IsSWQE: 'No',
+                        'St. Price': 'N/A',
+                        Brightness: 'N/A'
+                    };
+                };
+
+                const promptNewBrand = () => {
+                    const name = prompt('請輸入新品牌名稱 (英文):');
+                    if (name) {
+                        const lowerName = name.trim().toLowerCase();
+                        if (brands.value.includes(lowerName)) {
+                            alert('該品牌已存在');
+                            return;
+                        }
+                        brands.value.push(lowerName);
+                        selectedBrand.value = lowerName;
+                        list.value = [];
+                        hasUnsavedChanges.value = true;
+                    }
+                };
+
+                const saveEdit = () => {
+                    if (!editingItem.value.Model) {
+                        alert('請輸入型號名稱');
+                        return;
+                    }
+                    const idx = list.value.findIndex(p => p.Model === editingItem.value.Model);
+                    if (idx > -1) {
+                        list.value[idx] = JSON.parse(JSON.stringify(editingItem.value));
+                    } else {
+                        list.value.unshift(JSON.parse(JSON.stringify(editingItem.value)));
+                    }
+                    editingItem.value = null;
+                    hasUnsavedChanges.value = true;
+                };
+
+                const saveToServer = async () => {
+                    loading.value = true;
+                    try {
+                        const res = await fetch('/api/save', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${token.value}`
+                            },
+                            body: JSON.stringify({
+                                brand: selectedBrand.value,
+                                data: list.value
+                            })
+                        });
+                        const data = await res.json();
+                        if (data.success) {
+                            alert('儲存成功！');
+                            hasUnsavedChanges.value = false;
+                            loadBrands(); // 重新整理品牌列表
+                        } else {
+                            alert('儲存失敗：' + data.message);
+                        }
+                    } catch (e) {
+                        alert('儲存發生錯誤');
+                    } finally {
+                        loading.value = false;
+                    }
+                };
+
+                const uploadType = ref('');
+                const triggerUpload = (type) => {
+                    uploadType.value = type;
+                    const input = document.querySelector('input[type="file"]');
+                    input.accept = type === 'pptx' ? '.pdf' : 'image/*';
+                    input.click();
+                };
+
+                const handleFileUpload = async (event) => {
+                    const file = event.target.files[0];
+                    if (!file) return;
+
+                    const formData = new FormData();
+                    formData.append('file', file);
+                    formData.append('type', uploadType.value); // 
+
+                    loading.value = true;
+                    try {
+                        const res = await fetch('/api/upload', {
+                            method: 'POST',
+                            headers: {
+                                'Authorization': `Bearer ${token.value}`
+                            },
+                            body: formData
+                        });
+                        const data = await res.json();
+                        if (data.success) {
+                            if (uploadType.value === 'pptx') {
+                                editingItem.value.PPTX = data.filename || file.name;
+                            } else {
+                                editingItem.value['Image URL'] = data.path || ('images/' + file.name);
+                            }
+                            alert('上傳成功！');
+                        } else {
+                            alert('上傳失敗：' + data.message);
+                        }
+                    } catch (e) {
+                        alert('上傳發生錯誤，請檢查後台連線');
+                    } finally {
+                        loading.value = false;
+                        event.target.value = '';
+                    }
+                };
+
+                const runDataCheck = async () => {
+                    if (!selectedBrand.value) return;
+                    loading.value = true;
+                    try {
+                        const res = await fetch('/api/ai/data-check', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${token.value}`
+                            },
+                            body: JSON.stringify({ brand: selectedBrand.value, projectors: list.value })
+                        });
+                        if (!res.ok) throw new Error('data check failed');
+                        dataCheckResult.value = await res.json();
+                    } catch (e) {
+                        alert('AI 缺漏資料檢查失敗，請確認後端服務是否啟動。');
+                    } finally {
+                        loading.value = false;
+                    }
+                };
+
+                onMounted(() => {
+                    // 簡易檢查 token 是否存在
+                    if (token.value === 'dummy-token-123') {
+                        isLoggedIn.value = true;
+                        loadBrands();
+                    }
+                });
+
+                return {
+                    isLoggedIn, password, loading, error, login, logout,
+                    brands, selectedBrand, list, search, filteredList,
+                    selectBrand, editItem, deleteItem, addNewItem,
+                    editingItem, formFields, saveEdit, saveToServer,
+                    handleFileUpload, triggerUpload,
+                    hasUnsavedChanges, promptNewBrand, deleteBrand,
+                    dataCheckResult, runDataCheck
+                };
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="google-site-verification: googled7024e253e2d7081.html">
+    <title>SWQE投影機競品網頁</title>
+    <meta name="referrer" content="no-referrer">
+    <script src="assets/tailwindcss.js"></script>
+    <script src="assets/vue.global.js"></script>
+    <link rel="stylesheet" href="assets/all.min.css">
+    <!-- PPTX Viewer Dependencies -->
+    <script src="assets/jquery.min.js"></script>
+    <script src="assets/jszip.min.js"></script>
+    <link rel="stylesheet" href="assets/pptxjs.css">
+    <link rel="stylesheet" href="assets/nv.d3.min.css">
+    <script src="assets/d3.min.js"></script>
+    <script src="assets/nv.d3.min.js"></script>
+    <script src="assets/pptxjs.js"></script>
+    <script src="assets/divs2slides.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        [v-cloak] {
+            display: none;
+        }
+
+        .slide-panel-enter-active,
+        .slide-panel-leave-active {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .slide-panel-enter-from,
+        .slide-panel-leave-to {
+            transform: translateX(100%);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+            border: 2px solid #f1f5f9;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .spec-label {
+            width: 60px;
+            flex-shrink: 0;
+            color: #94a3b8;
+            font-weight: 800;
+        }
+
+        #pptx-container {
+            width: 100%;
+            height: calc(100vh - 120px);
+            border-radius: 12px;
+            overflow: auto;
+            background: white;
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Customize PPTX styles to fit our layout */
+        .pptx-wrapper {
+            margin: 0 auto !important;
+        }
+    </style>
+</head>
+
+<body class="bg-[#f8fafc] text-slate-900 overflow-hidden font-medium text-sm">
+    <div id="app" v-cloak class="h-screen flex flex-col">
+
+        <header
+            class="bg-white border-b border-slate-200 px-8 h-16 flex items-center justify-between shrink-0 z-30 shadow-sm">
+            <div class="flex items-center gap-3">
+                <div
+                    class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center shadow-md shadow-indigo-200">
+                    <span class="text-white text-xs">📽️</span>
+                </div>
+                <h1 class="text-xl font-black tracking-tight text-slate-800">競品資料查詢</h1>
+            </div>
+            <nav class="flex gap-1.5 bg-slate-100 p-1 rounded-xl">
+                <button @click="currentView = 'list'; scrollToTop();" :class="navClass('list')"
+                    class="px-6 py-1.5 rounded-lg font-bold transition-all text-xs">產品總覽</button>
+                <button @click="currentView = 'compare'; scrollToTop();" :class="navClass('compare')"
+                    class="px-6 py-1.5 rounded-lg font-bold transition-all text-xs">
+                    比較機型 ({{ filledSlotsCount }})
+                </button>
+            </nav>
+        </header>
+
+        <div class="flex-1 flex overflow-hidden">
+            <aside v-if="currentView === 'list'"
+                class="w-64 bg-white border-r border-slate-200 p-6 flex flex-col shrink-0">
+                <div class="mb-8">
+                    <h3
+                        class="text-[11px] font-black text-slate-400 uppercase mb-4 tracking-widest flex items-center gap-2">
+                        品牌篩選
+                    </h3>
+                    <div class="space-y-4">
+                        <!-- SWQE Special Filter -->
+                        <label
+                            class="flex items-center group cursor-pointer p-2 bg-amber-50 rounded-lg border border-amber-100 hover:bg-amber-100 transition shadow-sm">
+                            <input type="checkbox" v-model="filterSWQE"
+                                class="w-4 h-4 rounded border-amber-300 text-amber-600 focus:ring-amber-500 transition">
+                            <span class="ml-3 text-xs font-black text-amber-700">
+                                <span class="mr-1 text-[10px]">👑</span>SWQE競品
+                            </span>
+                        </label>
+
+                        <div class="space-y-2 overflow-y-auto max-h-[40vh] pr-2">
+                            <label v-for="brand in allBrands" :key="brand"
+                                class="flex items-center group cursor-pointer p-0.5">
+                                <input type="checkbox" v-model="filterBrands" :value="brand"
+                                    class="w-4 h-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 transition">
+                                <span
+                                    class="ml-3 text-xs font-bold text-slate-600 group-hover:text-indigo-600 transition">{{
+                                    brand }}</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3
+                        class="text-[11px] font-black text-slate-400 uppercase mb-4 tracking-widest flex items-center gap-2">
+                        型號檢索
+                    </h3>
+                    <div class="relative">
+                        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs">🔍</span>
+                        <input v-model="search" type="text" placeholder="輸入型號名稱..."
+                            class="w-full bg-slate-50 border border-slate-200 rounded-lg pl-9 pr-3 py-2 text-xs font-bold outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 transition shadow-inner">
+                    </div>
+                </div>
+            </aside>
+
+            <main id="mainContainer"
+                :class="currentView === 'unboxing' ? 'flex-1 overflow-hidden p-0 bg-slate-900 flex flex-col' : 'flex-1 overflow-y-auto p-6 pb-32'">
+                <div v-if="currentView === 'list'" class="max-w-[1600px] mx-auto">
+                    <section class="bg-white border border-slate-200 rounded-2xl shadow-sm p-5 mb-6">
+                        <div class="flex flex-col lg:flex-row lg:items-start gap-5">
+                            <div class="lg:w-64 shrink-0">
+                                <p class="text-[10px] font-black text-indigo-500 uppercase tracking-widest mb-1">Smart Recommend</p>
+                                <h2 class="text-lg font-black text-slate-800">智能選機推薦(Beta)</h2>
+                                <p class="text-xs font-bold text-slate-400 mt-1 leading-relaxed">點選需求標籤後會自動更新推薦機型。</p>
+                                <div class="flex gap-2 mt-4">
+                                    <button @click="clearRecommendations"
+                                        class="px-4 py-2 rounded-xl text-xs font-black bg-slate-100 text-slate-500 hover:bg-slate-200 transition">清除</button>
+                                    <span v-if="aiLoading" class="px-3 py-2 rounded-xl text-xs font-black text-indigo-600 bg-indigo-50">分析中...</span>
+                                </div>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex flex-wrap gap-2">
+                                    <button v-for="tag in aiTags" :key="tag.id" @click="toggleAiTag(tag.id)"
+                                        :class="selectedAiTags.includes(tag.id) ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-slate-50 text-slate-600 border-slate-200 hover:border-indigo-300 hover:text-indigo-600'"
+                                        class="px-3 py-1.5 rounded-lg border text-xs font-black transition">
+                                        {{ tag.label }}
+                                    </button>
+                                </div>
+                                <p v-if="aiError" class="text-xs font-bold text-rose-500 mt-3">{{ aiError }}</p>
+                                <p v-if="aiRecommendations.length"
+                                    class="text-xs font-bold text-slate-400 mt-3">
+                                    <span v-if="filterSWQE">已套用 SWQE競品篩選，</span>符合條件 {{ aiTotalMatches }} 台，目前只顯示前 {{ aiDisplayLimit }} 台。
+                                </p>
+                                <div v-if="aiRecommendations.length" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 mt-4">
+                                    <div v-for="rec in aiRecommendations" :key="rec.projector.Brand + rec.projector.Model"
+                                        class="border border-slate-200 rounded-xl p-3 bg-slate-50">
+                                        <div class="flex items-start gap-3">
+                                            <div class="w-14 h-14 shrink-0 bg-white rounded-lg border border-slate-100 p-1 flex items-center justify-center overflow-hidden">
+                                                <img :src="getImageUrl(rec.projector)" class="w-full h-full object-contain mix-blend-multiply">
+                                            </div>
+                                            <div class="min-w-0 flex-1">
+                                                <p class="text-[10px] font-black text-indigo-500 uppercase">{{ rec.projector.Brand }}</p>
+                                                <h3 class="text-sm font-black text-slate-800 truncate">{{ rec.projector.Model }}</h3>
+                                            </div>
+                                            <button @click="toggleCompare(rec.projector)"
+                                                class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-[10px] font-black text-slate-500 hover:text-indigo-600 hover:border-indigo-300 transition">
+                                                {{ isCompared(rec.projector) ? '已加入' : '比較' }}
+                                            </button>
+                                        </div>
+                                        <ul class="mt-3 space-y-1">
+                                            <li v-for="reason in rec.reasons" :key="reason" class="text-[11px] font-bold text-slate-600 leading-relaxed">- {{ reason }}</li>
+                                            <li v-for="caution in rec.cautions" :key="caution" class="text-[11px] font-bold text-amber-600 leading-relaxed">- {{ caution }}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5">
+                        <div v-for="item in paginatedData" :key="item.Model"
+                            @click="selectedItem = item; activeSpecTab = 0"
+                            class="group bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-col relative">
+
+                            <button @click.stop="toggleCompare(item)" :class="compareBtnClass(item)"
+                                class="absolute top-2 right-2 h-8 rounded-lg border flex items-center justify-center transition-all duration-300 z-20 shadow-sm group/btn overflow-hidden whitespace-nowrap w-8 hover:w-24 px-0 hover:px-3">
+                                <span v-if="isCompared(item)" class="text-[10px]">✅</span>
+                                <span v-else class="text-[10px]">＋</span>
+                                <span
+                                    :class="isCompared(item) ? 'opacity-100 ml-2 w-auto' : 'opacity-0 group-hover/btn:opacity-100 group-hover/btn:ml-2 w-0 group-hover/btn:w-auto'"
+                                    class="text-[10px] font-black uppercase tracking-tighter transition-all duration-300">
+                                    {{ isCompared(item) ? '已加入' : '比較' }}
+                                </span>
+                            </button>
+
+                            <!-- SWQE Badge -->
+                            <div v-if="item.IsSWQE === 'Yes'" class="absolute top-2 left-2 z-20 pointer-events-none">
+                                <span
+                                    class="bg-amber-500 text-white text-[10px] font-black px-2 py-1 rounded-lg shadow-md border border-amber-400 flex items-center gap-1.5 animate-pulse">
+                                    <span class="text-[10px] mr-1">👑</span>SWQE競品
+                                </span>
+                            </div>
+
+                            <div
+                                class="aspect-[4/3] bg-white flex items-center justify-center border-b border-slate-50 relative overflow-hidden">
+                                <div
+                                    class="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/[0.02] transition-colors duration-300">
+                                </div>
+                                <img :src="getImageUrl(item)"
+                                    class="relative z-10 w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-500 mix-blend-multiply">
+                            </div>
+
+                            <div class="p-4 flex-1 flex flex-col">
+                                <div class="flex justify-between items-start mb-2">
+                                    <span
+                                        class="text-[9px] font-black bg-slate-900 text-white px-2 py-0.5 rounded uppercase tracking-wider">{{
+                                        item.Brand }}</span>
+                                    <button v-if="item.IsSWQE === 'Yes'" @click.stop="showUnboxing(item)"
+                                        class="text-[10px] font-black text-amber-600 hover:text-amber-700 flex items-center gap-1 bg-amber-50 px-2 py-0.5 rounded transition border border-amber-100">
+                                        <span class="text-[10px] mr-1">📦</span>詳細開箱
+                                    </button>
+                                </div>
+                                <h3
+                                    class="font-black text-slate-800 text-[15px] leading-snug mb-3 min-h-[2.5rem] line-clamp-2">
+                                    {{ item.Model }}</h3>
+
+                                <div class="mt-auto space-y-3">
+                                    <p class="text-indigo-600 font-black text-lg tracking-tight">{{ item['St. Price'] }}
+                                    </p>
+
+                                    <div class="space-y-1.5 pt-3 border-t border-slate-50">
+                                        <div class="flex items-center text-[11px]">
+                                            <span class="spec-label">亮度</span>
+                                            <span
+                                                class="font-bold text-slate-700 bg-slate-50 px-2 py-0.5 rounded ml-auto">{{
+                                                item.Brightness }}</span>
+                                        </div>
+                                        <div class="flex items-center text-[11px]">
+                                            <span class="spec-label">解析度</span>
+                                            <span
+                                                class="font-bold text-slate-700 bg-slate-50 px-2 py-0.5 rounded ml-auto">{{
+                                                item.Resolution }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div v-if="totalPages > 1" class="flex items-center justify-center gap-2 mt-12 pb-6">
+                        <button @click="currentPage--; scrollToTop();" :disabled="currentPage === 1"
+                            class="w-9 h-9 rounded-lg bg-white border border-slate-200 disabled:opacity-30 font-black hover:bg-slate-50 transition shadow-sm text-xs">←</button>
+                        <div class="flex gap-1.5">
+                            <button v-for="p in totalPages" :key="p" @click="currentPage = p; scrollToTop();"
+                                :class="['w-9 h-9 rounded-lg text-xs font-black transition-all', currentPage === p ? 'bg-indigo-600 text-white shadow-md' : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50']">
+                                {{ p }}
+                            </button>
+                        </div>
+                        <button @click="currentPage++; scrollToTop();" :disabled="currentPage === totalPages"
+                            class="w-9 h-9 rounded-lg bg-white border border-slate-200 disabled:opacity-30 font-black hover:bg-slate-50 transition shadow-sm text-xs">→</button>
+                    </div>
+                </div>
+
+                <div v-if="currentView === 'compare'"
+                    class="max-w-[1600px] mx-auto bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden text-xs">
+                    <div class="p-4 border-b border-slate-100 bg-slate-50/60 flex items-center justify-between gap-4">
+                        <div>
+                            <p class="text-[10px] font-black text-indigo-500 uppercase tracking-widest mb-1">Compare Table</p>
+                            <h2 class="text-base font-black text-slate-800">規格比較表</h2>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span v-if="showOnlyDifferentSpecs"
+                                class="text-xs font-black text-slate-400 bg-white border border-slate-200 rounded-xl px-3 py-2">
+                                {{ differentSpecCount }} 個差異欄位
+                            </span>
+                            <button @click="showOnlyDifferentSpecs = !showOnlyDifferentSpecs"
+                                :disabled="filledSlotsCount < 2"
+                                :class="showOnlyDifferentSpecs ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white text-slate-600 border-slate-200 hover:border-indigo-300 hover:text-indigo-600'"
+                                class="px-4 py-2 rounded-xl border text-xs font-black transition disabled:opacity-40 disabled:cursor-not-allowed">
+                                {{ showOnlyDifferentSpecs ? '顯示全部規格' : '僅列出差異規格' }}
+                            </button>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse table-fixed min-w-[1000px]">
+                            <thead>
+                                <tr class="bg-slate-50">
+                                    <th
+                                        class="p-6 border-b text-[10px] text-slate-400 uppercase font-black tracking-widest w-48 bg-slate-100/50 sticky left-0 z-20">
+                                        規格參數</th>
+                                    <th v-for="(slot, slotIndex) in comparisonSlots" :key="slotIndex"
+                                        class="p-6 border-b align-top relative">
+                                        <div v-if="slot" class="flex flex-col items-center">
+                                            <button @click="clearSlot(slotIndex)"
+                                                class="absolute top-2 right-2 text-slate-300 hover:text-rose-500 transition text-lg leading-none">
+                                                ✖
+                                            </button>
+                                            <div class="w-24 h-20 flex items-center justify-center mb-4 overflow-hidden">
+                                                <img :src="getImageUrl(slot)"
+                                                    class="w-full h-full object-contain mix-blend-multiply">
+                                            </div>
+                                            <p
+                                                class="font-black text-[11px] text-center leading-tight text-slate-800 line-clamp-2">
+                                                {{ slot.Model }}</p>
+                                        </div>
+                                        <div v-else
+                                            class="flex flex-col gap-3 p-2 bg-slate-50 border-2 border-dashed border-slate-200 rounded-xl min-h-[140px] justify-center">
+                                            <div class="space-y-2">
+                                                <label
+                                                    class="block text-[9px] font-black text-slate-400 uppercase tracking-widest text-center">選擇品牌</label>
+                                                <select @change="onCompareBrandChange($event, slotIndex)"
+                                                    class="w-full bg-white border border-slate-200 rounded-lg px-2 py-1.5 text-[10px] font-bold outline-none focus:ring-2 focus:ring-indigo-500/20 transition">
+                                                    <option value="">請選擇品牌</option>
+                                                    <option v-for="brand in allBrands" :key="brand" :value="brand">{{
+                                                        brand }}</option>
+                                                </select>
+                                            </div>
+                                            <div v-if="slotBrandSelections[slotIndex]" class="space-y-2">
+                                                <label
+                                                    class="block text-[9px] font-black text-slate-400 uppercase tracking-widest text-center">選擇型號</label>
+                                                <select @change="onCompareModelChange($event, slotIndex)"
+                                                    class="w-full bg-white border border-slate-200 rounded-lg px-2 py-1.5 text-[10px] font-bold outline-none focus:ring-2 focus:ring-indigo-500/20 transition">
+                                                    <option value="">請選擇型號</option>
+                                                    <option
+                                                        v-for="m in getModelsByBrand(slotBrandSelections[slotIndex])"
+                                                        :key="m.Model" :value="m.Model">{{ m.Model }}</option>
+                                                </select>
+                                            </div>
+                                            <div v-else class="text-center py-4">
+                                                <span class="text-slate-300 text-xl">＋</span>
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100">
+                                <template v-for="group in visibleFieldGroups" :key="group.name">
+                                    <!-- 類別大標題列 -->
+                                    <tr class="bg-indigo-50/30">
+                                        <td :colspan="comparisonSlots.length + 1"
+                                            class="p-3 px-6 font-black text-indigo-700 text-xs uppercase tracking-widest border-y border-indigo-100/50">
+                                            <span class="mr-2 text-[10px]">🏷️</span>{{ group.name }}
+                                        </td>
+                                    </tr>
+                                    <!-- 類別內的規格列 -->
+                                    <tr v-for="field in group.fields" :key="field"
+                                        class="hover:bg-slate-50/50 transition group">
+                                        <td
+                                            class="p-4 px-6 border-b font-black text-slate-500 text-[13px] uppercase tracking-wide bg-slate-50/80 sticky left-0 z-10 group-hover:text-indigo-600">
+                                            {{ translateField(field) }}
+                                        </td>
+                                        <td v-for="(slot, slotIndex) in comparisonSlots" :key="slotIndex+field"
+                                            class="p-4 px-6 border-b text-xs font-bold text-slate-700 text-center leading-relaxed">
+                                            <template v-if="slot">
+                                                <template v-if="field.includes('URL')">
+                                                    <a :href="slot[field]" target="_blank"
+                                                        class="text-indigo-600 font-black border-b border-indigo-200 hover:border-indigo-600 transition pb-0.5">查看詳情</a>
+                                                </template>
+                                                <template v-else>
+                                                    <span class="whitespace-pre-line">{{ formatSpecValue(field,
+                                                        slot[field]) }}</span>
+                                                </template>
+                                            </template>
+                                            <template v-else>—</template>
+                                        </td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <footer v-if="currentView !== 'unboxing'"
+                    class="max-w-[1600px] mx-auto mt-10 border-t border-slate-200 pt-5 text-[11px] font-bold text-slate-400 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                    <p>© 2026 SWQE. All rights reserved.</p>
+                    <p>版本 v1.0 · 資料僅供公司內部參考，詳細規格與價格以品牌官方公告為準。</p> <p>部分競品資訊來源取自:https://www.projectorcentral.com/</p>
+                    
+                </footer>
+
+                <!-- Unboxing Page (Cinema Mode) -->
+                <div v-if="currentView === 'unboxing'" class="w-full h-full flex flex-col bg-slate-900">
+                    <div class="flex items-center justify-between p-4 shrink-0 border-b border-slate-800">
+                        <div class="flex items-center gap-4">
+                            <button @click="currentView = 'list'"
+                                class="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300 hover:text-white hover:bg-slate-700 hover:border-slate-600 transition shadow-sm text-lg">
+                                ←
+                            </button>
+                            <div>
+                                <h2 class="text-xl font-black text-white tracking-tight">{{ unboxingItem?.Model }}</h2>
+                                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">詳細開箱簡報</p>
+                            </div>
+                        </div>
+                        <div
+                            class="px-3 py-1.5 bg-indigo-500/20 border border-indigo-500/30 rounded-lg text-indigo-300 font-bold text-[10px] flex items-center gap-2">
+                            <span class="mr-1">👑</span> SWQE專屬開箱
+                        </div>
+                    </div>
+
+                    <div class="flex-1 w-full bg-[#323639] relative overflow-hidden">
+                        <div id="pptx-container"
+                            class="absolute inset-0 !w-full !h-full !rounded-none !border-0 text-white">
+                            <div class="flex flex-col items-center justify-center h-full text-slate-400 py-20">
+                                <div class="text-3xl mb-4 animate-spin">⏳</div>
+                                <p class="font-bold">正在將簡報內容載入瀏覽器...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div v-if="compareQueue.length > 0 && currentView === 'list'" @mousedown="startDrag"
+            :style="{ transform: `translate(calc(-50% + ${barPos.x}px), ${barPos.y}px)` }"
+            class="fixed bottom-6 left-1/2 bg-slate-900/95 text-white px-6 py-3 rounded-2xl shadow-2xl z-40 flex items-center gap-8 border border-slate-700/50 backdrop-blur-md cursor-move active:scale-[0.98] transition-transform">
+
+            <div class="flex items-center gap-4">
+                <span class="text-slate-700 text-sm">⠿</span>
+                <div class="flex -space-x-2">
+                    <div v-for="p in compareQueue" :key="p.Model"
+                        class="w-10 h-10 rounded-lg border-2 border-slate-900 bg-white overflow-hidden p-1 flex items-center justify-center shadow-md">
+                        <img :src="getImageUrl(p)" class="w-full h-full object-contain mix-blend-multiply">
+                    </div>
+                    <div v-if="compareQueue.length < 2"
+                        class="w-10 h-10 rounded-lg border-2 border-dashed border-slate-600 flex items-center justify-center text-slate-600 bg-slate-800/50">
+                        <span class="text-[10px]">＋</span>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-[10px] font-black tracking-tight text-indigo-400 uppercase leading-none">
+                        {{ compareQueue.length < 2 ? '請再選擇' : '已就緒' }} </span>
+                            <span class="text-sm font-black">{{ compareQueue.length }} / 4</span>
+                </div>
+            </div>
+
+            <div class="flex gap-3" @mousedown.stop>
+                <button @click="compareQueue = []"
+                    class="text-xs font-bold text-slate-400 hover:text-white px-2 transition">清空</button>
+                <button @click="currentView = 'compare'; scrollToTop();" :disabled="compareQueue.length < 2"
+                    :class="compareQueue.length < 2 ? 'bg-slate-700 text-slate-400 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-500 shadow-indigo-500/20 active:translate-y-0.5'"
+                    class="px-6 py-2 rounded-xl text-xs font-black transition-all shadow-lg min-w-[100px]">
+                    {{ compareQueue.length < 2 ? '至少選擇2台' : '開始比較' }} </button>
+            </div>
+        </div>
+
+        <transition name="slide-panel">
+            <div v-if="selectedItem" class="fixed inset-0 z-50 bg-[#f8fafc] overflow-y-auto">
+
+                <!-- TOP BAR -->
+                <div
+                    class="sticky top-0 z-10 bg-white border-b border-slate-200 shadow-sm px-6 h-16 flex items-center gap-4">
+                    <button @click="selectedItem = null; activeSpecTab = 0"
+                        class="flex items-center gap-2 px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-black text-sm transition-all active:scale-95 shadow-md">
+                        <span class="text-xs">←</span>
+                        返回上一頁
+                    </button>
+                    <div class="h-6 border-l border-slate-200"></div>
+                    <div class="flex items-center gap-2 min-w-0">
+                        <span class="text-xs font-black text-slate-400 uppercase tracking-widest shrink-0">{{
+                            selectedItem.Brand }}</span>
+                        <span class="text-slate-300">/</span>
+                        <span class="text-base font-black text-slate-700 truncate">{{ selectedItem.Model }}</span>
+                    </div>
+                    <div class="ml-auto shrink-0">
+                        <button v-if="selectedItem?.IsSWQE === 'Yes'"
+                            @click="showUnboxing(selectedItem); selectedItem = null;"
+                            class="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-xl font-black text-sm shadow transition-all active:scale-95">
+                            <span class="mr-2">📦</span> 查看開箱
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CONTENT -->
+                <div class="max-w-[1400px] mx-auto p-6 flex gap-6 items-start">
+
+                    <!-- LEFT: Image + quick specs (sticky) -->
+                    <div class="w-72 shrink-0 space-y-4 sticky top-24">
+                        <div
+                            class="bg-white rounded-2xl border border-slate-200 shadow-sm h-60 flex items-center justify-center overflow-hidden">
+                            <img :src="getImageUrl(selectedItem)"
+                                class="w-full h-full object-contain p-6 mix-blend-multiply drop-shadow-lg">
+                        </div>
+                        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5">
+                            <p class="text-[10px] font-black text-indigo-500 uppercase tracking-widest mb-1">{{
+                                selectedItem.Brand }}</p>
+                            <h2 class="text-base font-black text-slate-800 leading-snug mb-3">{{ selectedItem.Model }}
+                            </h2>
+                            <div v-if="selectedItem.IsSWQE === 'Yes'"
+                                class="inline-flex items-center gap-1.5 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-lg mb-3">
+                                <span class="text-[10px] mr-1">👑</span>SWQE競品
+                            </div>
+                            <dl class="space-y-0">
+                                <div class="flex justify-between text-sm border-t border-slate-100 py-2">
+                                    <dt class="text-slate-400 font-bold">市價</dt>
+                                    <dd class="font-black text-indigo-600">{{ selectedItem['St. Price'] || '—' }}</dd>
+                                </div>
+                                <div class="flex justify-between text-sm border-t border-slate-100 py-2">
+                                    <dt class="text-slate-400 font-bold">亮度</dt>
+                                    <dd class="font-black text-slate-800">{{ selectedItem.Brightness || '—' }}</dd>
+                                </div>
+                                <div class="flex justify-between text-sm border-t border-slate-100 py-2">
+                                    <dt class="text-slate-400 font-bold">解析度</dt>
+                                    <dd class="font-black text-slate-800">{{ selectedItem.Resolution || '—' }}</dd>
+                                </div>
+                                <div class="flex justify-between text-sm border-t border-slate-100 py-2">
+                                    <dt class="text-slate-400 font-bold">光源</dt>
+                                    <dd class="font-black text-slate-800">{{ selectedItem['Lamp Type'] || '—' }}</dd>
+                                </div>
+                                <div class="flex justify-between text-sm border-t border-slate-100 py-2">
+                                    <dt class="text-slate-400 font-bold">發布</dt>
+                                    <dd class="font-black text-slate-800">{{ selectedItem.Released || '—' }}</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT: Tabbed spec groups -->
+                    <div class="flex-1 min-w-0 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                        <!-- Tab bar -->
+                        <div class="flex overflow-x-auto border-b border-slate-200 bg-slate-50">
+                            <button v-for="(group, idx) in fieldGroups" :key="group.name" @click="activeSpecTab = idx"
+                                :class="activeSpecTab === idx
+                                    ? 'border-b-2 border-indigo-600 text-indigo-700 bg-white font-black'
+                                    : 'text-slate-500 hover:text-slate-700 hover:bg-slate-100 font-bold'"
+                                class="px-5 py-3.5 text-sm whitespace-nowrap shrink-0 transition-all">
+                                {{ group.name }}
+                            </button>
+                        </div>
+                        <!-- Tab content -->
+                        <div v-for="(group, idx) in fieldGroups" :key="'content-'+group.name"
+                            v-show="activeSpecTab === idx">
+                            <div class="divide-y divide-slate-100">
+                                <div v-for="field in group.fields" :key="field"
+                                    class="flex items-start px-6 py-4 hover:bg-indigo-50/30 transition">
+                                    <dt class="w-2/5 text-sm font-bold text-slate-400 shrink-0 pt-0.5">{{
+                                        translateField(field) }}</dt>
+                                    <dd
+                                        class="w-3/5 text-sm font-black text-slate-800 break-words whitespace-pre-line leading-relaxed">
+                                        {{ formatSpecValue(field, selectedItem[field]) }}</dd>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+        const { createApp, ref, computed, onMounted, watch } = Vue;
+        createApp({
+            setup() {
+                const allData = ref([]);
+                const currentView = ref('list');
+                const search = ref('');
+                const filterBrands = ref([]);
+                const filterSWQE = ref(false);
+                const compareQueue = ref([]);
+                const selectedItem = ref(null);
+                const unboxingItem = ref(null);
+                const currentPage = ref(1);
+                const pageSize = 15;
+
+                const barPos = ref({ x: 0, y: 0 });
+                const isDragging = ref(false);
+                let startX, startY;
+
+                // 比較插槽管理 (最多4個)
+                const comparisonSlots = ref([null, null, null, null]);
+                const slotBrandSelections = ref(['', '', '', '']);
+                const activeSpecTab = ref(0);
+                const aiTags = ref([]);
+                const selectedAiTags = ref([]);
+                const aiRecommendations = ref([]);
+                const aiTotalMatches = ref(0);
+                const aiDisplayLimit = ref(10);
+                const aiLoading = ref(false);
+                const aiError = ref('');
+                let recommendationTimer = null;
+                const showOnlyDifferentSpecs = ref(false);
+
+                const filledSlotsCount = computed(() => comparisonSlots.value.filter(s => s !== null).length);
+
+                // 強制捲動置頂函式
+                const scrollToTop = () => {
+                    const mainArea = document.getElementById('mainContainer');
+                    if (mainArea) {
+                        mainArea.scrollTop = 0; // 最直接的賦值法
+                    }
+                };
+
+                const startDrag = (e) => {
+                    isDragging.value = true;
+                    startX = e.clientX - barPos.value.x;
+                    startY = e.clientY - barPos.value.y;
+                    window.addEventListener('mousemove', onDrag);
+                    window.addEventListener('mouseup', stopDrag);
+                };
+                const onDrag = (e) => {
+                    if (!isDragging.value) return;
+                    barPos.value.x = e.clientX - startX;
+                    barPos.value.y = e.clientY - startY;
+                };
+                const stopDrag = () => {
+                    isDragging.value = false;
+                    window.removeEventListener('mousemove', onDrag);
+                    window.removeEventListener('mouseup', stopDrag);
+                };
+
+                const fieldMap = {
+                    "Brand": "品牌",
+                    "Model": "型號",
+                    "St. Price": "市場售價",
+                    "Released": "發布日期",
+                    "Brightness": "亮度",
+                    "Resolution": "分辨率",
+                    "MEMC": "MEMC",
+                    "Dolby Vision": "Dolby Vision認證",
+                    "IMAX": "IMAX Enhanced",
+                    "Flimmaker": "Flimmaker Mode",
+                    "HDR10+": "HDR10+",
+                    "Lamp Type": "投影光源",
+                    "Contrast": "對比度",
+                    "Throw Ratio": "投射比",
+                    "Zoom Type": "焦距類型",
+                    "Lens Shift": "光學變焦",
+                    "DMD": "DMD",
+                    "Screen Size": "投影畫面尺寸",
+                    "Size (cm)": "產品尺寸",
+                    "Features": "特殊功能",
+                    "Weight (kg)": "產品重量",
+                    "Noise(dB(A))": "噪音",
+                    "3D Modes": "3D撥放",
+                    "System": "操作系統",
+                    "IsSWQE": "SWQE競品標記",
+                    "SoC": "SoC",
+                    "Power": "整機功耗",
+                    "Projectorstand": "機座支架",
+                    "Projectorhead": "雲台",
+                    "Autofocus": "自動對焦",
+                    "AIscreen": "AI畫面定位",
+                    "Autokeystone": "自動梯形校正",
+                    "Autofit": "自動對框",
+                    "Automove": "自動避障",
+                    "Eyesprotect": "護眼模式",
+                    "3.5output": "3.5mm音頻輸出",
+                    "Speakerpower": "音效瓦數",
+                    "Dolby Audio": "Dolby Audio",
+                    "Audiocontrol": "語音遙控",
+                    "Appcontrol": "APP遙控",
+
+                };
+                const translateField = (field) => fieldMap[field] || field;
+
+                const formatSpecValue = (field, value) => {
+                    if (!value || value === '—' || value === 'N/A') return '—';
+                    if (field === 'Features') {
+                        // Regex to find numbering like "1.", "2.", "3." or "1 " (at start or preceded by space)
+                        // It ensures that "Wifi 6" or "HDMI 2.0" aren't broken if possible
+                        // But usually numbering is "1. xxx 2. yyy"
+                        let formatted = value.toString();
+                        // Insert newline before digits followed by dot or space if it looks like a list
+                        // e.g. " 2." or " 2 "
+                        formatted = formatted.replace(/(\s)(\d+[\.\)])\s*/g, '\n$2 ');
+                        // Handle the case where someone forgot the first space but there's a number
+                        // e.g. "Something 2. Else" -> "Something \n2. Else"
+                        // But be careful with "Wifi 6.0"
+                        // Let's use a more specific one for numbering starts
+                        formatted = formatted.replace(/([^\n])\s+(\d+\.)/g, '$1\n$2');
+
+                        return formatted.trim();
+                    }
+                    return value;
+                };
+
+                const fieldGroups = [
+                    {
+                        name: "基本資料",
+                        fields: ["Brand", "Model", "St. Price", "Released"]
+                    },
+                    {
+                        name: "相關認證",
+                        fields: ["Dolby Vision", "IMAX", "Flimmaker", "HDR10+"]
+                    },
+                    {
+                        name: "顯示技術",
+                        fields: ["Brightness", "Resolution", "MEMC", "Contrast", "Lamp Type", "3D Modes", "DMD", "SoC"]
+                    },
+                    {
+                        name: "光學投影",
+                        fields: ["Throw Ratio", "Lens Shift", "Zoom Type"]
+                    },
+                    {
+                        name: "機身規格",
+                        fields: ["Size (cm)", "Screen Size", "Weight (kg)", "Power", "Noise(dB(A))", "Projectorstand", "Projectorhead"]
+                    },
+                    {
+                        name: "系統",
+                        fields: ["System"]
+                    },
+                    {
+                        name: "連接埠",
+                        fields: ["USB", "HDMI", "Wifi", "Typec"]
+                    },
+                    {
+                        name: "音效",
+                        fields: ["3.5output", "Speakerpower", "Dolby Audio", "Audiocontrol", "Appcontrol"]
+                    },
+                    {
+                        name: "智慧功能",
+                        fields: ["AIscreen", "Autokeystone", "Autofocus", "Autofit", "Automove", "Eyesprotect"]
+                    },
+                    {
+                        name: "特殊功能",
+                        fields: ["Features"]
+                    }
+                ];
+
+                const specFields = computed(() => {
+                    const allKeys = [];
+                    fieldGroups.forEach(g => allKeys.push(...g.fields));
+                    return allKeys;
+                });
+
+                const activeCompareSlots = computed(() => comparisonSlots.value.filter(Boolean));
+
+                const normalizeSpecValue = (value) => {
+                    if (value === undefined || value === null) return '';
+                    const normalized = value.toString().trim();
+                    return (normalized === '??' || normalized === 'N/A') ? '' : normalized.toLowerCase();
+                };
+
+                const fieldHasDifference = (field) => {
+                    const slots = activeCompareSlots.value;
+                    if (slots.length < 2) return false;
+                    const values = slots.map(slot => normalizeSpecValue(slot[field]));
+                    return new Set(values).size > 1;
+                };
+
+                const differentSpecGroups = computed(() => {
+                    return fieldGroups
+                        .map(group => ({
+                            name: group.name,
+                            fields: group.fields.filter(fieldHasDifference)
+                        }))
+                        .filter(group => group.fields.length > 0);
+                });
+
+                const differentSpecCount = computed(() => {
+                    return differentSpecGroups.value.reduce((sum, group) => sum + group.fields.length, 0);
+                });
+
+                const visibleFieldGroups = computed(() => {
+                    return showOnlyDifferentSpecs.value ? differentSpecGroups.value : fieldGroups;
+                });
+
+                const loadData = async () => {
+                    try {
+                        const brandsRes = await fetch('/api/brands');
+                        const brands = await brandsRes.json();
+
+                        const results = await Promise.all(brands.map(async b => {
+                            try {
+                                const r = await fetch(`data_${b}.json?t=${Date.now()}`);
+                                if (!r.ok) return [];
+                                const data = await r.json();
+                                // 優先使用資料內的品牌名稱，避免中文品牌因檔名或部署環境編碼而顯示異常。
+                                return data.map(p => ({ ...p, Brand: p.Brand || b.toUpperCase() }));
+                            } catch { return []; }
+                        }));
+                        allData.value = results.flat();
+                    } catch (e) {
+                        console.error("Failed to load data", e);
+                    }
+                };
+
+                const loadAiTags = async () => {
+                    try {
+                        const res = await fetch('/api/ai/tags');
+                        const data = await res.json();
+                        aiTags.value = data.tags || [];
+                    } catch (e) {
+                        aiError.value = '無法載入 AI 標籤';
+                    }
+                };
+
+                const toggleAiTag = (tagId) => {
+                    const idx = selectedAiTags.value.indexOf(tagId);
+                    if (idx > -1) selectedAiTags.value.splice(idx, 1);
+                    else selectedAiTags.value.push(tagId);
+                };
+
+                const clearRecommendations = () => {
+                    selectedAiTags.value = [];
+                    aiRecommendations.value = [];
+                    aiTotalMatches.value = 0;
+                    aiDisplayLimit.value = 10;
+                    aiError.value = '';
+                };
+
+                const postAi = async (url, body) => {
+                    aiLoading.value = true;
+                    aiError.value = '';
+                    try {
+                        const res = await fetch(url, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(body)
+                        });
+                        if (!res.ok) throw new Error('AI API failed');
+                        return await res.json();
+                    } catch (e) {
+                        aiError.value = '本地 AI 分析暫時無法使用，請確認後端服務是否啟動。';
+                        return null;
+                    } finally {
+                        aiLoading.value = false;
+                    }
+                };
+
+                const generateRecommendations = async () => {
+                    if (selectedAiTags.value.length === 0) return;
+                    const data = await postAi('/api/ai/recommend', {
+                        tags: selectedAiTags.value,
+                        swqeOnly: filterSWQE.value
+                    });
+                    aiRecommendations.value = data?.recommendations || [];
+                    aiTotalMatches.value = data?.totalMatches ?? aiRecommendations.value.length;
+                    aiDisplayLimit.value = data?.displayLimit ?? 10;
+                    if (data && aiRecommendations.value.length === 0) {
+                        aiError.value = '目前沒有符合標籤的推薦結果，請減少條件或補齊規格資料。';
+                    }
+                };
+
+                const allBrands = computed(() => {
+                    return [...new Set(allData.value.map(p => p.Brand))].filter(b => b && b.trim()).sort();
+                });
+                const parseReleasedDate = (value) => {
+                    if (!value) return 0;
+                    const text = String(value).trim();
+                    if (!text || ['-', 'N/A', 'NA'].includes(text.toUpperCase())) return 0;
+
+                    const numeric = text.match(/^(\d{4})(?:[\/\-\.](\d{1,2}))?(?:[\/\-\.](\d{1,2}))?/);
+                    if (numeric) {
+                        const year = Number(numeric[1]);
+                        const month = Number(numeric[2] || 12) - 1;
+                        const day = Number(numeric[3] || 28);
+                        return new Date(year, month, day).getTime();
+                    }
+
+                    const months = {
+                        january: 0, february: 1, march: 2, april: 3, may: 4, june: 5,
+                        july: 6, august: 7, september: 8, october: 9, november: 10, december: 11,
+                        jan: 0, feb: 1, mar: 2, apr: 3, jun: 5, jul: 6, aug: 7, sep: 8, sept: 8,
+                        oct: 9, nov: 10, dec: 11
+                    };
+                    const words = text.toLowerCase().match(/([a-z]+)\s+(\d{4})/);
+                    if (words && months[words[1]] !== undefined) {
+                        return new Date(Number(words[2]), months[words[1]], 28).getTime();
+                    }
+                    return 0;
+                };
+                const filteredData = computed(() => allData.value.filter(p => {
+                    const b = filterBrands.value.length === 0 || filterBrands.value.includes(p.Brand);
+                    const s = (p.Model + p.Brand).toLowerCase().includes(search.value.toLowerCase());
+                    const f = !filterSWQE.value || p.IsSWQE === 'Yes';
+                    return b && s && f; 
+                }).sort((a, b) => {
+                    if (filterSWQE.value) {
+                        const releasedDiff = parseReleasedDate(b.Released) - parseReleasedDate(a.Released);
+                        if (releasedDiff !== 0) return releasedDiff;
+                        const brandDiff = String(a.Brand || '').localeCompare(String(b.Brand || ''));
+                        if (brandDiff !== 0) return brandDiff;
+                        return String(a.Model || '').localeCompare(String(b.Model || ''));
+                    }
+                    const brandDiff = String(a.Brand || '').localeCompare(String(b.Brand || ''));
+                    if (brandDiff !== 0) return brandDiff;
+                    const releasedDiff = parseReleasedDate(b.Released) - parseReleasedDate(a.Released);
+                    if (releasedDiff !== 0) return releasedDiff;
+                    return String(a.Model || '').localeCompare(String(b.Model || ''));
+                }));
+                const paginatedData = computed(() => {
+                    const start = (currentPage.value - 1) * pageSize;
+                    return filteredData.value.slice(start, start + pageSize);
+                });
+                const totalPages = computed(() => Math.ceil(filteredData.value.length / pageSize));
+
+                watch([search, filterBrands, filterSWQE], () => {
+                    currentPage.value = 1;
+                    scrollToTop();
+                    if (selectedAiTags.value.length > 0) {
+                        generateRecommendations();
+                    }
+                });
+
+                watch(selectedAiTags, () => {
+                    if (recommendationTimer) clearTimeout(recommendationTimer);
+                    if (selectedAiTags.value.length === 0) {
+                        aiRecommendations.value = [];
+                        aiTotalMatches.value = 0;
+                        aiDisplayLimit.value = 10;
+                        aiError.value = '';
+                        aiLoading.value = false;
+                        return;
+                    }
+                    recommendationTimer = setTimeout(() => {
+                        generateRecommendations();
+                    }, 250);
+                }, { deep: true });
+
+                // 當 compareQueue 改變時 (從列表點擊加入)，我們填入空的插槽
+                watch(compareQueue, (newQueue) => {
+                    newQueue.forEach(item => {
+                        if (!comparisonSlots.value.some(s => s && s.Model === item.Model)) {
+                            const emptyIdx = comparisonSlots.value.indexOf(null);
+                            if (emptyIdx > -1) {
+                                comparisonSlots.value[emptyIdx] = item;
+                            }
+                        }
+                    });
+                    // 同時也移除不在 newQueue 中的插槽項 (處理 external 移除)
+                    comparisonSlots.value.forEach((slot, i) => {
+                        if (slot && !newQueue.some(p => p.Model === slot.Model)) {
+                            comparisonSlots.value[i] = null;
+                        }
+                    });
+                    if (comparisonSlots.value.filter(Boolean).length < 2) {
+                        showOnlyDifferentSpecs.value = false;
+                    }
+                }, { deep: true });
+
+                const toggleCompare = (item) => {
+                    const idx = compareQueue.value.findIndex(p => p.Model === item.Model);
+                    if (idx > -1) {
+                        compareQueue.value.splice(idx, 1);
+                    } else if (compareQueue.value.length < 4) {
+                        compareQueue.value.push(item);
+                    }
+                };
+
+                const clearSlot = (index) => {
+                    const item = comparisonSlots.value[index];
+                    if (item) {
+                        const qIdx = compareQueue.value.findIndex(p => p.Model === item.Model);
+                        if (qIdx > -1) compareQueue.value.splice(qIdx, 1);
+                    }
+                    comparisonSlots.value[index] = null;
+                    slotBrandSelections.value[index] = '';
+                };
+
+                const onCompareBrandChange = (e, index) => {
+                    slotBrandSelections.value[index] = e.target.value;
+                };
+
+                const onCompareModelChange = (e, index) => {
+                    const modelName = e.target.value;
+                    const brand = slotBrandSelections.value[index];
+                    const item = allData.value.find(p => p.Brand === brand && p.Model === modelName);
+                    if (item) {
+                        // 檢查是否已經在其他插槽中
+                        if (comparisonSlots.value.some(s => s && s.Model === item.Model)) {
+                            alert('該型號已在比較列表中');
+                            e.target.value = '';
+                            return;
+                        }
+                        comparisonSlots.value[index] = item;
+                        if (!compareQueue.value.some(p => p.Model === item.Model)) {
+                            compareQueue.value.push(item);
+                        }
+                    }
+                };
+
+                const getModelsByBrand = (brand) => {
+                    return allData.value.filter(p => p.Brand === brand).sort((a, b) => a.Model.localeCompare(b.Model));
+                };
+
+                const isCompared = (item) => compareQueue.value.some(p => p.Model === item.Model);
+                const getImageUrl = (item) => {
+                    const url = item['Image URL'];
+                    // Use a local fallback instead of an external placeholder
+                    if (!url || url === '—' || url === 'N/A') return 'assets/no-image.svg';
+                    return /^https?:\/\//i.test(url) ? url : encodeURI(url);
+                };
+
+                const navClass = (v) => currentView.value === v
+                    ? 'bg-white text-indigo-600 shadow-md ring-1 ring-slate-200'
+                    : 'text-slate-500 hover:text-slate-800 hover:bg-slate-200/50';
+
+                const compareBtnClass = (item) => {
+                    const isSel = isCompared(item);
+                    return isSel
+                        ? 'bg-indigo-600 border-indigo-600 text-white w-24 px-3'
+                        : 'bg-white/90 backdrop-blur-sm border-slate-200 text-slate-500 hover:text-indigo-600 hover:border-indigo-600';
+                };
+
+                const showUnboxing = (item) => {
+                    currentView.value = 'unboxing';
+                    unboxingItem.value = item;
+                    scrollToTop();
+
+                    // Allow DOM to update for the container to exist
+                    setTimeout(async () => {
+                        const pptxFile = item.PPTX || `${item.Model}.pdf`;
+                        // 確保檔名能正確被 URL 編碼 (處理中文與空格)
+                        const encodedFile = encodeURIComponent(pptxFile);
+                        const fileUrl = `pptx/${encodedFile}`;
+
+                        try {
+                            const check = await fetch(fileUrl, { method: 'HEAD' });
+                            if (!check.ok) throw new Error('Not found');
+
+                            // 判斷是否為 PDF
+                            if (pptxFile.toLowerCase().endsWith('.pdf')) {
+                                $("#pptx-container").html(`
+                                    <iframe src="${fileUrl}#toolbar=0&navpanes=0" class="w-full h-full border-0 rounded-xl shadow-inner" style="pointer-events: auto;"></iframe>
+                                `);
+                            } else {
+                                // 直接提供渲染容器
+                                $("#pptx-container").html(`
+                                    <div id="pptx-render-area" class="w-full h-full"></div>
+                                `);
+
+                                // 嘗試渲染 PPTX
+                                if (typeof $.fn.pptxToHtml === 'function') {
+                                    $("#pptx-render-area").pptxToHtml({
+                                        pptxFileUrl: fileUrl,
+                                        slidesScale: "100%",
+                                        slideMode: false,
+                                        keyBoardShortCut: false,
+                                        mediaProcess: true,
+                                        processMessage: "正在嘗試預覽簡報...",
+                                        errorHandler: function () {
+                                            $("#pptx-container").html(`
+                                                <div class="flex flex-col items-center justify-center h-full text-slate-400 py-20">
+                                                    <div class="text-4xl mb-4 opacity-50">😢</div>
+                                                    <p class="font-bold text-slate-500 text-lg">預覽簡報失敗，請確認檔案格式是否正確。建議轉存為 PDF 格式後上傳。</p>
+                                                </div>
+                                            `);
+                                        }
+                                    });
+                                }
+                            }
+                        } catch (e) {
+                            $("#pptx-container").html(`
+                                <div class="flex flex-col items-center justify-center h-full text-slate-400 py-20 animate-pulse">
+                                    <div class="text-4xl mb-4 opacity-50">📦</div>
+                                    <p class="font-bold text-slate-500 text-lg">暫無詳細開箱分享 (或 PPTX 檔案不存在)</p>
+                                </div>
+                            `);
+                        }
+                    }, 100);
+                };
+
+                onMounted(() => {
+                    loadData();
+                    loadAiTags();
+                });
+
+                return {
+                    allData, currentView, search, filterBrands, allBrands, filteredData,
+                    paginatedData, currentPage, totalPages,
+                    compareQueue, toggleCompare, isCompared, specFields, fieldGroups, navClass,
+                    compareBtnClass, selectedItem, getImageUrl, scrollToTop,
+                    barPos, startDrag, translateField, filterSWQE,
+                    unboxingItem, showUnboxing,
+                    comparisonSlots, slotBrandSelections, filledSlotsCount,
+                    clearSlot, onCompareBrandChange, onCompareModelChange, getModelsByBrand,
+                    formatSpecValue, activeSpecTab,
+                    aiTags, selectedAiTags, aiRecommendations, aiTotalMatches, aiDisplayLimit, aiLoading, aiError,
+                    toggleAiTag, clearRecommendations,
+                    activeCompareSlots, differentSpecGroups, differentSpecCount,
+                    showOnlyDifferentSpecs, visibleFieldGroups
+                };
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>

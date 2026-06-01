@@ -1,0 +1,11 @@
+# One pattern per line. Patterns are matched against relative paths.
+# Keep this list focused on generated files, local caches, logs, and old archives.
+__pycache__/
+pptxjs_temp/
+.deploy_tmp/
+*.pyc
+*.pyo
+*.log
+nohup.out
+*.zip
+projector_web_deploy/
