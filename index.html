@@ -100,6 +100,10 @@
                     class="px-6 py-1.5 rounded-lg font-bold transition-all text-xs">
                     比較機型 ({{ filledSlotsCount }})
                 </button>
+                <button @click="currentView = 'news'; scrollToTop();" :class="navClass('news')"
+                    class="px-6 py-1.5 rounded-lg font-bold transition-all text-xs">
+                    每日焦點
+                </button>
             </nav>
         </header>
 
@@ -393,6 +397,112 @@
                     </div>
                 </div>
 
+                <div v-if="currentView === 'news'" class="max-w-[1400px] mx-auto">
+                    <section class="overflow-hidden rounded-3xl bg-slate-950 text-white shadow-xl mb-6">
+                        <div class="relative px-8 py-9 lg:px-12">
+                            <div class="absolute inset-0 bg-gradient-to-r from-indigo-600/30 via-transparent to-cyan-500/20"></div>
+                            <div class="relative flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+                                <div>
+                                    <p class="text-[11px] font-black text-cyan-300 uppercase tracking-[0.24em] mb-3">
+                                        Projector Intelligence
+                                    </p>
+                                    <h2 class="text-3xl font-black tracking-tight">每日焦點</h2>
+                                    <p class="mt-3 max-w-2xl text-sm font-bold text-slate-300 leading-7">
+                                        集中追蹤全球投影機新品、顯示面板、光機、光源與供應鏈技術動態。
+                                    </p>
+                                </div>
+                                <div class="flex gap-3">
+                                    <div class="rounded-2xl border border-white/10 bg-white/10 px-5 py-3 backdrop-blur">
+                                        <p class="text-[10px] font-black text-slate-400 uppercase">最新更新</p>
+                                        <p class="mt-1 text-sm font-black">{{ newsLastUpdated }}</p>
+                                    </div>
+                                    <div class="rounded-2xl border border-white/10 bg-white/10 px-5 py-3 backdrop-blur">
+                                        <p class="text-[10px] font-black text-slate-400 uppercase">焦點數量</p>
+                                        <p class="mt-1 text-sm font-black">{{ filteredNews.length }} 則</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="bg-white border border-slate-200 rounded-2xl shadow-sm p-5 mb-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3">
+                            <div class="relative xl:col-span-2">
+                                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                                <input v-model="newsSearch" type="text" placeholder="搜尋品牌、技術或新聞標題"
+                                    class="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-11 pr-4 text-xs font-bold outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10">
+                            </div>
+                            <select v-model="newsCountry"
+                                class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs font-black text-slate-600 outline-none focus:border-indigo-500">
+                                <option value="">所有國家／地區</option>
+                                <option v-for="country in newsCountries" :key="country" :value="country">{{ country }}</option>
+                            </select>
+                            <select v-model="newsTopic"
+                                class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs font-black text-slate-600 outline-none focus:border-indigo-500">
+                                <option value="">所有技術主題</option>
+                                <option v-for="topic in newsTopics" :key="topic" :value="topic">{{ topic }}</option>
+                            </select>
+                        </div>
+                    </section>
+
+                    <div v-if="newsLoading"
+                        class="bg-white border border-slate-200 rounded-2xl p-16 text-center text-slate-400 font-black">
+                        正在載入每日焦點...
+                    </div>
+
+                    <div v-else-if="newsError"
+                        class="bg-rose-50 border border-rose-200 rounded-2xl p-8 text-center">
+                        <p class="text-sm font-black text-rose-600">{{ newsError }}</p>
+                        <button @click="loadNews"
+                            class="mt-4 rounded-xl bg-rose-600 px-5 py-2.5 text-xs font-black text-white">重新載入</button>
+                    </div>
+
+                    <div v-else-if="filteredNews.length" class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                        <article v-for="item in filteredNews" :key="item.id || item.source_url"
+                            class="group bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:border-indigo-200 transition">
+                            <div class="flex items-start justify-between gap-4">
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="rounded-full bg-indigo-50 px-3 py-1 text-[10px] font-black text-indigo-700">
+                                        {{ item.country || '全球' }}
+                                    </span>
+                                    <span v-for="topic in (item.topics || []).slice(0, 2)" :key="topic"
+                                        class="rounded-full bg-cyan-50 px-3 py-1 text-[10px] font-black text-cyan-700">
+                                        {{ topic }}
+                                    </span>
+                                </div>
+                                <span v-if="item.is_official"
+                                    class="shrink-0 rounded-full bg-emerald-50 px-3 py-1 text-[10px] font-black text-emerald-700">
+                                    官方消息
+                                </span>
+                            </div>
+                            <p class="mt-5 text-[11px] font-black text-slate-400">
+                                {{ formatNewsDate(item.published_at) }} · {{ item.source }}
+                            </p>
+                            <h3 class="mt-2 text-lg font-black leading-7 text-slate-800 group-hover:text-indigo-700 transition">
+                                {{ item.title }}
+                            </h3>
+                            <p class="mt-3 text-sm font-bold leading-7 text-slate-500">{{ item.summary_zh_tw }}</p>
+                            <div class="mt-5 flex items-center justify-between border-t border-slate-100 pt-4">
+                                <p class="text-[11px] font-black text-slate-400">{{ (item.brands || []).join(' · ') || '產業技術' }}</p>
+                                <a :href="item.source_url" target="_blank" rel="noopener noreferrer"
+                                    class="text-xs font-black text-indigo-600 hover:text-indigo-800">
+                                    閱讀原文 <i class="fas fa-arrow-up-right-from-square ml-1"></i>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div v-else class="bg-white border border-dashed border-slate-300 rounded-2xl p-16 text-center">
+                        <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-500 text-xl">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <h3 class="mt-5 text-lg font-black text-slate-800">目前沒有符合條件的焦點消息</h3>
+                        <p class="mt-2 text-xs font-bold text-slate-400">新聞蒐集器寫入資料後，內容會自動顯示在這個獨立分頁。</p>
+                    </div>
+                </div>
+
                 <footer v-if="currentView !== 'unboxing'"
                     class="max-w-[1600px] mx-auto mt-10 border-t border-slate-200 pt-5 text-[11px] font-bold text-slate-400 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                     <p>© 2026 SWQE. All rights reserved.</p>
@@ -601,6 +711,12 @@
                 const aiError = ref('');
                 let recommendationTimer = null;
                 const showOnlyDifferentSpecs = ref(false);
+                const newsItems = ref([]);
+                const newsSearch = ref('');
+                const newsCountry = ref('');
+                const newsTopic = ref('');
+                const newsLoading = ref(false);
+                const newsError = ref('');
 
                 const filledSlotsCount = computed(() => comparisonSlots.value.filter(s => s !== null).length);
 
@@ -781,6 +897,77 @@
                     'acer', 'anker', 'awol', 'benq', 'dangbei', 'dreame', 'epson', 'hisense',
                     'jmgo', 'leica', 'lg', 'nexigo', 'optoma', 'samsung', 'sharp', 'viewsonic', 'xgimi'
                 ];
+
+                const hasBackendApi = () => {
+                    const host = window.location.hostname;
+                    return host === 'localhost' || host === '127.0.0.1' || /^\d+\.\d+\.\d+\.\d+$/.test(host);
+                };
+
+                const loadNews = async () => {
+                    newsLoading.value = true;
+                    newsError.value = '';
+                    try {
+                        let response = null;
+                        if (hasBackendApi()) {
+                            response = await fetch(`/api/news?t=${Date.now()}`);
+                        }
+                        if (!response || !response.ok) {
+                            response = await fetch(`news_data.json?t=${Date.now()}`);
+                        }
+                        if (!response.ok) throw new Error('Unable to load news data');
+                        const data = await response.json();
+                        newsItems.value = Array.isArray(data) ? data : [];
+                    } catch (error) {
+                        newsError.value = '每日焦點載入失敗，請稍後再試。';
+                        console.error('Failed to load news', error);
+                    } finally {
+                        newsLoading.value = false;
+                    }
+                };
+
+                const newsCountries = computed(() => [...new Set(
+                    newsItems.value.map(item => item.country).filter(Boolean)
+                )].sort());
+
+                const newsTopics = computed(() => [...new Set(
+                    newsItems.value.flatMap(item => item.topics || []).filter(Boolean)
+                )].sort());
+
+                const filteredNews = computed(() => {
+                    const keyword = newsSearch.value.trim().toLowerCase();
+                    return newsItems.value
+                        .filter(item => {
+                            const searchable = [
+                                item.title,
+                                item.summary_zh_tw,
+                                item.source,
+                                ...(item.brands || []),
+                                ...(item.topics || [])
+                            ].filter(Boolean).join(' ').toLowerCase();
+                            const matchesKeyword = !keyword || searchable.includes(keyword);
+                            const matchesCountry = !newsCountry.value || item.country === newsCountry.value;
+                            const matchesTopic = !newsTopic.value || (item.topics || []).includes(newsTopic.value);
+                            return matchesKeyword && matchesCountry && matchesTopic;
+                        })
+                        .sort((a, b) => String(b.published_at || '').localeCompare(String(a.published_at || '')));
+                });
+
+                const formatNewsDate = (value) => {
+                    if (!value) return '日期未提供';
+                    const date = new Date(value);
+                    if (Number.isNaN(date.getTime())) return value;
+                    return new Intl.DateTimeFormat('zh-TW', {
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit'
+                    }).format(date);
+                };
+
+                const newsLastUpdated = computed(() => {
+                    if (!newsItems.value.length) return '等待首次同步';
+                    const dates = newsItems.value.map(item => item.published_at).filter(Boolean).sort().reverse();
+                    return dates.length ? formatNewsDate(dates[0]) : '日期未提供';
+                });
 
                 const loadData = async () => {
                     try {
@@ -1133,6 +1320,7 @@
                 onMounted(() => {
                     aiTags.value = localAiTags;
                     loadData();
+                    loadNews();
                 });
 
                 return {
@@ -1148,7 +1336,10 @@
                     aiTags, selectedAiTags, aiRecommendations, aiTotalMatches, aiDisplayLimit, aiLoading, aiError,
                     toggleAiTag, clearRecommendations,
                     activeCompareSlots, differentSpecGroups, differentSpecCount,
-                    showOnlyDifferentSpecs, visibleFieldGroups
+                    showOnlyDifferentSpecs, visibleFieldGroups,
+                    newsItems, newsSearch, newsCountry, newsTopic, newsLoading, newsError,
+                    newsCountries, newsTopics, filteredNews, newsLastUpdated,
+                    loadNews, formatNewsDate
                 };
             }
         }).mount('#app');

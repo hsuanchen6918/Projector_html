@@ -42,6 +42,8 @@ sudo rsync -a --delete \
   --exclude 'venv/' \
   --exclude '.venv/' \
   --exclude 'nohup.out' \
+  --exclude 'news.env' \
+  --exclude 'news_collector.log' \
   "$TMP_DIR/" "$APP_DIR/"
 
 echo "[4/6] Preparing Python environment"
@@ -59,10 +61,18 @@ if [ -f "requirements.txt" ]; then
   fi
 fi
 
+chmod +x run_news_update.sh setup_news_cron.sh
+bash setup_news_cron.sh
+
 echo "[5/6] Restarting backend"
 pkill -f "$SERVICE_PATTERN" || true
 nohup python backend_server.py > nohup.out 2>&1 &
 sleep 2
+
+echo "Running initial projector news update"
+if ! python news_collector.py --days 7 --max-items 100; then
+  echo "Initial news update did not fetch new items; daily cron remains installed."
+fi
 
 echo "[6/6] Checking API"
 if curl -fsS http://127.0.0.1:8000/api/brands >/dev/null; then

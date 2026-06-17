@@ -1,0 +1,32 @@
+[
+    {
+        "name": "台灣投影機新聞",
+        "country": "台灣",
+        "language": "zh-TW",
+        "query": "投影機 OR 投影技術 OR \"DLP 投影\" OR 3LCD OR \"光機 投影\" OR 雷射投影"
+    },
+    {
+        "name": "中國投影機新聞",
+        "country": "中國",
+        "language": "zh-CN",
+        "query": "投影仪 OR 投影技术 OR \"DLP 投影\" OR 3LCD OR \"光机 投影\" OR 激光投影"
+    },
+    {
+        "name": "美國投影機新聞",
+        "country": "美國",
+        "language": "en-US",
+        "query": "projector OR projection technology OR \"DLP projector\" OR 3LCD OR LCoS OR laser projector"
+    },
+    {
+        "name": "日本投影機新聞",
+        "country": "日本",
+        "language": "ja",
+        "query": "プロジェクター OR 投写技術 OR \"DLP プロジェクター\" OR 3LCD OR LCOS OR レーザープロジェクター"
+    },
+    {
+        "name": "投影顯示技術官方消息",
+        "country": "全球",
+        "language": "en-US",
+        "query": "(projector OR projection OR DLP) (site:ti.com OR site:epson.com OR site:sony.com OR site:benq.com OR site:viewsonic.com)"
+    }
+]

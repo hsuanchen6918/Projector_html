@@ -8,4 +8,5 @@ pptxjs_temp/
 *.log
 nohup.out
 *.zip
+news.env
 projector_web_deploy/

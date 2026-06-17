@@ -4,6 +4,7 @@ __pycache__/
 *.log
 nohup.out
 *.zip
+news.env
 
 .deploy_tmp/
 pptxjs_temp/

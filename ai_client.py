@@ -13,7 +13,7 @@ def openai_enabled():
     return mode in {"openai", "external"} and bool(os.getenv("OPENAI_API_KEY"))
 
 
-def call_openai_json(instructions, payload, timeout=45):
+def call_openai_json(instructions, payload, timeout=45, max_output_tokens=1600):
     if not openai_enabled():
         return None
 
@@ -23,7 +23,7 @@ def call_openai_json(instructions, payload, timeout=45):
         "model": model,
         "instructions": instructions,
         "input": json.dumps(payload, ensure_ascii=False),
-        "max_output_tokens": 1600,
+        "max_output_tokens": max_output_tokens,
     }
     req = urllib.request.Request(
         OPENAI_RESPONSES_URL,
@@ -111,6 +111,42 @@ def enhance_recommendations(rule_result):
     merged["message"] = ai.get("message") or "使用外部 AI 依本地規則候選結果產生說明。"
     merged["mode"] = "openai"
     return merged
+
+
+def summarize_news_items(news_items):
+    payload = {
+        "task": "summarize_projector_news",
+        "items": [
+            {
+                "id": item.get("id"),
+                "title": item.get("title"),
+                "summary": item.get("summary_zh_tw"),
+                "source": item.get("source"),
+                "country": item.get("country"),
+                "topics": item.get("topics", []),
+            }
+            for item in news_items
+        ],
+        "outputShape": {
+            "items": [
+                {
+                    "id": "原始 id",
+                    "title_zh_tw": "繁體中文新聞標題",
+                    "summary_zh_tw": "80 至 150 字繁體中文重點摘要",
+                    "topics": ["最多 4 個技術分類"],
+                }
+            ]
+        },
+    }
+    instructions = (
+        "你是投影顯示產業情報編輯。請將輸入新聞翻譯並整理成台灣繁體中文。"
+        "摘要只使用輸入提供的事實，不猜測規格，不加入投資建議。"
+        "優先指出品牌、產品或技術、關鍵變化與產業意義。"
+        "若資訊不足，明確寫出仍需查看原文確認。"
+        "技術分類使用簡短繁體中文。僅輸出符合 outputShape 的 JSON object，不要 Markdown。"
+    )
+    result = call_openai_json(instructions, payload, timeout=60, max_output_tokens=4000)
+    return result.get("items", []) if isinstance(result, dict) else []
 
 
 def _compact_recommendations(rule_result):

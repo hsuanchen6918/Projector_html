@@ -3,6 +3,8 @@ from flask_cors import CORS
 import json
 import os
 import re
+import subprocess
+import sys
 import ai_engine
 import ai_client
 
@@ -120,6 +122,54 @@ def get_brands():
                 brands.append(brand)
     brands.sort()
     return jsonify(brands)
+
+@app.route('/api/news', methods=['GET'])
+def get_news():
+    news_path = os.path.join(WORKING_DIR, "news_data.json")
+    if not os.path.exists(news_path):
+        return jsonify([])
+
+    try:
+        with open(news_path, "r", encoding="utf-8") as news_file:
+            news_items = json.load(news_file)
+        if not isinstance(news_items, list):
+            return jsonify({"success": False, "message": "新聞資料格式錯誤"}), 500
+        return jsonify(news_items)
+    except (OSError, json.JSONDecodeError) as error:
+        return jsonify({"success": False, "message": str(error)}), 500
+
+@app.route('/api/news/refresh', methods=['POST'])
+def refresh_news():
+    token = request.headers.get('Authorization')
+    if token != "Bearer dummy-token-123":
+        return jsonify({"success": False, "message": "未授權"}), 403
+
+    collector_path = os.path.join(WORKING_DIR, "news_collector.py")
+    try:
+        result = subprocess.run(
+            [sys.executable, collector_path, "--days", "7", "--max-items", "100"],
+            cwd=WORKING_DIR,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            timeout=180,
+            check=False,
+        )
+    except (OSError, subprocess.TimeoutExpired) as error:
+        return jsonify({"success": False, "message": str(error)}), 500
+
+    output = result.stdout.strip()
+    try:
+        details = json.loads(output) if output else {}
+    except json.JSONDecodeError:
+        details = {"output": output}
+    if result.returncode not in {0, 1}:
+        return jsonify({
+            "success": False,
+            "message": result.stderr.strip() or "新聞更新失敗",
+            "details": details,
+        }), 500
+    return jsonify({"success": True, "details": details})
 
 @app.route('/api/ai/tags', methods=['GET'])
 def ai_tags():
