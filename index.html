@@ -459,8 +459,18 @@
                             class="mt-4 rounded-xl bg-rose-600 px-5 py-2.5 text-xs font-black text-white">重新載入</button>
                     </div>
 
-                    <div v-else-if="filteredNews.length" class="grid grid-cols-1 lg:grid-cols-2 gap-5">
-                        <article v-for="item in filteredNews" :key="item.id || item.source_url"
+                    <div v-else-if="filteredNews.length">
+                        <div class="mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                            <p class="text-xs font-black text-slate-400">
+                                顯示第 {{ newsPageStart + 1 }} - {{ newsPageEnd }} 則，共 {{ filteredNews.length }} 則
+                            </p>
+                            <p class="text-xs font-black text-slate-400">
+                                第 {{ newsPage }} / {{ newsTotalPages }} 頁，每頁 {{ newsPageSize }} 則
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                        <article v-for="item in paginatedNews" :key="item.id || item.source_url"
                             class="group bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:border-indigo-200 transition">
                             <div class="flex items-start justify-between gap-4">
                                 <div class="flex flex-wrap gap-2">
@@ -493,6 +503,22 @@
                                 </a>
                             </div>
                         </article>
+                        </div>
+
+                        <div v-if="newsTotalPages > 1" class="mt-8 flex flex-wrap items-center justify-center gap-2">
+                            <button @click="goToNewsPage(newsPage - 1)" :disabled="newsPage === 1"
+                                class="h-9 rounded-lg border border-slate-200 bg-white px-4 text-xs font-black text-slate-500 shadow-sm transition hover:bg-slate-50 disabled:opacity-30 disabled:cursor-not-allowed">
+                                上一頁
+                            </button>
+                            <button v-for="page in visibleNewsPages" :key="page" @click="goToNewsPage(page)"
+                                :class="['h-9 min-w-9 rounded-lg px-3 text-xs font-black transition shadow-sm', newsPage === page ? 'bg-indigo-600 text-white' : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50']">
+                                {{ page }}
+                            </button>
+                            <button @click="goToNewsPage(newsPage + 1)" :disabled="newsPage === newsTotalPages"
+                                class="h-9 rounded-lg border border-slate-200 bg-white px-4 text-xs font-black text-slate-500 shadow-sm transition hover:bg-slate-50 disabled:opacity-30 disabled:cursor-not-allowed">
+                                下一頁
+                            </button>
+                        </div>
                     </div>
 
                     <div v-else class="bg-white border border-dashed border-slate-300 rounded-2xl p-16 text-center">
@@ -718,6 +744,8 @@
                 const newsTopic = ref('');
                 const newsLoading = ref(false);
                 const newsError = ref('');
+                const newsPage = ref(1);
+                const newsPageSize = 10;
 
                 const filledSlotsCount = computed(() => comparisonSlots.value.filter(s => s !== null).length);
 
@@ -940,6 +968,7 @@
                         .filter(item => {
                             const searchable = [
                                 item.title,
+                                item.title_zh_tw,
                                 item.summary_zh_tw,
                                 item.source,
                                 ...(item.brands || []),
@@ -952,6 +981,28 @@
                         })
                         .sort((a, b) => String(b.published_at || '').localeCompare(String(a.published_at || '')));
                 });
+
+                const newsTotalPages = computed(() => Math.max(1, Math.ceil(filteredNews.value.length / newsPageSize)));
+                const newsPageStart = computed(() => (newsPage.value - 1) * newsPageSize);
+                const newsPageEnd = computed(() => Math.min(newsPageStart.value + newsPageSize, filteredNews.value.length));
+                const paginatedNews = computed(() => filteredNews.value.slice(newsPageStart.value, newsPageEnd.value));
+
+                const visibleNewsPages = computed(() => {
+                    const total = newsTotalPages.value;
+                    const current = newsPage.value;
+                    const start = Math.max(1, Math.min(current - 2, total - 4));
+                    const end = Math.min(total, start + 4);
+                    const pages = [];
+                    for (let page = start; page <= end; page += 1) {
+                        pages.push(page);
+                    }
+                    return pages;
+                });
+
+                const goToNewsPage = (page) => {
+                    newsPage.value = Math.min(Math.max(page, 1), newsTotalPages.value);
+                    scrollToTop();
+                };
 
                 const formatNewsDate = (value) => {
                     if (!value) return '日期未提供';
@@ -1160,6 +1211,17 @@
                     }
                 });
 
+                watch([newsSearch, newsCountry, newsTopic], () => {
+                    newsPage.value = 1;
+                    scrollToTop();
+                });
+
+                watch(filteredNews, () => {
+                    if (newsPage.value > newsTotalPages.value) {
+                        newsPage.value = newsTotalPages.value;
+                    }
+                });
+
                 watch(selectedAiTags, () => {
                     if (recommendationTimer) clearTimeout(recommendationTimer);
                     if (selectedAiTags.value.length === 0) {
@@ -1340,6 +1402,8 @@
                     showOnlyDifferentSpecs, visibleFieldGroups,
                     newsItems, newsSearch, newsCountry, newsTopic, newsLoading, newsError,
                     newsCountries, newsTopics, filteredNews, newsLastUpdated,
+                    newsPage, newsPageSize, newsPageStart, newsPageEnd, newsTotalPages,
+                    paginatedNews, visibleNewsPages, goToNewsPage,
                     loadNews, formatNewsDate
                 };
             }
