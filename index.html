@@ -105,6 +105,10 @@
                     每日焦點
                 </button>
             </nav>
+            <button @click="openGuide"
+                class="ml-4 px-4 py-2 rounded-xl bg-indigo-50 text-indigo-600 border border-indigo-100 text-xs font-black hover:bg-indigo-100 transition">
+                使用說明
+            </button>
         </header>
 
         <div class="flex-1 flex overflow-hidden">
@@ -704,6 +708,80 @@
                 </div>
             </div>
         </transition>
+
+        <div v-if="showGuide"
+            class="fixed inset-0 z-[80] bg-slate-950/60 backdrop-blur-sm flex items-center justify-center p-6">
+            <div class="w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden">
+                <div class="bg-slate-950 text-white px-8 py-6 flex items-start justify-between gap-4">
+                    <div>
+                        <p class="text-[11px] font-black text-cyan-300 uppercase tracking-[0.24em] mb-2">Quick Guide</p>
+                        <h2 class="text-2xl font-black tracking-tight">競品網站使用導引</h2>
+                        <p class="mt-2 text-sm font-bold text-slate-300 leading-6">
+                            這裡可以查投影機規格、快速比較競品，並追蹤每日投影產業焦點。
+                        </p>
+                    </div>
+                    <button @click="closeGuide"
+                        class="w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 text-white font-black transition">
+                        ×
+                    </button>
+                </div>
+
+                <div class="p-8 space-y-5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                            <p class="text-sm font-black text-slate-800 mb-1">1. 產品總覽</p>
+                            <p class="text-xs font-bold text-slate-500 leading-6">
+                                用左側品牌、SWQE 競品與搜尋欄篩選投影機，點卡片可看完整規格。
+                            </p>
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                            <p class="text-sm font-black text-slate-800 mb-1">2. 規格比較</p>
+                            <p class="text-xs font-bold text-slate-500 leading-6">
+                                點產品卡右上角加入比較，最多可比較 4 台，並可只看差異規格。
+                            </p>
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                            <p class="text-sm font-black text-slate-800 mb-1">3. 每日焦點</p>
+                            <p class="text-xs font-bold text-slate-500 leading-6">
+                                每天早上 9 點更新投影機相關新聞，可依國家、技術主題與關鍵字篩選。
+                            </p>
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                            <p class="text-sm font-black text-slate-800 mb-1">4. 開箱資料</p>
+                            <p class="text-xs font-bold text-slate-500 leading-6">
+                                有 SWQE 標記的機種可開啟內部開箱 PDF，快速查看實測與分析資料。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="rounded-2xl bg-indigo-50 border border-indigo-100 p-4">
+                        <p class="text-xs font-black text-indigo-700 mb-1">小提示</p>
+                        <p class="text-xs font-bold text-indigo-700/80 leading-6">
+                            每日焦點每頁顯示 10 則新聞；切換國家或主題後會自動回到第 1 頁。
+                            來源連結會開啟原文，方便確認完整內容。
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                        <label class="flex items-center gap-2 text-xs font-bold text-slate-500">
+                            <input type="checkbox" v-model="guideDontShowAgain"
+                                class="w-4 h-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500">
+                            下次不要自動顯示
+                        </label>
+                        <div class="flex gap-3">
+                            <button @click="currentView = 'news'; closeGuide(); scrollToTop();"
+                                class="px-5 py-2.5 rounded-xl bg-slate-100 text-slate-600 text-xs font-black hover:bg-slate-200 transition">
+                                查看每日焦點
+                            </button>
+                            <button @click="closeGuide"
+                                class="px-6 py-2.5 rounded-xl bg-indigo-600 text-white text-xs font-black hover:bg-indigo-700 transition shadow-md">
+                                開始使用
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -746,6 +824,8 @@
                 const newsError = ref('');
                 const newsPage = ref(1);
                 const newsPageSize = 10;
+                const showGuide = ref(false);
+                const guideDontShowAgain = ref(false);
 
                 const filledSlotsCount = computed(() => comparisonSlots.value.filter(s => s !== null).length);
 
@@ -754,6 +834,18 @@
                     const mainArea = document.getElementById('mainContainer');
                     if (mainArea) {
                         mainArea.scrollTop = 0; // 最直接的賦值法
+                    }
+                };
+
+                const openGuide = () => {
+                    guideDontShowAgain.value = false;
+                    showGuide.value = true;
+                };
+
+                const closeGuide = () => {
+                    showGuide.value = false;
+                    if (guideDontShowAgain.value) {
+                        localStorage.setItem('swqeGuideSeen', '1');
                     }
                 };
 
@@ -1384,6 +1476,9 @@
                     aiTags.value = localAiTags;
                     loadData();
                     loadNews();
+                    if (localStorage.getItem('swqeGuideSeen') !== '1') {
+                        showGuide.value = true;
+                    }
                 });
 
                 return {
@@ -1391,6 +1486,7 @@
                     paginatedData, currentPage, totalPages,
                     compareQueue, toggleCompare, isCompared, specFields, fieldGroups, navClass,
                     compareBtnClass, selectedItem, getImageUrl, scrollToTop,
+                    showGuide, guideDontShowAgain, openGuide, closeGuide,
                     barPos, startDrag, translateField, filterSWQE,
                     unboxingItem, showUnboxing,
                     comparisonSlots, slotBrandSelections, filledSlotsCount,
