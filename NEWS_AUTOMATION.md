@@ -18,6 +18,8 @@ python news_collector.py --days 7 --max-items 100
 
 ## 每日排程
 
+### VM / Linux Cron
+
 部署腳本會自動執行：
 
 ```bash
@@ -48,3 +50,22 @@ chmod 600 news.env
 ```
 
 不要把 API Key 寫進 Git。
+
+### GitHub Pages / GitHub Actions
+
+GitHub Pages 不會執行 Python 或 Flask，因此使用 `.github/workflows/update-news.yml` 每天自動更新靜態資料。
+
+GitHub Actions cron 使用 UTC；目前設定為：
+
+```yaml
+cron: "15 23 * * *"
+```
+
+也就是台北時間每天 `07:15`。流程如下：
+
+1. Checkout repository
+2. 使用 Python 3.12 執行 `news_collector.py`
+3. 更新 `news_data.json`
+4. 若內容有變更，自動 commit 並 push 回 `main`
+
+GitHub Pages 會讀取更新後的 `news_data.json` 顯示每日焦點。
