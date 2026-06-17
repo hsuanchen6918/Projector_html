@@ -84,6 +84,138 @@ OFFICIAL_DOMAINS = {
     "ti.com", "viewsonic.com", "xgimi.com",
 }
 
+ZH_CN_TO_TW = str.maketrans({
+    "仪": "儀", "术": "術", "机": "機", "显": "顯", "屏": "螢", "激": "雷",
+    "发": "發", "布": "布", "开": "開", "卖": "賣", "价": "價", "级": "級",
+    "质": "質", "产": "產", "业": "業", "动": "動", "态": "態", "应": "應",
+    "链": "鏈", "场": "場", "数": "數", "据": "據", "处": "處", "带": "帶",
+    "灯": "燈", "车": "車", "载": "載", "华": "華", "为": "為", "与": "與",
+    "网": "網", "东": "東", "龙": "龍", "飞": "飛", "达": "達", "过": "過",
+    "镜": "鏡", "众": "眾", "广": "廣", "实": "實", "验": "驗", "万": "萬",
+    "长": "長", "后": "後", "体": "體", "头": "頭", "声": "聲", "双": "雙",
+    "对": "對", "会": "會", "电": "電", "湾": "灣", "这": "這", "该": "該",
+    "优": "優", "选": "選", "预": "預", "测": "測", "轻": "輕", "续": "續",
+    "国": "國", "热": "熱", "制": "製",
+})
+
+ZH_CN_PHRASES = {
+    "投影仪": "投影機",
+    "激光": "雷射",
+    "三色激光": "三色雷射",
+    "光机": "光機",
+    "芯片": "晶片",
+    "发布": "發布",
+    "开卖": "開賣",
+    "热卖": "熱賣",
+    "中国制造": "中國製造",
+    "上市": "上市",
+    "大屏": "大螢幕",
+    "综合续航": "綜合續航",
+    "供应链": "供應鏈",
+    "智能": "智慧",
+}
+
+JA_PHRASES = [
+    ("予約販売を開始", "開始預購"),
+    ("販売を開始", "開始銷售"),
+    ("提供開始", "開始提供"),
+    ("発表会レポート", "發表會報導"),
+    ("発売", "開賣"),
+    ("発表", "發表"),
+    ("新モデル", "新機型"),
+    ("対応モデル", "支援機型"),
+    ("4K対応", "支援 4K"),
+    ("3色レーザー", "三色雷射"),
+    ("3色", "三色"),
+    ("レーザー搭載", "搭載雷射"),
+    ("レーザープロジェクター", "雷射投影機"),
+    ("スマートプロジェクター", "智慧投影機"),
+    ("ミニプロジェクター", "迷你投影機"),
+    ("プロジェクター用", "投影機用"),
+    ("プロジェクター", "投影機"),
+    ("投写技術", "投影技術"),
+    ("照明一体型", "照明一體型"),
+    ("短焦点", "短焦"),
+    ("大画面", "大畫面"),
+    ("複数台", "多台"),
+    ("活用する際", "使用時"),
+    ("映像調整", "影像調整"),
+    ("運用ワークフロー", "操作流程"),
+    ("改善し", "改善"),
+    ("実現", "實現"),
+    ("新機能", "新功能"),
+    ("企業・法人向け", "企業法人用"),
+    ("製品・サービス", "產品與服務"),
+    ("映画鑑賞", "電影觀賞"),
+    ("アニメ鑑賞", "動畫觀賞"),
+    ("映画", "電影"),
+    ("アニメ", "動畫"),
+    ("癒やし", "療癒"),
+    ("見るのが好きです", "喜歡觀看"),
+    ("圧倒的映像美", "壓倒性的影像美"),
+    ("臨場感", "臨場感"),
+    ("機能性", "功能性"),
+    ("最上位モデル", "最高階機型"),
+    ("暮らしに寄り添って", "貼近日常生活"),
+    ("毎日", "每天"),
+    ("楽しく", "更有趣"),
+    ("快適", "舒適"),
+    ("再挑戦", "再挑戰"),
+    ("手のひらサイズ", "掌上尺寸"),
+    ("軽量", "輕量"),
+    ("日常を彩る", "為日常增添色彩"),
+    ("囲み", "圍繞"),
+    ("説明", "說明"),
+    ("耳を傾ける", "聆聽"),
+    ("参加者", "參加者"),
+    ("新型", "新款"),
+    ("実力", "實力"),
+    ("体験", "體驗"),
+    ("自宅", "家中"),
+    ("映画館", "電影院"),
+    ("天井", "天花板"),
+    ("置いてみない", "試著放置"),
+    ("楽しむ", "享受"),
+    ("ある暮らし", "的生活"),
+    ("日本上陸", "登陸日本"),
+    ("鮮明", "清晰"),
+    ("明るく", "更明亮"),
+    ("必需品", "必需品"),
+    ("既存ユーザー", "既有用戶"),
+    ("特別", "特別"),
+    ("重さ", "重量"),
+    ("筐体", "機身"),
+    ("中に", "中"),
+    ("解像度", "解析度"),
+    ("搭載", "搭載"),
+    ("モデル", "機型"),
+    ("市場予測", "市場預測"),
+    ("世界市場予測", "全球市場預測"),
+    ("おすすめ", "推薦"),
+    ("人気ランキング", "人氣排名"),
+    ("導入理由", "導入原因"),
+    ("施設", "場館"),
+    ("最大", "最大"),
+    ("最新", "最新"),
+    ("半額", "半價"),
+    ("割引", "折扣"),
+    ("ニュース", "新聞"),
+    ("レビュー", "評測"),
+    ("スクリーン", "螢幕"),
+    ("ホームシアター", "家庭劇院"),
+    ("シアター", "劇院"),
+    ("オーディオ", "音響"),
+    ("スマートフォン", "智慧型手機"),
+    ("接続", "連接"),
+    ("選び方", "選購方式"),
+    ("用途別", "依用途"),
+    ("光源別", "依光源"),
+    ("解像度別", "依解析度"),
+    ("輝度", "亮度"),
+    ("画面", "畫面"),
+    ("市場", "市場"),
+]
+
 
 def utc_now():
     return dt.datetime.now(dt.timezone.utc)
@@ -94,6 +226,36 @@ def clean_text(value):
     text = re.sub(r"<[^>]+>", " ", text)
     text = re.sub(r"\s+", " ", text).strip()
     return text
+
+
+def strip_source_suffix(title):
+    return re.sub(r"\s+-\s+[^-]{2,80}$", "", title or "").strip()
+
+
+def translate_cn_title(title):
+    translated = strip_source_suffix(title)
+    for source, target in ZH_CN_PHRASES.items():
+        translated = translated.replace(source, target)
+    return translated.translate(ZH_CN_TO_TW)
+
+
+def translate_ja_title(title):
+    translated = strip_source_suffix(title)
+    for source, target in JA_PHRASES:
+        translated = translated.replace(source, target)
+    translated = translated.replace("「", "「").replace("」", "」")
+    translated = re.sub(r"【([^】]+)】", r"【\1】", translated)
+    return translated
+
+
+def localized_title(title, language):
+    if language == "zh-CN":
+        return translate_cn_title(title)
+    if language == "ja":
+        return translate_ja_title(title)
+    if language == "zh-TW":
+        return strip_source_suffix(title)
+    return strip_source_suffix(title)
 
 
 def load_json(path, default):
@@ -281,6 +443,7 @@ def make_news_item(item):
     return {
         "id": hashlib.sha256(stable_value.encode("utf-8")).hexdigest()[:16],
         "title": item["title"],
+        "title_zh_tw": localized_title(item["title"], item["language"]),
         "summary_zh_tw": basic_summary(item, topics, brands),
         "source": item["source"],
         "source_url": item["source_url"],
@@ -310,6 +473,7 @@ def enhance_with_ai(items):
             if not result:
                 continue
             item["title"] = clean_text(result.get("title_zh_tw")) or item["title"]
+            item["title_zh_tw"] = item["title"]
             item["summary_zh_tw"] = clean_text(result.get("summary_zh_tw")) or item["summary_zh_tw"]
             item["summary_mode"] = "openai"
             if isinstance(result.get("topics"), list) and result["topics"]:
@@ -416,6 +580,7 @@ def collect(days=7, max_items=100):
             item.get("brands", []),
         )
         item["summary_mode"] = "rules"
+        item["title_zh_tw"] = localized_title(item.get("title", ""), item.get("language", ""))
     atomic_write_json(NEWS_PATH, merged)
     return {
         "sources": len(sources),
