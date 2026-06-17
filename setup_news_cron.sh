@@ -2,7 +2,7 @@
 set -euo pipefail
 
 APP_DIR="${APP_DIR:-/var/www/projector_project}"
-CRON_SCHEDULE="${CRON_SCHEDULE:-15 7 * * *}"
+CRON_SCHEDULE="${CRON_SCHEDULE:-0 9 * * *}"
 CRON_TIMEZONE="${CRON_TIMEZONE:-Asia/Taipei}"
 LOG_PATH="${LOG_PATH:-$APP_DIR/news_collector.log}"
 COMMAND="$CRON_SCHEDULE APP_DIR=$APP_DIR /usr/bin/env bash $APP_DIR/run_news_update.sh >> $LOG_PATH 2>&1"

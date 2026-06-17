@@ -2,8 +2,8 @@ name: Update projector news
 
 on:
   schedule:
-    # GitHub Actions cron uses UTC. This runs at 07:15 Asia/Taipei.
-    - cron: "15 23 * * *"
+    # GitHub Actions cron uses UTC. This runs at 09:00 Asia/Taipei.
+    - cron: "0 1 * * *"
   workflow_dispatch:
 
 permissions:
@@ -27,7 +27,7 @@ jobs:
           python-version: "3.12"
 
       - name: Collect projector news
-        run: python news_collector.py --days 7 --max-items 100
+        run: python news_collector.py --days 7 --max-items 1000 --retention-days 370
 
       - name: Commit updated news data
         run: |

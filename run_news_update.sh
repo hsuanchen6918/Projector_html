@@ -14,4 +14,4 @@ if [ -f "venv/bin/activate" ]; then
   source venv/bin/activate
 fi
 
-python news_collector.py --days 7 --max-items 100
+python news_collector.py --days 7 --max-items 1000 --retention-days 370

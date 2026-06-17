@@ -303,7 +303,7 @@ def release_lock():
         pass
 
 
-def google_news_feed_url(source):
+def google_news_feed_url(source, start_date=None, end_date=None):
     language = source.get("language", "en-US")
     country_code = {
         "zh-TW": ("TW", "zh-Hant"),
@@ -311,8 +311,14 @@ def google_news_feed_url(source):
         "ja": ("JP", "ja"),
         "en-US": ("US", "en"),
     }.get(language, ("US", "en"))
+    query = source["query"]
+    if start_date:
+        query = f"{query} after:{start_date.isoformat()}"
+    if end_date:
+        query = f"{query} before:{end_date.isoformat()}"
+
     params = {
-        "q": source["query"],
+        "q": query,
         "hl": language,
         "gl": country_code[0],
         "ceid": f"{country_code[0]}:{country_code[1]}",
@@ -538,39 +544,66 @@ def same_news_event(left, right):
     return bool(shared_brands and shared_models and left.get("published_at") == right.get("published_at"))
 
 
-def collect(days=7, max_items=100):
+def parse_iso_date(value):
+    if not value:
+        return None
+    try:
+        return dt.date.fromisoformat(value)
+    except ValueError as error:
+        raise argparse.ArgumentTypeError(f"Invalid date: {value}. Use YYYY-MM-DD.") from error
+
+
+def month_windows(start_date, end_date):
+    current = start_date.replace(day=1)
+    while current < end_date:
+        if current.month == 12:
+            next_month = dt.date(current.year + 1, 1, 1)
+        else:
+            next_month = dt.date(current.year, current.month + 1, 1)
+        yield max(start_date, current), min(end_date, next_month)
+        current = next_month
+
+
+def collect(days=7, max_items=100, from_date=None, to_date=None, retention_days=45):
     sources = load_json(SOURCES_PATH, [])
     if not sources:
         raise RuntimeError("news_sources.json 沒有可用來源")
 
-    cutoff = utc_now() - dt.timedelta(days=days)
+    end_date = to_date or (utc_now().date() + dt.timedelta(days=1))
+    start_date = from_date or (utc_now().date() - dt.timedelta(days=days))
+    cutoff = dt.datetime.combine(start_date, dt.time.min, tzinfo=dt.timezone.utc)
     candidates = []
     errors = []
     seen_titles = set()
 
+    windows = list(month_windows(start_date, end_date)) if from_date else [(start_date, end_date)]
     for source in sources:
-        url = source.get("url") or google_news_feed_url(source)
-        try:
-            feed_items = parse_feed(fetch_bytes(url), source)
-        except (OSError, urllib.error.URLError, ET.ParseError) as error:
-            errors.append(f"{source.get('name', url)}: {error}")
-            continue
+        for window_start, window_end in windows:
+            url = source.get("url") or google_news_feed_url(source, window_start, window_end)
+            try:
+                feed_items = parse_feed(fetch_bytes(url), source)
+            except (OSError, urllib.error.URLError, ET.ParseError) as error:
+                errors.append(f"{source.get('name', url)}: {error}")
+                continue
 
-        for item in feed_items:
-            if item["published"] and item["published"] < cutoff:
-                continue
-            title_key = normalized_title(item["title"])
-            if not title_key or title_key in seen_titles or not is_relevant(item):
-                continue
-            seen_titles.add(title_key)
-            candidates.append(make_news_item(item))
+            for item in feed_items:
+                if item["published"]:
+                    if item["published"] < cutoff:
+                        continue
+                    if item["published"].date() >= end_date:
+                        continue
+                title_key = normalized_title(item["title"])
+                if not title_key or title_key in seen_titles or not is_relevant(item):
+                    continue
+                seen_titles.add(title_key)
+                candidates.append(make_news_item(item))
 
     candidates.sort(key=lambda item: item["published_at"], reverse=True)
     candidates = enhance_with_ai(candidates[:max_items])
     existing = load_json(NEWS_PATH, [])
     if not isinstance(existing, list):
         existing = []
-    merged = merge_news(existing, candidates, retention_days=45, max_items=max_items)
+    merged = merge_news(existing, candidates, retention_days=retention_days, max_items=max_items)
     for item in merged:
         if item.get("summary_mode") == "openai":
             continue
@@ -595,13 +628,22 @@ def main():
     parser = argparse.ArgumentParser(description="Collect and summarize projector industry news.")
     parser.add_argument("--days", type=int, default=7, help="Only collect articles from the last N days.")
     parser.add_argument("--max-items", type=int, default=100, help="Maximum items stored in news_data.json.")
+    parser.add_argument("--from-date", type=parse_iso_date, help="Collect articles published on or after YYYY-MM-DD.")
+    parser.add_argument("--to-date", type=parse_iso_date, help="Collect articles published before YYYY-MM-DD.")
+    parser.add_argument("--retention-days", type=int, default=45, help="Keep stored articles from the last N days.")
     args = parser.parse_args()
 
     if not acquire_lock():
         print("News collection is already running.", file=sys.stderr)
         return 2
     try:
-        result = collect(days=max(args.days, 1), max_items=max(args.max_items, 1))
+        result = collect(
+            days=max(args.days, 1),
+            max_items=max(args.max_items, 1),
+            from_date=args.from_date,
+            to_date=args.to_date,
+            retention_days=max(args.retention_days, 1),
+        )
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return 0 if result["fetched"] or result["stored"] else 1
     finally:

@@ -13,7 +13,7 @@
 ```bash
 cd /var/www/projector_project
 source venv/bin/activate
-python news_collector.py --days 7 --max-items 100
+python news_collector.py --days 7 --max-items 1000 --retention-days 370
 ```
 
 ## 每日排程
@@ -26,10 +26,10 @@ python news_collector.py --days 7 --max-items 100
 bash setup_news_cron.sh
 ```
 
-預設每天台北時間 `07:15` 執行。可用環境變數調整：
+預設每天台北時間 `09:00` 執行。可用環境變數調整：
 
 ```bash
-CRON_SCHEDULE="15 6 * * *" CRON_TIMEZONE="Asia/Taipei" bash setup_news_cron.sh
+CRON_SCHEDULE="0 8 * * *" CRON_TIMEZONE="Asia/Taipei" bash setup_news_cron.sh
 ```
 
 ## AI 繁中摘要
@@ -58,10 +58,10 @@ GitHub Pages 不會執行 Python 或 Flask，因此使用 `.github/workflows/upd
 GitHub Actions cron 使用 UTC；目前設定為：
 
 ```yaml
-cron: "15 23 * * *"
+cron: "0 1 * * *"
 ```
 
-也就是台北時間每天 `07:15`。流程如下：
+也就是台北時間每天 `09:00`。流程如下：
 
 1. Checkout repository
 2. 使用 Python 3.12 執行 `news_collector.py`
@@ -69,3 +69,13 @@ cron: "15 23 * * *"
 4. 若內容有變更，自動 commit 並 push 回 `main`
 
 GitHub Pages 會讀取更新後的 `news_data.json` 顯示每日焦點。
+
+## 回補 2026 年歷史新聞
+
+若要補抓 2026 年初到目前的新聞，可執行：
+
+```bash
+python news_collector.py --from-date 2026-01-01 --to-date 2026-06-18 --max-items 1000 --retention-days 370
+```
+
+`--to-date` 是不包含該日的結束日期。平常每日排程會保留約 370 天資料，因此回補進來的 2026 年新聞不會在隔天被清掉。
