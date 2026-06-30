@@ -70,7 +70,7 @@ nohup python backend_server.py > nohup.out 2>&1 &
 sleep 2
 
 echo "Running initial projector news update"
-if ! python news_collector.py --days 7 --max-items 100; then
+if ! python news_collector.py --days 7 --max-items 1000 --retention-days 370; then
   echo "Initial news update did not fetch new items; daily cron remains installed."
 fi
 
