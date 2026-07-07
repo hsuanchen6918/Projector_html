@@ -9,10 +9,11 @@ PORT = 8000
 
 def get_python_exe():
     """ 嘗試尋找合適的 Python 執行檔 """
-    # 優先嘗試專案內的 .venv
-    venv_python = os.path.join(os.getcwd(), ".venv", "Scripts", "python.exe")
-    if os.path.exists(venv_python):
-        return venv_python
+    # 優先嘗試專案內的虛擬環境
+    for venv_name in ("venv", ".venv"):
+        venv_python = os.path.join(os.getcwd(), venv_name, "Scripts", "python.exe")
+        if os.path.exists(venv_python):
+            return venv_python
     
     # 其次嘗試當前運行的 Python
     return sys.executable

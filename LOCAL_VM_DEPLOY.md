@@ -1,42 +1,54 @@
-# 本機自動部署到 VM
+# 本機抓新聞並部署到 VM
 
-適用情境：VM 只能在公司內網使用，不能連外抓新聞；改由本機先抓好新聞，再自動打包並部署到 VM。
+這套流程適合 VM 只能連公司內部網域、不能連外抓新聞的情境。
 
-## 流程
+核心概念：
 
 ```text
 Windows 本機
-  -> 執行 news_collector.py 抓新聞
-  -> 更新 news_data.json
-  -> build_deploy_zip.ps1 打包
+  -> 執行 news_collector.py 抓取外部新聞
+  -> 產生或更新 news_data.json
+  -> build_deploy_zip.ps1 只打包每日焦點相關檔案
   -> scp 上傳 projector_web_deploy.zip 到 VM
-  -> ssh 執行 VM 的 deploy_projector.sh
-  -> VM 內部網站顯示最新每日焦點
+  -> scp 上傳最新版 deploy_projector.sh 到 VM
+  -> ssh 執行 VM 部署腳本
+  -> 只更新 /var/www/projector_project 內的每日焦點檔案
+  -> VM 只顯示已部署的 news_data.json，不需要連外抓新聞
 ```
 
-## 手動執行一次
+## 手動部署一次
 
 ```powershell
 cd C:\Users\judy.chen\Desktop\projector_project
-powershell -ExecutionPolicy Bypass -File .\deploy_to_vm_from_local.ps1 -VmHost 192.168.202.35 -VmUser judy
+powershell -ExecutionPolicy Bypass -File .\deploy_to_vm_from_local.ps1 -VmHost 192.168.202.35 -VmUser judy -RemoteAppDir /var/www/projector_project -DailyFocusOnly
 ```
 
-若使用 SSH key：
+預設路徑：
+
+```text
+VM ZIP 路徑: /home/judy/projector_web_deploy.zip
+VM 部署腳本: /home/judy/deploy_projector.sh
+網站目錄: /var/www/projector_project
+```
+
+如果你有 SSH key：
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\deploy_to_vm_from_local.ps1 `
   -VmHost 192.168.202.35 `
   -VmUser judy `
+  -RemoteAppDir /var/www/projector_project `
+  -DailyFocusOnly `
   -IdentityFile "$env:USERPROFILE\.ssh\projector_vm_ed25519"
 ```
 
-## 建立每日本機排程
+## 安裝每日自動部署排程
 
-預設每天 Windows 本機時間 `09:00` 執行：
+每天早上 9 點在 Windows 本機抓新聞、打包並部署到 VM：
 
 ```powershell
 cd C:\Users\judy.chen\Desktop\projector_project
-powershell -ExecutionPolicy Bypass -File .\setup_local_vm_deploy_task.ps1 -VmHost 192.168.202.35 -VmUser judy
+powershell -ExecutionPolicy Bypass -File .\setup_local_vm_deploy_task.ps1 -VmHost 192.168.202.35 -VmUser judy -RemoteAppDir /var/www/projector_project
 ```
 
 指定其他時間：
@@ -45,13 +57,29 @@ powershell -ExecutionPolicy Bypass -File .\setup_local_vm_deploy_task.ps1 -VmHos
 powershell -ExecutionPolicy Bypass -File .\setup_local_vm_deploy_task.ps1 `
   -VmHost 192.168.202.35 `
   -VmUser judy `
+  -RemoteAppDir /var/www/projector_project `
   -DailyTime 09:30
 ```
 
 ## 注意事項
 
-- 本機必須能連外抓新聞，也必須能連到 VM。
-- Windows 需安裝 OpenSSH Client，提供 `ssh` 與 `scp` 指令。
-- 若排程要無人值守，建議使用 SSH key，不要依賴手動輸入密碼。
-- VM 的 `deploy_projector.sh` 內含 `sudo`，若 sudo 需要密碼，排程會失敗；建議在 VM 上針對部署必要指令設定安全的免密 sudo，或改由有權限的部署帳號執行。
-- `news.env` 不會被打包或上傳，避免 API key 或私密設定外流。
+- 預設是「本機抓新聞，VM 不抓新聞」。這樣 VM 不能連外也能顯示每日焦點。
+- 預設部署範圍是每日焦點，不會刪除 VM 上本機沒有的 `data_*.json` 投影機資料。
+- 部署 ZIP 只會包含 `news_data.json`、`news_collector.py`、`news_sources.json`、`index.html`、`backend_server.py` 等每日焦點需要的檔案。
+- VM 的 `deploy_projector.sh` 預設不會安裝 VM cron，也不會在 VM 端執行新聞抓取。
+- 如果未來 VM 可以連外，才需要加上 `-EnableVmNewsFetch` 或 `-EnableVmNewsCron`。
+- 如果確定要把本機專案完整覆蓋到 VM，才使用 `-FullProjectDeploy`。這會使用整站同步並可能刪除 VM 上本機沒有的檔案。
+- Windows 本機需要 OpenSSH Client，也就是可以使用 `ssh` 和 `scp`。
+- 若要排程全自動，建議設定 SSH key，避免每次部署都等待輸入密碼。
+- 如果 VM 部署腳本需要 `sudo` 密碼，排程可能會卡住。建議設定只允許部署指令免密 sudo，或改由手動部署。
+
+## VM 檢查指令
+
+```bash
+ls -l /home/judy/projector_web_deploy.zip
+ls -l /home/judy/deploy_projector.sh
+ls -l /var/www/projector_project/index.html
+ls -l /var/www/projector_project/news_data.json
+ls -l /var/www/projector_project/news_collector.py
+sudo grep "root" /etc/nginx/sites-available/projector
+```

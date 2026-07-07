@@ -430,7 +430,7 @@
                     </section>
 
                     <section class="bg-white border border-slate-200 rounded-2xl shadow-sm p-5 mb-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3">
+                        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-3">
                             <div class="relative xl:col-span-2">
                                 <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
                                     <i class="fas fa-search"></i>
@@ -447,6 +447,13 @@
                                 class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs font-black text-slate-600 outline-none focus:border-indigo-500">
                                 <option value="">所有技術主題</option>
                                 <option v-for="topic in newsTopics" :key="topic" :value="topic">{{ topic }}</option>
+                            </select>
+                            <select v-model="newsDateRange"
+                                class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs font-black text-slate-600 outline-none focus:border-indigo-500">
+                                <option value="7">近 7 日</option>
+                                <option value="30">近 30 日</option>
+                                <option value="90">近 90 日</option>
+                                <option value="all">全部日期</option>
                             </select>
                         </div>
                     </section>
@@ -820,6 +827,7 @@
                 const newsSearch = ref('');
                 const newsCountry = ref('');
                 const newsTopic = ref('');
+                const newsDateRange = ref('7');
                 const newsLoading = ref(false);
                 const newsError = ref('');
                 const newsPage = ref(1);
@@ -1014,14 +1022,79 @@
                     return showOnlyDifferentSpecs.value ? differentSpecGroups.value : fieldGroups;
                 });
 
-                const projectorDataFiles = [
-                    'acer', 'anker', 'awol', 'benq', 'dangbei', 'dreame', 'epson', 'hisense',
-                    'jmgo', 'leica', 'lg', 'nexigo', 'optoma', 'samsung', 'sharp', 'viewsonic', 'xgimi'
-                ];
+                const projectorDataManifestPath = 'projector_data_manifest.json';
 
                 const hasBackendApi = () => {
                     const host = window.location.hostname;
                     return host === 'localhost' || host === '127.0.0.1' || /^\d+\.\d+\.\d+\.\d+$/.test(host);
+                };
+
+                const normalizeBrandKey = (brand) => String(brand || '')
+                    .trim()
+                    .toLowerCase()
+                    .replace(/\s+/g, '')
+                    .replace(/[^a-z0-9_-]/g, '');
+
+                const chooseBrandLabel = (brandKey, rows = []) => {
+                    const key = normalizeBrandKey(brandKey);
+                    if (key && key.length <= 3) return key.toUpperCase();
+
+                    const labels = rows
+                        .map(row => String(row?.Brand || '').trim())
+                        .filter(Boolean);
+                    if (!labels.length) return key ? key.toUpperCase() : '';
+
+                    const counts = new Map();
+                    const firstSeen = new Map();
+                    labels.forEach((label, index) => {
+                        counts.set(label, (counts.get(label) || 0) + 1);
+                        if (!firstSeen.has(label)) firstSeen.set(label, index);
+                    });
+
+                    const score = (label) => {
+                        const hasLower = /[a-z]/.test(label);
+                        const hasUpper = /[A-Z]/.test(label);
+                        if (hasLower && hasUpper) return 30;
+                        if (label === label.toUpperCase() && key.length <= 5) return 25;
+                        if (label === label.toLowerCase()) return 5;
+                        return 10;
+                    };
+
+                    return [...counts.keys()].sort((a, b) =>
+                        (counts.get(b) - counts.get(a)) ||
+                        (score(b) - score(a)) ||
+                        (firstSeen.get(a) - firstSeen.get(b))
+                    )[0];
+                };
+
+                const normalizeBrandList = (data) => {
+                    const brands = Array.isArray(data) ? data : (Array.isArray(data?.brands) ? data.brands : []);
+                    return [...new Set(brands
+                        .map(normalizeBrandKey)
+                        .filter(Boolean)
+                    )].sort();
+                };
+
+                const loadProjectorDataFiles = async () => {
+                    const sources = [];
+                    if (hasBackendApi()) {
+                        sources.push(`/api/brands?t=${Date.now()}`);
+                    }
+                    sources.push(`${projectorDataManifestPath}?t=${Date.now()}`);
+
+                    for (const source of sources) {
+                        try {
+                            const response = await fetch(source);
+                            if (!response.ok) continue;
+                            const brands = normalizeBrandList(await response.json());
+                            if (brands.length) return brands;
+                        } catch (error) {
+                            console.warn(`Failed to load projector brand list from ${source}`, error);
+                        }
+                    }
+
+                    console.error('No projector brand list found. Check /api/brands or projector_data_manifest.json.');
+                    return [];
                 };
 
                 const loadNews = async () => {
@@ -1054,6 +1127,27 @@
                     newsItems.value.flatMap(item => item.topics || []).filter(Boolean)
                 )].sort());
 
+                const parseNewsDateValue = (value) => {
+                    if (!value) return null;
+                    const text = String(value).trim();
+                    const match = text.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
+                    if (match) {
+                        return new Date(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
+                    }
+                    const parsed = new Date(text);
+                    return Number.isNaN(parsed.getTime()) ? null : parsed;
+                };
+
+                const newsRangeStartDate = computed(() => {
+                    if (newsDateRange.value === 'all') return null;
+                    const days = Number(newsDateRange.value);
+                    if (!Number.isFinite(days) || days <= 0) return null;
+                    const start = new Date();
+                    start.setHours(0, 0, 0, 0);
+                    start.setDate(start.getDate() - days);
+                    return start;
+                });
+
                 const filteredNews = computed(() => {
                     const keyword = newsSearch.value.trim().toLowerCase();
                     return newsItems.value
@@ -1069,7 +1163,9 @@
                             const matchesKeyword = !keyword || searchable.includes(keyword);
                             const matchesCountry = !newsCountry.value || item.country === newsCountry.value;
                             const matchesTopic = !newsTopic.value || (item.topics || []).includes(newsTopic.value);
-                            return matchesKeyword && matchesCountry && matchesTopic;
+                            const itemDate = parseNewsDateValue(item.published_at);
+                            const matchesDate = !newsRangeStartDate.value || (itemDate && itemDate >= newsRangeStartDate.value);
+                            return matchesKeyword && matchesCountry && matchesTopic && matchesDate;
                         })
                         .sort((a, b) => String(b.published_at || '').localeCompare(String(a.published_at || '')));
                 });
@@ -1115,13 +1211,20 @@
 
                 const loadData = async () => {
                     try {
+                        const projectorDataFiles = await loadProjectorDataFiles();
+                        if (!projectorDataFiles.length) {
+                            allData.value = [];
+                            return;
+                        }
+
                         const results = await Promise.all(projectorDataFiles.map(async b => {
                             try {
                                 const r = await fetch(`data_${b}.json?t=${Date.now()}`);
                                 if (!r.ok) return [];
                                 const data = await r.json();
-                                // 優先使用資料內的品牌名稱，避免中文品牌因檔名或部署環境編碼而顯示異常。
-                                return data.map(p => ({ ...p, Brand: p.Brand || b.toUpperCase() }));
+                                const rows = Array.isArray(data) ? data : [];
+                                const brandLabel = chooseBrandLabel(b, rows);
+                                return rows.map(p => ({ ...p, Brand: brandLabel, BrandKey: b }));
                             } catch { return []; }
                         }));
                         allData.value = results.flat();
@@ -1243,7 +1346,15 @@
                 };
 
                 const allBrands = computed(() => {
-                    return [...new Set(allData.value.map(p => p.Brand))].filter(b => b && b.trim()).sort();
+                    const brandMap = new Map();
+                    allData.value.forEach(p => {
+                        const key = normalizeBrandKey(p.BrandKey || p.Brand);
+                        const label = String(p.Brand || '').trim();
+                        if (key && label && !brandMap.has(key)) {
+                            brandMap.set(key, label);
+                        }
+                    });
+                    return [...brandMap.values()].sort();
                 });
                 const parseReleasedDate = (value) => {
                     if (!value) return 0;
@@ -1303,7 +1414,7 @@
                     }
                 });
 
-                watch([newsSearch, newsCountry, newsTopic], () => {
+                watch([newsSearch, newsCountry, newsTopic, newsDateRange], () => {
                     newsPage.value = 1;
                     scrollToTop();
                 });
@@ -1496,7 +1607,7 @@
                     toggleAiTag, clearRecommendations,
                     activeCompareSlots, differentSpecGroups, differentSpecCount,
                     showOnlyDifferentSpecs, visibleFieldGroups,
-                    newsItems, newsSearch, newsCountry, newsTopic, newsLoading, newsError,
+                    newsItems, newsSearch, newsCountry, newsTopic, newsDateRange, newsLoading, newsError,
                     newsCountries, newsTopics, filteredNews, newsLastUpdated,
                     newsPage, newsPageSize, newsPageStart, newsPageEnd, newsTotalPages,
                     paginatedNews, visibleNewsPages, goToNewsPage,

@@ -126,6 +126,14 @@
                             class="w-full mt-3 py-3 text-white rounded-xl font-black text-xs transition shadow-lg flex items-center justify-center gap-2">
                             💾 {{ loading ? '儲存中...' : '儲存變更到伺服器' }}
                         </button>
+                        <button @click="downloadAllProjectorData" :disabled="loading"
+                            class="w-full mt-3 py-3 bg-slate-800 hover:bg-slate-900 disabled:bg-slate-300 text-white rounded-xl font-black text-xs transition shadow-lg shadow-slate-200 flex items-center justify-center gap-2">
+                            下載全部投影機 JSON
+                        </button>
+                        <button @click="downloadProjectorSyncBundle" :disabled="loading"
+                            class="w-full mt-3 py-3 bg-amber-500 hover:bg-amber-600 disabled:bg-slate-300 text-white rounded-xl font-black text-xs transition shadow-lg shadow-amber-100 flex items-center justify-center gap-2">
+                            下載 GitHub 同步包
+                        </button>
                     </div>
                 </aside>
 
@@ -271,7 +279,7 @@
                             <div v-else-if="field.key === 'PPTX'" class="flex gap-2">
                                 <input v-model="editingItem.PPTX" type="text"
                                     class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 transition"
-                                    placeholder="檔案名稱 (例如: benq.pdf)">
+                                    placeholder="上傳後自動產生安全檔名">
                                 <button @click="triggerUpload('pptx')"
                                     class="px-4 bg-white border border-slate-200 rounded-xl text-[10px] font-black hover:bg-slate-50 transition">
                                     📁 上傳 PDF
@@ -281,7 +289,7 @@
                             <div v-else-if="field.key === 'Image URL'" class="flex gap-2">
                                 <input v-model="editingItem['Image URL']" type="text"
                                     class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 transition"
-                                    placeholder="圖片路徑 (例如: images/benq.png)">
+                                    placeholder="上傳後自動產生安全路徑">
                                 <button @click="triggerUpload('image')"
                                     class="px-4 bg-white border border-slate-200 rounded-xl text-[10px] font-black hover:bg-slate-50 transition">
                                     🖼️ 上傳
@@ -327,6 +335,26 @@
                 const hasUnsavedChanges = ref(false);
                 const editingItem = ref(null);
                 const dataCheckResult = ref({});
+                const brandDisplayNames = ref({});
+
+                const normalizeBrandKey = (brand) => String(brand || '')
+                    .trim()
+                    .toLowerCase()
+                    .replace(/\s+/g, '')
+                    .replace(/[^a-z0-9_-]/g, '');
+
+                const brandDisplayFromInput = (brand) => {
+                    const label = String(brand || '').trim();
+                    if (!label) return '';
+                    const key = normalizeBrandKey(label);
+                    if (key && key.length <= 3) return key.toUpperCase();
+                    return label;
+                };
+
+                const getBrandDisplayName = (brandKey, fallback = '') => {
+                    const key = normalizeBrandKey(brandKey);
+                    return brandDisplayNames.value[key] || brandDisplayFromInput(fallback || brandKey);
+                };
 
                 const formFields = [
                     { label: '品牌', key: 'Brand' },
@@ -403,7 +431,11 @@
                 const loadBrands = async () => {
                     try {
                         const r = await fetch('/api/brands');
-                        brands.value = await r.json();
+                        const data = await r.json();
+                        brands.value = [...new Set((Array.isArray(data) ? data : [])
+                            .map(normalizeBrandKey)
+                            .filter(Boolean)
+                        )].sort();
                         if (brands.value.length > 0 && !selectedBrand.value) {
                             selectedBrand.value = brands.value[0];
                             loadData();
@@ -449,6 +481,13 @@
                     try {
                         const r = await fetch(`data_${selectedBrand.value}.json?t=${Date.now()}`);
                         list.value = r.ok ? await r.json() : [];
+                        const firstBrand = list.value.find(item => item && item.Brand)?.Brand;
+                        if (firstBrand) {
+                            brandDisplayNames.value = {
+                                ...brandDisplayNames.value,
+                                [selectedBrand.value]: brandDisplayFromInput(firstBrand)
+                            };
+                        }
                         hasUnsavedChanges.value = false;
                         dataCheckResult.value = {};
                     } catch { list.value = []; }
@@ -481,7 +520,7 @@
 
                 const addNewItem = () => {
                     editingItem.value = {
-                        Brand: selectedBrand.value ? selectedBrand.value.toUpperCase() : '',
+                        Brand: selectedBrand.value ? getBrandDisplayName(selectedBrand.value) : '',
                         Model: '',
                         IsSWQE: 'No',
                         'St. Price': 'N/A',
@@ -492,13 +531,21 @@
                 const promptNewBrand = () => {
                     const name = prompt('請輸入新品牌名稱 (英文):');
                     if (name) {
-                        const lowerName = name.trim().toLowerCase();
-                        if (brands.value.includes(lowerName)) {
+                        const brandKey = normalizeBrandKey(name);
+                        if (!brandKey) {
+                            alert('Brand name is invalid');
+                            return;
+                        }
+                        if (brands.value.includes(brandKey)) {
                             alert('該品牌已存在');
                             return;
                         }
-                        brands.value.push(lowerName);
-                        selectedBrand.value = lowerName;
+                        brandDisplayNames.value = {
+                            ...brandDisplayNames.value,
+                            [brandKey]: brandDisplayFromInput(name)
+                        };
+                        brands.value.push(brandKey);
+                        selectedBrand.value = brandKey;
                         list.value = [];
                         hasUnsavedChanges.value = true;
                     }
@@ -509,6 +556,7 @@
                         alert('請輸入型號名稱');
                         return;
                     }
+                    editingItem.value.Brand = getBrandDisplayName(selectedBrand.value, editingItem.value.Brand);
                     const idx = list.value.findIndex(p => p.Model === editingItem.value.Model);
                     if (idx > -1) {
                         list.value[idx] = JSON.parse(JSON.stringify(editingItem.value));
@@ -530,12 +578,23 @@
                             },
                             body: JSON.stringify({
                                 brand: selectedBrand.value,
+                                brandDisplay: getBrandDisplayName(
+                                    selectedBrand.value,
+                                    list.value.find(item => item && item.Brand)?.Brand
+                                ),
                                 data: list.value
                             })
                         });
                         const data = await res.json();
                         if (data.success) {
                             alert('儲存成功！');
+                            if (data.brand && data.brandDisplay) {
+                                brandDisplayNames.value = {
+                                    ...brandDisplayNames.value,
+                                    [data.brand]: data.brandDisplay
+                                };
+                                list.value = list.value.map(item => ({ ...item, Brand: data.brandDisplay }));
+                            }
                             hasUnsavedChanges.value = false;
                             loadBrands(); // 重新整理品牌列表
                         } else {
@@ -546,6 +605,54 @@
                     } finally {
                         loading.value = false;
                     }
+                };
+
+                const downloadZipFile = async (apiPath, fallbackPrefix) => {
+                    loading.value = true;
+                    try {
+                        const res = await fetch(apiPath, {
+                            method: 'GET',
+                            headers: {
+                                'Authorization': `Bearer ${token.value}`
+                            }
+                        });
+
+                        if (!res.ok) {
+                            let message = '下載失敗，請稍後再試。';
+                            try {
+                                const data = await res.json();
+                                message = data.message || message;
+                            } catch (e) {
+                                // Keep the default message when the response is not JSON.
+                            }
+                            throw new Error(message);
+                        }
+
+                        const blob = await res.blob();
+                        const disposition = res.headers.get('Content-Disposition') || '';
+                        const filenameMatch = disposition.match(/filename="?([^"]+)"?/i);
+                        const filename = filenameMatch ? filenameMatch[1] : `${fallbackPrefix}_${Date.now()}.zip`;
+                        const url = URL.createObjectURL(blob);
+                        const link = document.createElement('a');
+                        link.href = url;
+                        link.download = filename;
+                        document.body.appendChild(link);
+                        link.click();
+                        link.remove();
+                        URL.revokeObjectURL(url);
+                    } catch (e) {
+                        alert(e.message || '下載失敗，請稍後再試。');
+                    } finally {
+                        loading.value = false;
+                    }
+                };
+
+                const downloadAllProjectorData = () => {
+                    return downloadZipFile('/api/export_projector_data', 'projector_data_json');
+                };
+
+                const downloadProjectorSyncBundle = () => {
+                    return downloadZipFile('/api/export_projector_sync_bundle', 'projector_github_sync_bundle');
                 };
 
                 const uploadType = ref('');
@@ -580,7 +687,7 @@
                             } else {
                                 editingItem.value['Image URL'] = data.path || ('images/' + file.name);
                             }
-                            alert('上傳成功！');
+                            alert(`上傳成功！\n原始檔名：${data.original_filename || file.name}\n系統檔名：${data.filename || data.path}`);
                         } else {
                             alert('上傳失敗：' + data.message);
                         }
@@ -626,7 +733,7 @@
                     brands, selectedBrand, list, search, filteredList,
                     selectBrand, editItem, deleteItem, addNewItem,
                     editingItem, formFields, saveEdit, saveToServer,
-                    handleFileUpload, triggerUpload,
+                    downloadAllProjectorData, downloadProjectorSyncBundle, handleFileUpload, triggerUpload,
                     hasUnsavedChanges, promptNewBrand, deleteBrand,
                     dataCheckResult, runDataCheck
                 };
