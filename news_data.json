@@ -1,23 +1,309 @@
 [
   {
-    "id": "d1d7dd3202574d59",
-    "title": "5,000 ANSI Lumens 4K Laser Installation Projector - ViewSonic",
-    "title_zh_tw": "5,000 ANSI Lumens 4K Laser Installation Projector",
-    "summary_zh_tw": "此則消息的可辨識重點為 ViewSonic、雷射光源，原始標題為「5,000 ANSI Lumens 4K Laser Installation Projector - ViewSonic」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "ViewSonic",
-    "source_url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5ZRFJCZ3BCRW80MEZ0WDBjaEp3bzh6bjJFS2VlUHhNdFo0NUJvOGpmVEp4eXRJQnI3TWNYRzFnSXI3UFhhWGNwbEE5R2ZMMjBlS0M4SEt4NERjXzJubk1TSmtaNXd4UlNDdHc?oc=5",
-    "published_at": "2026-08-05",
+    "id": "5dfff629f284fd9f",
+    "title": "极米推出Z9X 4K高亮版投影仪：1600CVIA亮度，3298元 - 搜狐网",
+    "title_zh_tw": "极米推出Z9X 4K高亮版投影機：1600CVIA亮度，3298元",
+    "summary_zh_tw": "此則消息的可辨識重點為 XGIMI、產業動態，原始標題為「极米推出Z9X 4K高亮版投影仪：1600CVIA亮度，3298元 - 搜狐网」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "搜狐网",
+    "source_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNcDNtVUtjdFZTWTJOV0Mtamd5Sjk0aEdvS3BHdDk4OTAxeHI4Q09Pd2hpOVVpUUFHLW92cHYtVVg0Y1JyWjV6Mmwtdm02ZmJLWFlOaGtHZHZ2S0xoajlFR0lrMnAyZFRBampUekFkVFVTVUMweVZ6Y3JWVnJYRkw0U0RmVUxNS1VN?oc=5",
+    "published_at": "2026-08-07",
+    "country": "中國",
+    "language": "zh-CN",
+    "brands": [
+      "XGIMI"
+    ],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:39+00:00"
+  },
+  {
+    "id": "ef5a31ace8399b7d",
+    "title": "4K Golf Simulator Projector Shootout : BenQ LK830ST vs Optoma UHD35STx - BenQ",
+    "title_zh_tw": "4K Golf Simulator Projector Shootout : BenQ LK830ST vs Optoma UHD35STx",
+    "summary_zh_tw": "此則消息的可辨識重點為 BenQ、Optoma、產業動態，原始標題為「4K Golf Simulator Projector Shootout : BenQ LK830ST vs Optoma UHD35STx - BenQ」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "BenQ",
+    "source_url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOV1cyamg0bFNodEI4blJWcEJQVXJmMW5ob1FROWF3cGxEZW93Q1FIMmVOb3c1MWtBcUhiQmpONF80cHBxendjM0tNT0NVT0RuOUhxTkpnM2g0MUI3Q0pDWXdPMzBsTFI2M1NVYWgyZnFFV0hpOWpUalNhUHJWZm1vaG1RWU9BaG14YkFsRmJ6VGR4cDBXalBHaVdOY0JMSlYwSE5HRGpxVzdHTzNSUmowSGk4cWJVQzVqSnc?oc=5",
+    "published_at": "2026-08-06",
     "country": "全球",
     "language": "en-US",
     "brands": [
-      "ViewSonic"
+      "BenQ",
+      "Optoma"
     ],
     "topics": [
-      "雷射光源"
+      "產業動態"
     ],
     "is_official": true,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:24+00:00"
+    "collected_at": "2026-08-07T03:48:41+00:00"
+  },
+  {
+    "id": "4aa8eb8f0ce966b1",
+    "title": "Why is my projector showing battery overheat and stop charging message? - BenQ",
+    "title_zh_tw": "Why is my projector showing battery overheat and stop charging message?",
+    "summary_zh_tw": "此則消息的可辨識重點為 BenQ、產業動態，原始標題為「Why is my projector showing battery overheat and stop charging message? - BenQ」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "BenQ",
+    "source_url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOanZiWjVGb3pJUV9wajhnTnc4NXVDeDhSaGp1UjdWa1pRNW45Wm43MDB1bFpjbUZMdHhFRWZXdEJIZXRUQzBsanM1V2JBeUVsdTYzOXFXVzNzcjJCTjRVcEhjR0lCZlVIUFNxVFR5LXFtYlJ4ZmRTVGVsS3Ewc0J6OXFWd2FOS1lWZnBFV2lR?oc=5",
+    "published_at": "2026-08-06",
+    "country": "全球",
+    "language": "en-US",
+    "brands": [
+      "BenQ"
+    ],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": true,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:41+00:00"
+  },
+  {
+    "id": "1ddc78f94f55c887",
+    "title": "The Soundcore Nebula P1i portable projector is on sale for under $300 — summer movie nights just got an upgrade - Mashable",
+    "title_zh_tw": "The Soundcore Nebula P1i portable projector is on sale for under $300 — summer movie nights just got an upgrade",
+    "summary_zh_tw": "此則消息的可辨識重點為 Anker Nebula、產業動態，原始標題為「The Soundcore Nebula P1i portable projector is on sale for under $300 — summer movie nights just got an upgrade - Mashable」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "Mashable",
+    "source_url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1laEVDcUk2RFVkZWtsajFzM3dqTnZEUnhTVl9OSjBhNFBMMFM5U243Ml9JUWltRGZxZzNPLTFmZFg1clhncDJPN3QyZEEtNVVhQ0hDQzlZRTFwdTF4NGZXTVU2X1hNeVNC?oc=5",
+    "published_at": "2026-08-06",
+    "country": "美國",
+    "language": "en-US",
+    "brands": [
+      "Anker Nebula"
+    ],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "0795116a3d5ca107",
+    "title": "＜画像1 / 3＞プロの朗読付き！天井や壁に投影する“絵本読み聞かせ”プロジェクター発売へ - ウォーカープラス",
+    "title_zh_tw": "＜画像1 / 3＞プロの朗読付き！天花板や壁に投影する“絵本読み聞かせ”投影機開賣へ",
+    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「＜画像1 / 3＞プロの朗読付き！天井や壁に投影する“絵本読み聞かせ”プロジェクター発売へ - ウォーカープラス」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "ウォーカープラス",
+    "source_url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBjeGFOQ01YSDBmaFBlMWY1bnVvN2RsT3gzODlXcF8yRjR6NzVpRWJOWVNER1o2WC01bkhvWXAzTE8xbUEteDdGOWk4RXJWcFV2bmJ2NG5OX055NkFKdER5TTlQMHByY2s?oc=5",
+    "published_at": "2026-08-06",
+    "country": "日本",
+    "language": "ja",
+    "brands": [],
+    "topics": [
+      "新品發表"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "0689e82bbc1a6e82",
+    "title": "Cyclops laser projector goes super bright up to 400 inches - newatlas.com",
+    "title_zh_tw": "Cyclops laser projector goes super bright up to 400 inches",
+    "summary_zh_tw": "此則消息的可辨識重點為 雷射光源，原始標題為「Cyclops laser projector goes super bright up to 400 inches - newatlas.com」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "newatlas.com",
+    "source_url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOSmpQN3hmNUJ1RW5jeGFnQTRnVlpXelRETlkyQmZ0bUpub3ppUmh6dzhaY3IxbUItbkhSaGlYN2x5V3E4d0pRR0NwNkVWcUJGQXIzRFJ6UVIydkpockJnTWtzcnJoOFVvUmRMZjFFWUJJU1JxNjJhSzZiZ1BVMkl0c2hsbnY3cFB5YjFoWGZ3?oc=5",
+    "published_at": "2026-08-06",
+    "country": "美國",
+    "language": "en-US",
+    "brands": [],
+    "topics": [
+      "雷射光源"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "a8a52a9efd87131d",
+    "title": "Here’s a Flashy Deal: Save $200 With This Cinematic LG Projector - PCMag",
+    "title_zh_tw": "Here’s a Flashy Deal: Save $200 With This Cinematic LG Projector",
+    "summary_zh_tw": "此則消息的可辨識重點為 LG、產業動態，原始標題為「Here’s a Flashy Deal: Save $200 With This Cinematic LG Projector - PCMag」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "PCMag",
+    "source_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPNTlNTVFDYUJJNTNEMlR1Zk51U2hLcU1UOVB5Rk9jbkJrTmJ2alQza0sycC0ySVhKdVFFa3hVOWFBSEhCbFBmaTVNcEZFQkJBN0l4bkd0Wjg1a1IzWnkxRXJaRnpWUjdEb2ZLdlQxcU8xTHdlNVVXVDNCZXVLTGhWM1JHcXpaMWRKSFl1dV9aRVRud1NBenR3aTctY1JJSzQ?oc=5",
+    "published_at": "2026-08-06",
+    "country": "美國",
+    "language": "en-US",
+    "brands": [
+      "LG"
+    ],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "96161c70a8f9c4ba",
+    "title": "CNET Readers Can Use This Exclusive Code to Get the Xgimi 4K Projector for Half Off - CNET",
+    "title_zh_tw": "CNET Readers Can Use This Exclusive Code to Get the Xgimi 4K Projector for Half Off",
+    "summary_zh_tw": "此則消息的可辨識重點為 XGIMI、產業動態，原始標題為「CNET Readers Can Use This Exclusive Code to Get the Xgimi 4K Projector for Half Off - CNET」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "CNET",
+    "source_url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9DYWVvNTVQTDVJazBkdWNMdVdSTXFJRGlNcWZ4RENDZHRYQlFKblN0TE8xYTNaSkFLWnoxREVfUFNMcUlYSkNsWmVHYmRfMWM0YmRUdHRWVnFtbkNlSnRJZnpmZS1zN1FsNTBldzJabDBYamJBMzdaYkNsMFAteEk?oc=5",
+    "published_at": "2026-08-06",
+    "country": "美國",
+    "language": "en-US",
+    "brands": [
+      "XGIMI"
+    ],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "af2c5bae9bb7f0a3",
+    "title": "FUJIFILM AUSTRALIA LAUNCHES NEW FUJIFILM PROJECTOR ZUH12000 - Fujifilm [Global]",
+    "title_zh_tw": "FUJIFILM AUSTRALIA LAUNCHES NEW FUJIFILM PROJECTOR ZUH12000",
+    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「FUJIFILM AUSTRALIA LAUNCHES NEW FUJIFILM PROJECTOR ZUH12000 - Fujifilm [Global]」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "Fujifilm [Global]",
+    "source_url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9PWmkzSElWSFlicWc4Q21zNUpZZ19LaDJwbXA4NzRjY1VGZk9nY0RfdjdGYWw2d2R5SVFNVU9NN0szeFdyNkFPLWdhUkpPdTFKRVFfbk9SV3NFN3N2NFIyR3F1djFPb1dST00zNzhobUw?oc=5",
+    "published_at": "2026-08-06",
+    "country": "美國",
+    "language": "en-US",
+    "brands": [],
+    "topics": [
+      "新品發表"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "7e9dd0c2b60058cc",
+    "title": "【最終日】Ankerが「TIME SALE」を開催中〜ポタ電・プロジェクターなど130製品以上が最大50%OFF - touchlab.jp",
+    "title_zh_tw": "【最終日】Ankerが「TIME SALE」を開催中〜ポタ電・投影機など130製品以上が最大50%OFF",
+    "summary_zh_tw": "此則消息的可辨識重點為 Anker Nebula、產業動態，原始標題為「【最終日】Ankerが「TIME SALE」を開催中〜ポタ電・プロジェクターなど130製品以上が最大50%OFF - touchlab.jp」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "touchlab.jp",
+    "source_url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9uaFM2Z3NHcDFHeDVFbGJDR3pOLVM1ZmZZcHByZ1o2THNONXdJbnM1SkJWQnNnQUNlanJXaW9KQmQycDVYZk83bVdSNE9GZkZTbk5GYi1YdDFkSXkxQVdLOE5n?oc=5",
+    "published_at": "2026-08-06",
+    "country": "日本",
+    "language": "ja",
+    "brands": [
+      "Anker Nebula"
+    ],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "9027b82f758ec52a",
+    "title": "討論牆| BenQ 五款新品一次發表！LED行動投影機GV30、4K智慧雷射電視V7000i在家戶外都追劇 - LINE TODAY",
+    "title_zh_tw": "討論牆| BenQ 五款新品一次發表！LED行動投影機GV30、4K智慧雷射電視V7000i在家戶外都追劇",
+    "summary_zh_tw": "此則消息的可辨識重點為 BenQ、新品發表、雷射光源，原始標題為「討論牆| BenQ 五款新品一次發表！LED行動投影機GV30、4K智慧雷射電視V7000i在家戶外都追劇 - LINE TODAY」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "LINE TODAY",
+    "source_url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBFckJRaDAxQ285RlNMaFQzcjRtWkVyNDVjVE1GV0J1Wm1udGYyYnRRanJJSEk5N2hqdjQ4dUNmYzFFXzFvRzBSd3JZMzZlakFvRzdWWG90Vzdqdk1HZFdLTHZsS3NVX3Qtd0ROTkVkaGktbHpuQ2hj?oc=5",
+    "published_at": "2026-08-06",
+    "country": "台灣",
+    "language": "zh-TW",
+    "brands": [
+      "BenQ"
+    ],
+    "topics": [
+      "新品發表",
+      "雷射光源"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:39+00:00"
+  },
+  {
+    "id": "e685b7af2220eefb",
+    "title": "视美乐激光投影8月产品合集_手机新浪网 - 新浪财经",
+    "title_zh_tw": "视美乐雷射投影8月產品合集_手機新浪網",
+    "summary_zh_tw": "此則消息的可辨識重點為 雷射光源，原始標題為「视美乐激光投影8月产品合集_手机新浪网 - 新浪财经」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "新浪财经",
+    "source_url": "https://news.google.com/rss/articles/CBMivgRBVV95cUxPLURTNjI0aktSaU85RWkyc2JwaWZRaEhHV2ljM3NuRHBhZEIxMVIxVWl0Z21PU3ZOTnBjemVQdTN3YlFkZHBYcGtnenR1cW4yNUYySV9rVy1uNWlqRndncEU2bG9yOU5faV95ZVlON2R2aVd0dmVRc1hOeEpMcnpoSEJqb0diWFZERnJydmFocVBQT3R1VExpYmRQLUd0RnllazBYaGJpZWlrRjZBZ2YtcmNCOUVaREQxSVJyaF9POWtzMmNZbFpWRVhLcWVGOE5nZHJrSG9XUzV4S2tKWkt5TExzQXJ3TThwRUJoN0F1SWdlWER6cGIwZjc5WnZqWlVGckdZTUNnZGwxMFdCWUVVSVU0SGFoY2Y4NGt3TXpqUm1FVEM4OVFSZ1cyWV9hMS1mTVM5dF9DTHNpN2hhNWRVRUo0cjhucE9xNk5SZEY0ZkV1VG4xSTZpM0FtSkJqaUdIaExaU0VTT0UyMEZaampzYk5qT1hiVks4V1NBS19jLUo5YmZhTW1LVUpXWkRBMzZjNUhnWllscW84Mld0ZUJnZzc5RV9XTjRnTnFsM2tob0p1bHY4MlB2Zm5mVUhNZGVuOE4wYjA5QkwxeFo5WDIwM2RHZVRKYlYya3RwalYtclBaVUNldW1jVC0tUkVPOG1vcm5MWnNzSXdxWWxSYmYzZjIwLUVJb3B5NkV4bnR3RnF2R0tiNFlrUkhobHpPM1R6TzMwT0JJcHRBWFd3STkySFEzMGhPRTNUZHAzdWxR?oc=5",
+    "published_at": "2026-08-06",
+    "country": "中國",
+    "language": "zh-CN",
+    "brands": [],
+    "topics": [
+      "雷射光源"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:39+00:00"
+  },
+  {
+    "id": "208b0a7cfcbc05cf",
+    "title": "百元投影仪家用推荐：哈趣Q1 Pro高亮版宿舍卧室都能用 - 驱动之家",
+    "title_zh_tw": "百元投影機家用推荐：哈趣Q1 Pro高亮版宿舍卧室都能用",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「百元投影仪家用推荐：哈趣Q1 Pro高亮版宿舍卧室都能用 - 驱动之家」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "驱动之家",
+    "source_url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBYR1NGT0I5NE0xYmJKbDVrUnBHcERMZGhkN1N6OTAtb3kzRkpoZTV2eWtGc19YYlNLR1p6WGNJUUtmMV9jMzVqRlVncGZWRHJ4bUFqOE5CSVg?oc=5",
+    "published_at": "2026-08-06",
+    "country": "中國",
+    "language": "zh-CN",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:39+00:00"
+  },
+  {
+    "id": "a1b161aeb8536429",
+    "title": "千元投影仪怎么选 2026闭眼入推荐哈趣投影仪H3UltraMax - 驱动之家",
+    "title_zh_tw": "千元投影機怎么選 2026闭眼入推荐哈趣投影機H3UltraMax",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「千元投影仪怎么选 2026闭眼入推荐哈趣投影仪H3UltraMax - 驱动之家」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "驱动之家",
+    "source_url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9WLWxNT1RYOW5PcldjcDhSOGZ0cTU4RGUzbU1feGRjYXkwNEFXR2xMeXZ2TGxBZ2J0S0JtZ3Y0by1YNllHOTBnTFZYWjZpX3lEM0U1di16MkI?oc=5",
+    "published_at": "2026-08-06",
+    "country": "中國",
+    "language": "zh-CN",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:39+00:00"
+  },
+  {
+    "id": "28c073df53a4bc18",
+    "title": "五一狂欢看球神器！大屏投影仪+4个月会员，带你零门槛享受米兰・(milan)中国官方网站米兰・(milan) - 电玩巴士",
+    "title_zh_tw": "五一狂欢看球神器！大螢幕投影機+4个月會员，帶你零门槛享受米兰・(milan)中國官方網站米兰・(milan)",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「五一狂欢看球神器！大屏投影仪+4个月会员，带你零门槛享受米兰・(milan)中国官方网站米兰・(milan) - 电玩巴士」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "电玩巴士",
+    "source_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9ZUDVJMjJqdlhZaVlSOWtMelVyOUJZc2d5bThiR3MtSFhWSXZSR0NZQjZnTVd3Wk1RYnA1a3Z0TTctNGxCbzQ1bGRZNWtQOGpReWxLd0M2bXFsZw?oc=5",
+    "published_at": "2026-08-06",
+    "country": "中國",
+    "language": "zh-CN",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:39+00:00"
+  },
+  {
+    "id": "cc637c6dcda57aff",
+    "title": "3377体育在线下载观赛神器选购指南｜2026年高刷电视/投影仪推荐，家庭影院升级必看-TGBUS - 电玩巴士",
+    "title_zh_tw": "3377體育在线下載观赛神器選购指南｜2026年高刷電视/投影機推荐，家庭影院升級必看-TGBUS",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「3377体育在线下载观赛神器选购指南｜2026年高刷电视/投影仪推荐，家庭影院升级必看-TGBUS - 电玩巴士」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "电玩巴士",
+    "source_url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5uMmlzaC05RGpfNXJDZ3dsT1U1MzFuc1djV3ZSUXVhMXZ3YzV2SlhSMkQwSHdCaGNTYkRkZWlIRkF4RGhrV3d1dUxRckE5bnFGeEFtOWlFX2VzODV3NFlISnVid2I?oc=5",
+    "published_at": "2026-08-06",
+    "country": "中國",
+    "language": "zh-CN",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "268ee254f40f36a4",
@@ -35,7 +321,7 @@
     ],
     "is_official": true,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:24+00:00"
+    "collected_at": "2026-08-07T03:48:41+00:00"
   },
   {
     "id": "70ad9cfff5208c26",
@@ -55,7 +341,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "55c443ef8e70632a",
@@ -76,27 +362,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
-  },
-  {
-    "id": "1ddc78f94f55c887",
-    "title": "The Soundcore Nebula P1i portable projector is on sale for under $300 — summer movie nights just got an upgrade - Mashable",
-    "title_zh_tw": "The Soundcore Nebula P1i portable projector is on sale for under $300 — summer movie nights just got an upgrade",
-    "summary_zh_tw": "此則消息的可辨識重點為 Anker Nebula、產業動態，原始標題為「The Soundcore Nebula P1i portable projector is on sale for under $300 — summer movie nights just got an upgrade - Mashable」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "Mashable",
-    "source_url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1laEVDcUk2RFVkZWtsajFzM3dqTnZEUnhTVl9OSjBhNFBMMFM5U243Ml9JUWltRGZxZzNPLTFmZFg1clhncDJPN3QyZEEtNVVhQ0hDQzlZRTFwdTF4NGZXTVU2X1hNeVNC?oc=5",
-    "published_at": "2026-08-05",
-    "country": "美國",
-    "language": "en-US",
-    "brands": [
-      "Anker Nebula"
-    ],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "aa39661cd0546dfe",
@@ -114,7 +380,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "986c303339dc4425",
@@ -134,14 +400,14 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "8c7d58591ac490aa",
-    "title": "Fujifilm announces the professional grade Projector ZUH12000 - capturemag.com.au",
+    "title": "Fujifilm announces the professional grade Projector ZUH12000 - Capture Magazine",
     "title_zh_tw": "Fujifilm announces the professional grade Projector ZUH12000",
-    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「Fujifilm announces the professional grade Projector ZUH12000 - capturemag.com.au」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "capturemag.com.au",
+    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「Fujifilm announces the professional grade Projector ZUH12000 - Capture Magazine」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "Capture Magazine",
     "source_url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNbnhCaVRWdk11M0Y4MkNvOWxBdTJEeUotUVUya0FxcHN6aE10dU9KOTBteUlUU3JQMnNUel9Zd1phdHhKN2o4RTJIRXA5UGJ4d3lNbzdpTXJiYWJjbUF1V004NVBDc3k4N3k2V0F1elNJbDRSMVM4TFk1dTczX0p0NmYtdjhVV2JjNktUV1pxQVZ4NHprTWo4UWY3dw?oc=5",
     "published_at": "2026-08-05",
     "country": "美國",
@@ -152,7 +418,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "191c86788ea46855",
@@ -170,7 +436,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "1cc3e8c6c371049a",
@@ -190,7 +456,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "654886948f9c3c61",
@@ -208,7 +474,25 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "88340e5a0d91b101",
+    "title": "Xiaomi launches affordable Redmi Projector 5 with 1080p resolution & built-in gimbal - Gizmochina",
+    "title_zh_tw": "Xiaomi launches affordable Redmi Projector 5 with 1080p resolution & built-in gimbal",
+    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「Xiaomi launches affordable Redmi Projector 5 with 1080p resolution & built-in gimbal - Gizmochina」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "Gizmochina",
+    "source_url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOcGpQQWt4Z3JzLWtVYzNQcm5CZnlCNHhmVXg1WUpodFY0a213RXdQbV81UWhrRnpab2ZkWDNrMzNYeTFxSkZCdUF1U0ZISUJiM2IyRW1OUFpGSjlPajRjbWFZaTM5V0J0SXF4VDV4NE9TYlZDU2Uwb1pMUUt6ZUpMOEZNQU04X2lfZTMzMg?oc=5",
+    "published_at": "2026-08-05",
+    "country": "美國",
+    "language": "en-US",
+    "brands": [],
+    "topics": [
+      "新品發表"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "3517a0cab5e2168f",
@@ -228,7 +512,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "e0f4efaa5ec636fb",
@@ -248,7 +532,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "f1cef86df52944c1",
@@ -268,7 +552,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "f5919a19e7f1fad3",
@@ -288,7 +572,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "4365496dd39534a5",
@@ -306,7 +590,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "91ed173c93aa8f43",
@@ -324,7 +608,709 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
+  },
+  {
+    "id": "f0f5e17bd941cf1a",
+    "title": "英皇娱乐app官方下载智能投影仪定档6月：4K 120Hz巨幕，专为篮球赛事优化-TGBUS - 电玩巴士",
+    "title_zh_tw": "英皇娱乐app官方下載智慧投影機定档6月：4K 120Hz巨幕，专為篮球赛事優化-TGBUS",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「英皇娱乐app官方下载智能投影仪定档6月：4K 120Hz巨幕，专为篮球赛事优化-TGBUS - 电玩巴士」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "电玩巴士",
+    "source_url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1Sczhwdk9UZTBFbjg1NVZPZGRIN2QxS1FPWXdCX0pUMF8wak1GWDBNY1dJYmFidnpCVWZQeExUZGNuQUlLYVJYeDhOenVZYlhqNFlTb0Q0eExqUkRjaXVSbTdFNGVJYXhnUEU5d1FB?oc=5",
+    "published_at": "2026-08-05",
+    "country": "中國",
+    "language": "zh-CN",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:39+00:00"
+  },
+  {
+    "id": "d8155216f2fff125",
+    "title": "仅厚12.9mm！VisionMax 4K投影仪让mg电子游戏纤毫毕现- TGBUS - 电玩巴士",
+    "title_zh_tw": "仅厚12.9mm！VisionMax 4K投影機让mg電子游戏纤毫毕现- TGBUS",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「仅厚12.9mm！VisionMax 4K投影仪让mg电子游戏纤毫毕现- TGBUS - 电玩巴士」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "电玩巴士",
+    "source_url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9JNlJuZUdZT1loYkticVpOOUtyalBwWktaQ0NDWmtRY1RPMnEtWG5ObmVOSUtLOTBmOWJLRWcwRUM2eG82bF84WWJFOTU1Nzhzckp1dlVOZ0F4V0Z1?oc=5",
+    "published_at": "2026-08-05",
+    "country": "中國",
+    "language": "zh-CN",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:39+00:00"
+  },
+  {
+    "id": "ca7480af362d5dd1",
+    "title": "终结选择困难：博雅体育官网入口投影仪，颜值、画质与自由兼得- TGBUS - 电玩巴士",
+    "title_zh_tw": "终结選择困难：博雅體育官網入口投影機，颜值、画質與自由兼得- TGBUS",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「终结选择困难：博雅体育官网入口投影仪，颜值、画质与自由兼得- TGBUS - 电玩巴士」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "电玩巴士",
+    "source_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5MSU1kclNXcVJVcnl2UXhTVmtEZWhxOUttSWRWMm1hYjRoSzJZX25TSk5lcHRyUDBlR0JRcW4xRWRBdlNsRXh4U05qZF9YN01KbThIME1mcVZ2cVJQR0xB?oc=5",
+    "published_at": "2026-08-05",
+    "country": "中國",
+    "language": "zh-CN",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:39+00:00"
+  },
+  {
+    "id": "af1735034141e224",
+    "title": "2026款智能欧赔足球官网入口投影仪上市2999元起畅享超清赛事-TGBUS - 电玩巴士",
+    "title_zh_tw": "2026款智慧欧赔足球官網入口投影機上市2999元起畅享超清赛事-TGBUS",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「2026款智能欧赔足球官网入口投影仪上市2999元起畅享超清赛事-TGBUS - 电玩巴士」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "电玩巴士",
+    "source_url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBJcWdibGtSWFlJRmlJQ09BYjFhR016WGRHRGFmNGxEdW5Eb2Z3cDJieUlpcjRHQmlMTkprdjl5X2JVWWZpWnV2WGUzVjNNbVFhXzdIcjNSNEkwbkZzbVBMelF3?oc=5",
+    "published_at": "2026-08-05",
+    "country": "中國",
+    "language": "zh-CN",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:39+00:00"
+  },
+  {
+    "id": "19312292742ba08c",
+    "title": "终结选择困难：b体育官方入口新品投影仪以颜值、画质与自由定义家庭影院新时代-TGBUS - 电玩巴士",
+    "title_zh_tw": "终结選择困难：b體育官方入口新品投影機以颜值、画質與自由定义家庭影院新时代-TGBUS",
+    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「终结选择困难：b体育官方入口新品投影仪以颜值、画质与自由定义家庭影院新时代-TGBUS - 电玩巴士」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "电玩巴士",
+    "source_url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5VUFlnYmlGWEM4QU1ZSzEtdk4zWExuTktGeUlhMkItSVRsY3hJZm94MkU5ZmRUTV9pb0Y3Y3lSc2JjcFliVVpfWTRBdXlSUFpNYmdCcXB2QXF1Wlk?oc=5",
+    "published_at": "2026-08-05",
+    "country": "中國",
+    "language": "zh-CN",
+    "brands": [],
+    "topics": [
+      "新品發表"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:39+00:00"
+  },
+  {
+    "id": "5622cdfc59cf8216",
+    "title": "天博com体育下载入口投影仪被重新看见：家庭娱乐新选择，相关企业已超8万家- TGBUS - 电玩巴士",
+    "title_zh_tw": "天博com體育下載入口投影機被重新看见：家庭娱乐新選择，相关企業已超8萬家- TGBUS",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「天博com体育下载入口投影仪被重新看见：家庭娱乐新选择，相关企业已超8万家- TGBUS - 电玩巴士」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "电玩巴士",
+    "source_url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE03cHZMSEZYekVraG5Td0VMRHEzdW50cU9wX3Y5VnpNM2JKVWlJSy1TMnlWMEZBSWRncFQyalBPbGlKbk84WGZJd3NKWEsyQWM?oc=5",
+    "published_at": "2026-08-05",
+    "country": "中國",
+    "language": "zh-CN",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:39+00:00"
+  },
+  {
+    "id": "d1d7dd3202574d59",
+    "title": "5,000 ANSI Lumens 4K Laser Installation Projector - ViewSonic",
+    "title_zh_tw": "5,000 ANSI Lumens 4K Laser Installation Projector",
+    "summary_zh_tw": "此則消息的可辨識重點為 ViewSonic、雷射光源，原始標題為「5,000 ANSI Lumens 4K Laser Installation Projector - ViewSonic」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "ViewSonic",
+    "source_url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5ZRFJCZ3BCRW80MEZ0WDBjaEp3bzh6bjJFS2VlUHhNdFo0NUJvOGpmVEp4eXRJQnI3TWNYRzFnSXI3UFhhWGNwbEE5R2ZMMjBlS0M4SEt4NERjXzJubk1TSmtaNXd4UlNDdHc?oc=5",
+    "published_at": "2026-08-05",
+    "country": "全球",
+    "language": "en-US",
+    "brands": [
+      "ViewSonic"
+    ],
+    "topics": [
+      "雷射光源"
+    ],
+    "is_official": true,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-06T04:11:24+00:00"
+  },
+  {
+    "id": "79b8cd82d2caf4e9",
+    "title": "AH700ST | 4000lm Short Throw 1080P Laser Golf Projector - BenQ",
+    "title_zh_tw": "AH700ST | 4000lm Short Throw 1080P Laser Golf Projector",
+    "summary_zh_tw": "此則消息的可辨識重點為 BenQ、雷射光源，原始標題為「AH700ST | 4000lm Short Throw 1080P Laser Golf Projector - BenQ」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "BenQ",
+    "source_url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5iQTdVaVlMX3hFa2paa0x3ZDJpMzlYYXdjOS0xd3pfY1lJMHFqUVBGQm11ZjFIQkJmcExPTkxsbmtCZHQ0d2tLN2t6eG5nQ1cwVGNxTG03Y29pMVNLY08zT2loTFY?oc=5",
+    "published_at": "2026-08-04",
+    "country": "全球",
+    "language": "en-US",
+    "brands": [
+      "BenQ"
+    ],
+    "topics": [
+      "雷射光源"
+    ],
+    "is_official": true,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:41+00:00"
+  },
+  {
+    "id": "c57cf0c50f22da97",
+    "title": "BenQ Ace Series Projector | Golf Models & Features - BenQ",
+    "title_zh_tw": "BenQ Ace Series Projector | Golf Models & Features",
+    "summary_zh_tw": "此則消息的可辨識重點為 BenQ、產業動態，原始標題為「BenQ Ace Series Projector | Golf Models & Features - BenQ」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "BenQ",
+    "source_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1jX0w4eHY5aUE3NUZVdnp1aWJOc2tnMFFWNS1nZ0tLVHdwMDRuWS1SakctRG9HZWQzV253eTJkVFVxYXViN3dnSGJDcHRwVUIzY1pKT29ibW5XQQ?oc=5",
+    "published_at": "2026-08-04",
+    "country": "全球",
+    "language": "en-US",
+    "brands": [
+      "BenQ"
+    ],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": true,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:41+00:00"
+  },
+  {
+    "id": "95625e08092ea19c",
+    "title": "LK936ST | 5100lm 4K Short Throw Laser Golf Projector - BenQ",
+    "title_zh_tw": "LK936ST | 5100lm 4K Short Throw Laser Golf Projector",
+    "summary_zh_tw": "此則消息的可辨識重點為 BenQ、雷射光源，原始標題為「LK936ST | 5100lm 4K Short Throw Laser Golf Projector - BenQ」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "BenQ",
+    "source_url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBsdHA5N0xVQmNvUEIxM1ZUeURNZ01PYnRDWGhaTlBPb0xjMV9GZ0V1aTlBVV9vc1pURHkzcmlMdndiWWl1TVR2Wklfd3NZTktnU1g2bXc4Q0QtMUpaUnhITnViMEY?oc=5",
+    "published_at": "2026-08-04",
+    "country": "全球",
+    "language": "en-US",
+    "brands": [
+      "BenQ"
+    ],
+    "topics": [
+      "雷射光源"
+    ],
+    "is_official": true,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:41+00:00"
+  },
+  {
+    "id": "f7c49bba6e3edecb",
+    "title": "AW30ST | 3200lm Short Throw WXGA LED Golf Projector - BenQ",
+    "title_zh_tw": "AW30ST | 3200lm Short Throw WXGA LED Golf Projector",
+    "summary_zh_tw": "此則消息的可辨識重點為 BenQ、產業動態，原始標題為「AW30ST | 3200lm Short Throw WXGA LED Golf Projector - BenQ」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "BenQ",
+    "source_url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5jaWNoOVZHLTFLM2JyVmRRcDZTbXRIZ25pRS1BaXd2WDhJUl8yUzhMeUlfaU9jZFUxSVRMMlBsSFJBU2hIQlJqVGM4YVFrbU5sRkprWlA1em4tLTFMQlBjLXdlMA?oc=5",
+    "published_at": "2026-08-04",
+    "country": "全球",
+    "language": "en-US",
+    "brands": [
+      "BenQ"
+    ],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": true,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:41+00:00"
+  },
+  {
+    "id": "4742168ee52aa413",
+    "title": "「FUJIFILM PROJECTOR ZUH12000」新発売 | 富士フイルム [日本] - Fujifilm [Global]",
+    "title_zh_tw": "「FUJIFILM PROJECTOR ZUH12000」新開賣 | 富士フイルム [日本]",
+    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「「FUJIFILM PROJECTOR ZUH12000」新発売 | 富士フイルム [日本] - Fujifilm [Global]」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "Fujifilm [Global]",
+    "source_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBUd2JxMUxxeldsYUFyT1dLN0g0YU54RHkxbE1NNjA0OTZNM3VNcFpBV1BTV1N0TmpsSFN1RGFic2NUbTdkOFkzRF91Wlc3YkZ3cHl1VVNSMUxEQQ?oc=5",
+    "published_at": "2026-08-04",
+    "country": "日本",
+    "language": "ja",
+    "brands": [],
+    "topics": [
+      "新品發表"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "cae3180cd533e179",
+    "title": "天井に投影される楽しい学びコンテンツで、毎晩の育児負担を軽減！開発者に聞く、寝かしつけプロジェクター「Astrum」誕生秘話 - ウォーカープラス",
+    "title_zh_tw": "天花板に投影される楽しい学びコンテンツで、毎晩の育児負担を軽減！開発者に聞く、寝かしつけ投影機「Astrum」誕生秘話",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「天井に投影される楽しい学びコンテンツで、毎晩の育児負担を軽減！開発者に聞く、寝かしつけプロジェクター「Astrum」誕生秘話 - ウォーカープラス」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "ウォーカープラス",
+    "source_url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEb1Q5TUZuOThUTzBIZjJUVV9GOXYzbXZidkdhWDloMXpQOFdCZGFiMWdQT3ZKQ2tXdks3Qk1kVm1TclQtWmZCSGtlMEhBZEdqV0pZTmNn0gFbQVVfeXFMT2V3WHV0bWFKSjF4bEE4dVo2Z3NiUU1pTk1kNG9PUmRLLTBHX0Z0R0tpdlQwTUR1V3AtbjR2elVtS21SNGVPZG5zcUtjMlpfWjl1V3E4a0tJVTdJTQ?oc=5",
+    "published_at": "2026-08-04",
+    "country": "日本",
+    "language": "ja",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "4cc380c60082ce76",
+    "title": "フジフイルム、レンズ交換式4Kプロジェクター「ZUH12000」を8/6に発売。最大輝度12000ルーメンを実現（PHILE WEB） - Yahoo!ニュース",
+    "title_zh_tw": "フジフイルム、レンズ交換式4K投影機「ZUH12000」を8/6に開賣。最大亮度12000ルーメンを實現（PHILE WEB）",
+    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「フジフイルム、レンズ交換式4Kプロジェクター「ZUH12000」を8/6に発売。最大輝度12000ルーメンを実現（PHILE WEB） - Yahoo!ニュース」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "Yahoo!ニュース",
+    "source_url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFAydW9yWU1mSUU3V2xNU1d3bFZBc1dkbHVDUkxuNG5HYW92WE9jN0IwOTB6THJwLU9DNU8ydGVYY0RFa0NXTWJQbjY5Y3o0emRDSThSSVlZWUJlcDE2VzVXM3Q4R1l6LXhRNE84RWxXM1NfWEpFb3dhVmttY2RzaWM?oc=5",
+    "published_at": "2026-08-04",
+    "country": "日本",
+    "language": "ja",
+    "brands": [],
+    "topics": [
+      "新品發表"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "a38b5255d485072a",
+    "title": "最大200インチで240Hz駆動、ハイセンスがゲーミング対応の超短焦点プロジェクター「PX4 Pro」を発売 - 財経新聞",
+    "title_zh_tw": "最大200インチで240Hz駆動、ハイセンスがゲーミング対応の超短焦投影機「PX4 Pro」を開賣",
+    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「最大200インチで240Hz駆動、ハイセンスがゲーミング対応の超短焦点プロジェクター「PX4 Pro」を発売 - 財経新聞」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "財経新聞",
+    "source_url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBEX1RzNWI3a1M2bXZuRXdBV0JydGo0S2VjWF9xMHVjVk5tSVQzYmNPNVh6clpHbWVNa1oyTW5VWGJhQ3hYcHZGaFBBcW5tR1d5bS11VF90bjUyUm8zbTMtRWtua9IBaEFVX3lxTE9TQTlJd25oZkcweW5pUjNoVzV4b2JYNFo0bEx6MTBDTVVyTHBwSVlid2N3YmwzNkRkY3dTU2RMUXZBN3d3ZElFNWpOVG1RdzB1c2lTZXA2aEhsWkZWTG1xVkU3R0UxdDRr?oc=5",
+    "published_at": "2026-08-04",
+    "country": "日本",
+    "language": "ja",
+    "brands": [],
+    "topics": [
+      "新品發表"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "516d9028d7396795",
+    "title": "富士フイルム、レンズ交換式プロジェクター「FUJIFILM PROJECTOR ZUH12000」を発売 - 日本経済新聞",
+    "title_zh_tw": "富士フイルム、レンズ交換式投影機「FUJIFILM PROJECTOR ZUH12000」を開賣",
+    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「富士フイルム、レンズ交換式プロジェクター「FUJIFILM PROJECTOR ZUH12000」を発売 - 日本経済新聞」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "日本経済新聞",
+    "source_url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9Yc3A2VFhnU2tHRnphMDFYNGZIYUxYX2FjeG5iVHZaZW9xR25ONjFpaDB6VE1hQWNZak5ydGUwQlNPbkpkYlRBRllWbWE0S2NNb0VVOUhPamdja2d0dEw0b0IwTGpnTWVWMnN1Qw?oc=5",
+    "published_at": "2026-08-04",
+    "country": "日本",
+    "language": "ja",
+    "brands": [],
+    "topics": [
+      "新品發表"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "91084d625f65922f",
+    "title": "借り物なのに返したくない。4Kプロジェクター「AWOL Valerion Pro 2」レビュー - garumax.com",
+    "title_zh_tw": "借り物なのに返したくない。4K投影機「AWOL Valerion Pro 2」評測",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「借り物なのに返したくない。4Kプロジェクター「AWOL Valerion Pro 2」レビュー - garumax.com」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "garumax.com",
+    "source_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1Sc0syTHowOXpqLUJLMkF3a0RUSjA4WDRlZ1Rzb0hmcjVTSUZfMXJRaXJ4b1FiejhfcjY1cWNrUkRzZFk5OWViekZXZTZHREoyQWdjVDRNc0xudw?oc=5",
+    "published_at": "2026-08-04",
+    "country": "日本",
+    "language": "ja",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "d67b84576f1741ef",
+    "title": "Settings I change to make even the cheapest projector look expensive - Pocket-lint",
+    "title_zh_tw": "Settings I change to make even the cheapest projector look expensive - Pocket-lint",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「Settings I change to make even the cheapest projector look expensive - Pocket-lint」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "Pocket-lint",
+    "source_url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOcEVCMWNYaXNOZ3dGYTFDbUpXZ0NKMTRZZkJiekpJTkc5akVlM2k5T3JwaFdFVXJkXy1IY2d0NERVckMzWFNxZG1CcjNmdUxJV21GSGlRX1Y4amkwcGluRlp2NTVoaEFvQkJsejNRT29xdl9wV2g4WjFlaGpfUGNqc3NuYXBmSmtFbjdvYkZ3RmhPTGIweWc?oc=5",
+    "published_at": "2026-08-04",
+    "country": "美國",
+    "language": "en-US",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "7fec96967595b002",
+    "title": "Fujifilm Australia Launches 12,000-Lumen 4K Projector With Interchangeable Lens System - SMBtech",
+    "title_zh_tw": "Fujifilm Australia Launches 12,000-Lumen 4K Projector With Interchangeable Lens System",
+    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「Fujifilm Australia Launches 12,000-Lumen 4K Projector With Interchangeable Lens System - SMBtech」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "SMBtech",
+    "source_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPMHkxMUdYRmZ4elRRSWFnY1BwS05vYXRJVkt4VTF5azRWOU81OHV2ai0xX2tUMzFSR0ZSajktWjA0Nm5XelFmalVCc2kyNTgycW1VMEw4MDlVMnV5cEpZRE0tOERsUWxveG9QZ0I4OUE3akxBNFV1VHprVG41REg4bU1LS3pvd0NCOU1PeFBmVHRVN0UtX0NFWlhnNmVTZ3U0bDJSX1FxQTZXbUZRNVZn?oc=5",
+    "published_at": "2026-08-04",
+    "country": "美國",
+    "language": "en-US",
+    "brands": [],
+    "topics": [
+      "新品發表"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "567c9211d60df9c1",
+    "title": "The 8 Best Projectors of 2026 - RTINGS.com",
+    "title_zh_tw": "The 8 Best Projectors of 2026",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「The 8 Best Projectors of 2026 - RTINGS.com」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "RTINGS.com",
+    "source_url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9JMEJZQXNmRzlyX1RmMWtVTzNhcjlTYWdNWGdUMUtmUmZKZ21KUHozSVoyRDJlN202OTRIUklGcmNjekV0V082UWdNMkpfemluSGZKY0Iwa2JlWV9IVHZPcTRDYnpIUQ?oc=5",
+    "published_at": "2026-08-04",
+    "country": "美國",
+    "language": "en-US",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "0fad5bb810aa04c6",
+    "title": "Cinematic Saves: Take $170 Off With This Anker Nebula Portable Projector Deal - PCMag",
+    "title_zh_tw": "Cinematic Saves: Take $170 Off With This Anker Nebula Portable Projector Deal",
+    "summary_zh_tw": "此則消息的可辨識重點為 Anker Nebula、產業動態，原始標題為「Cinematic Saves: Take $170 Off With This Anker Nebula Portable Projector Deal - PCMag」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "PCMag",
+    "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxObjhLdC1aSldfYmp6RVgzTmgxNy1RRWplLXdIaW94N2JMc3RWMVA0QXBGclJIaFYzWEVSVnNIS25RdUJ4OW9MZUVTUFZQVkZHLXBzOEE1SHRJSHlKU3lJdk9UUFVaTlhQdW5tS0JYTFp0YUNrX2VScFdvUjF3ekZFdGZKcEZtbk1RQW5ab1dpTGgyX2VlUUFQUg?oc=5",
+    "published_at": "2026-08-04",
+    "country": "美國",
+    "language": "en-US",
+    "brands": [
+      "Anker Nebula"
+    ],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "59c9b6b6fbd2e4b0",
+    "title": "Affordable Xiaomi projector launches with ToF sensor and 120-inch screen support - Notebookcheck",
+    "title_zh_tw": "Affordable Xiaomi projector launches with ToF sensor and 120-inch screen support",
+    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「Affordable Xiaomi projector launches with ToF sensor and 120-inch screen support - Notebookcheck」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "Notebookcheck",
+    "source_url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQYjR2R2RRQVlBYWtuSnFiRHJqZWtmWlg0LXJDaEUyVDkycXRiZjlscGtMNXgweHM2Tnd5dmtSeENDWVM3aTYyZWlUWXhicDBlZ1VpcHNXZEhMX1NlUlRXeTdiYk84MkFkWUVvcEs4YUo5SlJtcFlXbXB3cU96R3dydEtvRUwxTkVRR1hEaVMyaXh5RVZLT1NDeTBXdUJjdlZpS0pVSjYxa2xVQ3ViaXdIRmRONGZRZUg2amxtSng1VjQwQTQ?oc=5",
+    "published_at": "2026-08-04",
+    "country": "美國",
+    "language": "en-US",
+    "brands": [],
+    "topics": [
+      "新品發表"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "c3cf1ba46f0bcf39",
+    "title": "Xiaomi Unveils Affordable Projectors With Up to 120 Inches Projection - ProPakistani",
+    "title_zh_tw": "Xiaomi Unveils Affordable Projectors With Up to 120 Inches Projection",
+    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「Xiaomi Unveils Affordable Projectors With Up to 120 Inches Projection - ProPakistani」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "ProPakistani",
+    "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQZ09QcTUybFMtVVpPYTlMVEhnY2VxYk80b24wYnlVeWdzdV9pSGpMYVc5VTZJSmp5S2NVeW9sVTJKSnR2a2JnT3lUNElpYl9FTDVSQkZwcVpScFlPeTZmcTl0V0xFN0J6ZHZDWEhyWFdZNEdITEpoclhnRGZzZVJLbWd6QUNhbUR2Yk5uc1prV1dILUhETGVQX3IwS294bFBPUnZsMFZRVnnSAa4BQVVfeXFMTTRuNVdNak5PVTUwMUxTbHBVY0JBRTN3UFJvaldTaGdyUG1wR0hvVWlDWWxsVUJZMk5kV3pVdjdjNTh6NERHbVFDaFpPdXJHSUZaRXBhdGZ1ZTgyN19qdE05RVNCbW9JRERuWlMzQWZ5UXZPRnlDNllVbzV1VkVfN3ZRcGd2aE9QRm53UjBZZzVXRjRYNDJ0a1RLM0x4WnVqdU8zbS1jR2tJcDEyM1R3?oc=5",
+    "published_at": "2026-08-04",
+    "country": "美國",
+    "language": "en-US",
+    "brands": [],
+    "topics": [
+      "新品發表"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "f868142295b16294",
+    "title": "Panasonic Projector & Display Americas Powers Refik Anadol’s “Smithsonian Dreams” Immersive Public Art Experience - Live Design Online",
+    "title_zh_tw": "Panasonic Projector & Display Americas Powers Refik Anadol’s “Smithsonian Dreams” Immersive Public Art Experience",
+    "summary_zh_tw": "此則消息的可辨識重點為 Panasonic、產業動態，原始標題為「Panasonic Projector & Display Americas Powers Refik Anadol’s “Smithsonian Dreams” Immersive Public Art Experience - Live Design Online」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "Live Design Online",
+    "source_url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQZ0dWWk9FcjNWaENfd3FKcVlobjhmZEptdkw0TVJlOVJiMk1sanN2dVlwWXBEcXV2ZTdkOV9EMVNDdU1ZcGV3X000MWVnOEtZLUY2eGhsR1FwUkUwTTVQVzJGaVhtSlpsQTlxVkxEb1AtNVMwckdDbnlZMXZyaXhqRDdqeFVtNkQzNU1IcVVON0dhcmh5c0pXQzRLSzZGc1lwZlpwMi1iZnZ4RW9ZYWF3TFJ3Y2F6X3cxSGpPWDU5WGtidUNWU29MM3Vjdw?oc=5",
+    "published_at": "2026-08-04",
+    "country": "美國",
+    "language": "en-US",
+    "brands": [
+      "Panasonic"
+    ],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "3b9478090d7f3ccc",
+    "title": "Should you buy a projector or a big-screen TV in 2026? Here’s what we think - inkl",
+    "title_zh_tw": "Should you buy a projector or a big-screen TV in 2026? Here’s what we think",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「Should you buy a projector or a big-screen TV in 2026? Here’s what we think - inkl」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "inkl",
+    "source_url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQb195dWlSQnctcWRvcVBBc0hVRVhoLU1MT1V2QUNQSkd5V3N0TEh0OFRFWnMxeFJmSUZITGk4aHJvZV9DeE90RkM1LUxTMl81bkgtZ2F4MDZVaTR6OGZXZ1V6di1fTHpFTEp4NmMwMGp4c3FCb1BaNFBNNWxfN1R0VDZTS1dxUjFRcW85VnJFamdnYkJlV3ZMczBMYUM0T2Yx?oc=5",
+    "published_at": "2026-08-04",
+    "country": "美國",
+    "language": "en-US",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "25a2ea55d49d8dcc",
+    "title": "The next model in Hisense’s Award-winning 4K projector line finally goes on sale soon – and it has a massive sound upgrade - What Hi-Fi?",
+    "title_zh_tw": "The next model in Hisense’s Award-winning 4K projector line finally goes on sale soon – and it has a massive sound upgrade - What Hi-Fi?",
+    "summary_zh_tw": "此則消息的可辨識重點為 Hisense、產業動態，原始標題為「The next model in Hisense’s Award-winning 4K projector line finally goes on sale soon – and it has a massive sound upgrade - What Hi-Fi?」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "What Hi-Fi?",
+    "source_url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxQbkgtbW9mWDdqRlQ1eGhXLTBna0pFWm5FLUl6TFQzQ0k3TFF2WWVkakMyT0hWdkxkWVdGQktNV0ZielFfX002YThjdFFDVVl4NWlXRzAzOVJGdllfLUlzU1BUQ2tnQlphZHlTTm1TTzFPdjc4VEtMYWlCbGpSNXh2RGFNUWZmV3V4VDZEOEdPeV9qRTdpd2djSklnRUljQkFXeWVnTzhlbWYxOTBaV3RnTlh2bldvVGJDbU92QXQ2bjR1SENLUUNLRGdGZkFyNmtWcXJoUXdoN2tGUWI2TktmVzVlWE9NZVM1RTd6d0xvZ2V3VElvN0lKc0N1cVhUaEE?oc=5",
+    "published_at": "2026-08-04",
+    "country": "美國",
+    "language": "en-US",
+    "brands": [
+      "Hisense"
+    ],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "61f5748f4ed5788b",
+    "title": "Fujifilm Unveils 12,000-Lumen 4K Projector For Large Commercial Spaces - channelnews.com.au",
+    "title_zh_tw": "Fujifilm Unveils 12,000-Lumen 4K Projector For Large Commercial Spaces",
+    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「Fujifilm Unveils 12,000-Lumen 4K Projector For Large Commercial Spaces - channelnews.com.au」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "channelnews.com.au",
+    "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNNzR2QVQySEk4RFJzTW5jd3UxZXEzMmxWMnd3SEI3eEZ4dzUxUHYxak83RUdqa213SXRMY3BHa3dCVVdBYjFZRDV3SUJTMUNFWGdIbnJxQVkzYklhRWt0M3pROVp4SjRpLU5tbk9vT1BHc0ZhTmFzdnB3R0h3MUtWcjVLUjhNVmlLRUdwYWZIU0g5NnRxb3NFY0tLTERXQXhoNkVn?oc=5",
+    "published_at": "2026-08-04",
+    "country": "美國",
+    "language": "en-US",
+    "brands": [],
+    "topics": [
+      "新品發表"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "9a2fe46f9ca89050",
+    "title": "富士フイルム、高輝度12,000lm・高精細4K対応のレンズ交換式プロジェクター発売。屈曲型回転レンズとの組み合わせで - ニコニコニュース",
+    "title_zh_tw": "富士フイルム、高亮度12,000lm・高精細支援 4Kのレンズ交換式投影機開賣。屈曲型回転レンズとの組み合わせで",
+    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「富士フイルム、高輝度12,000lm・高精細4K対応のレンズ交換式プロジェクター発売。屈曲型回転レンズとの組み合わせで - ニコニコニュース」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "ニコニコニュース",
+    "source_url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFAzNmhjVnhCQWhyTlJNekRsUjZBVnRibjltLXFNWmdtV193aVBielNtNS1Ka3czeHJXX1NVbS1xQXRab19TcGlXSHd1bVVjaUdJSlFjcXF4RGw4a0RfTnJ3UmV0WTA4ZEJucGkwbUFZLWJ2MGI4N3c?oc=5",
+    "published_at": "2026-08-04",
+    "country": "日本",
+    "language": "ja",
+    "brands": [],
+    "topics": [
+      "新品發表"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "a61307141e053ae4",
+    "title": "小米推出价格亲民的投影仪，配备ToF传感器并支持120英寸画面 - Notebookcheck CN",
+    "title_zh_tw": "小米推出價格亲民的投影機，配备ToF传感器并支持120英寸画面",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「小米推出价格亲民的投影仪，配备ToF传感器并支持120英寸画面 - Notebookcheck CN」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "Notebookcheck CN",
+    "source_url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9JMzViRzhPSVhmeVNwSGIyREt5eHpUa1BtanNCLVMwcEJxbnBRQVcwNkR3Y0xmSmJXZFFfSDdLSjYxT1hGT2JWdC04TnotOFNXYzUyWXdKR3FqMFloblRFS1M4b3cxQQ?oc=5",
+    "published_at": "2026-08-04",
+    "country": "中國",
+    "language": "zh-CN",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:39+00:00"
+  },
+  {
+    "id": "d00cdb87d576f6dd",
+    "title": "终结选择困难：6686体育官网下载智能投影仪，颜值、画质与自由全都要-TGBUS - 电玩巴士",
+    "title_zh_tw": "终结選择困难：6686體育官網下載智慧投影機，颜值、画質與自由全都要-TGBUS",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「终结选择困难：6686体育官网下载智能投影仪，颜值、画质与自由全都要-TGBUS - 电玩巴士」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "电玩巴士",
+    "source_url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBsd0IyYlVNOFdQdkRqTE0zZFB3V0UzVDJ5SHpOazJyRHZoN041TDdJT0hoaG14VHhHTjJ1ZlRNTUlEaHF2c2l2RDRDZlJhV2hM?oc=5",
+    "published_at": "2026-08-04",
+    "country": "中國",
+    "language": "zh-CN",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:39+00:00"
+  },
+  {
+    "id": "b94d1839dcbcd86d",
+    "title": "投影仪推荐家用3000左右 高亮护眼款成同档首选 - 驱动之家",
+    "title_zh_tw": "投影機推荐家用3000左右 高亮护眼款成同档首選",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「投影仪推荐家用3000左右 高亮护眼款成同档首选 - 驱动之家」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "驱动之家",
+    "source_url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBEX3FuRVVBb1pYckcweXJtMXlIejBnTTIxMGZMQnFsZkdUR3hXVmgtdWdvclRzSk1ic1dnUkZqTXB6dExMQWZsTzY3aFZWWkhzOUIxdDg2cHU?oc=5",
+    "published_at": "2026-08-04",
+    "country": "中國",
+    "language": "zh-CN",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:39+00:00"
+  },
+  {
+    "id": "1368edaf4427e960",
+    "title": "从金年汇app官方网站下载看2026年投影仪选购：超七成用户更看重售后与渠道信任-TGBUS - 电玩巴士",
+    "title_zh_tw": "从金年汇app官方網站下載看2026年投影機選购：超七成用户更看重售後與渠道信任-TGBUS",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「从金年汇app官方网站下载看2026年投影仪选购：超七成用户更看重售后与渠道信任-TGBUS - 电玩巴士」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "电玩巴士",
+    "source_url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBjQlRQUnJRZmd4Q1VqVmhlX0I4MzhLOU0xSVRCeTZ2LVo5SDNyN3ZKeWFGTnh4Wm16dWhVbUxqY2Q0R1ZESmR5enp6LTJJV2JtUUw4Vw?oc=5",
+    "published_at": "2026-08-04",
+    "country": "中國",
+    "language": "zh-CN",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:39+00:00"
+  },
+  {
+    "id": "575448b51e5895b7",
+    "title": "REDMI投影仪5 - 驱动之家",
+    "title_zh_tw": "REDMI投影機5",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「REDMI投影仪5 - 驱动之家」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "驱动之家",
+    "source_url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9icTVIbkZfczU3SjFTTkxKSXV6b1FHMHJfUUowSWM3Qkx5bnFTcm9nR2RVQk9HZ2s5QzF6ZDVNRlk3U1YzUGNsZ0hJc2Q3V1AzalBDa0Q0TEtfd21XMmE4Ujl4MV9RaVE?oc=5",
+    "published_at": "2026-08-04",
+    "country": "中國",
+    "language": "zh-CN",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:39+00:00"
+  },
+  {
+    "id": "23a23894559ddae1",
+    "title": "河豚体育app官方下载深度评测：2026年旗舰投影仪的性能与体验全解析- TGBUS - 电玩巴士",
+    "title_zh_tw": "河豚體育app官方下載深度评測：2026年旗舰投影機的性能與體驗全解析- TGBUS",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「河豚体育app官方下载深度评测：2026年旗舰投影仪的性能与体验全解析- TGBUS - 电玩巴士」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "电玩巴士",
+    "source_url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOVHFZVTJRUTBsMFcxNEh6R0pRSUZrenZyT1FqVVY0a250MzVUZUtISEZnano4WGljOXkzSlN5NUhDOXY3TEZoaHM1VWhOTW02NFlLWWVIMXNySWxSaFBuVWpuUGM4SFVkbmtER3NCUFFEMDFLb3liX3g3R0N1R0Ria0NDOHpxeTg?oc=5",
+    "published_at": "2026-08-04",
+    "country": "中國",
+    "language": "zh-CN",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:39+00:00"
+  },
+  {
+    "id": "f1cfb42350dbf52f",
+    "title": "家中有這款投影機快停用！台灣品牌宣布全球召回 電池恐過熱起火 - 自由電子報3C科技",
+    "title_zh_tw": "家中有這款投影機快停用！台灣品牌宣布全球召回 電池恐過熱起火",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「家中有這款投影機快停用！台灣品牌宣布全球召回 電池恐過熱起火 - 自由電子報3C科技」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "自由電子報3C科技",
+    "source_url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE1kREVVVVoxZjZFVkVsR3ZuUXJ3VTZENVE5a1JZY3RYR0w4Z2NQR21kTndQM0xxXzFTODZKdjhtY2xSSnFwczNz?oc=5",
+    "published_at": "2026-08-04",
+    "country": "台灣",
+    "language": "zh-TW",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:39+00:00"
+  },
+  {
+    "id": "901045f809bfb413",
+    "title": "投影機傳起火風險！BenQ 緊急召回、開放免費維修或升級 - ETtoday新聞雲",
+    "title_zh_tw": "投影機傳起火風險！BenQ 緊急召回、開放免費維修或升級",
+    "summary_zh_tw": "此則消息的可辨識重點為 BenQ、產業動態，原始標題為「投影機傳起火風險！BenQ 緊急召回、開放免費維修或升級 - ETtoday新聞雲」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "ETtoday新聞雲",
+    "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1TdnpjSEpGNTB3MTZ3VThfUmU0dTlSLTE2dGFuM2RsYlZqZ2lZMTVJaHNwN1ZoWEFjQklfVW4xaVRub252WENIRXA0VnhFQzFTT3pOTW5RTTJhdGxxUXfSAUtBVV95cUxPUHF0U3c4aXJyVmxCWHh6Q2FrUzJTV25ycXF3VjBxTTlNUVF2YU8xbzgtYnNRVUwzUW80US1Bc2FCQUgxWnF3UkNnc00?oc=5",
+    "published_at": "2026-08-04",
+    "country": "台灣",
+    "language": "zh-TW",
+    "brands": [
+      "BenQ"
+    ],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:39+00:00"
+  },
+  {
+    "id": "eb32b6e34581f5d9",
+    "title": "yibo体育最新版入口投影仪全方位评测：2026年家庭与办公投影新标杆- TGBUS - 电玩巴士",
+    "title_zh_tw": "yibo體育最新版入口投影機全方位评測：2026年家庭與办公投影新标杆- TGBUS",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「yibo体育最新版入口投影仪全方位评测：2026年家庭与办公投影新标杆- TGBUS - 电玩巴士」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "电玩巴士",
+    "source_url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE81S2o0NkxWRnVZODllQzhXdFEyR2JCb3Y1RDBBUjZkSU90Y3RuOHUzdjktOENwSTNNbVhOdDB5MS03ajIyRVpUeHJ5SEZkZE4wZW9HcEd3?oc=5",
+    "published_at": "2026-08-04",
+    "country": "中國",
+    "language": "zh-CN",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:39+00:00"
+  },
+  {
+    "id": "7157a91e7f061aa3",
+    "title": "中端价值天花板：酷影X10投影仪播放足球必发指数深度体验 - 电玩巴士",
+    "title_zh_tw": "中端價值天花板：酷影X10投影機播放足球必發指數深度體驗",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「中端价值天花板：酷影X10投影仪播放足球必发指数深度体验 - 电玩巴士」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "电玩巴士",
+    "source_url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE0tQTk5SDYyMFo0MTE0dVJ3d2wwQUJEeFFxZUJkLU1HeTVFbkU5S3Z3Y3ZNbGl4OWo0aEpJc1BEVi1wSkFiX2tPS2I1aHlwRWNzay02clpmcGhUUkRsUGp6NU8ydkljWGc?oc=5",
+    "published_at": "2026-08-04",
+    "country": "中國",
+    "language": "zh-CN",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "7d709d738d6c64fe",
@@ -347,516 +1333,6 @@
     "collected_at": "2026-08-06T04:11:24+00:00"
   },
   {
-    "id": "4742168ee52aa413",
-    "title": "「FUJIFILM PROJECTOR ZUH12000」新発売 | 富士フイルム [日本] - Fujifilm [Global]",
-    "title_zh_tw": "「FUJIFILM PROJECTOR ZUH12000」新開賣 | 富士フイルム [日本]",
-    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「「FUJIFILM PROJECTOR ZUH12000」新発売 | 富士フイルム [日本] - Fujifilm [Global]」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "Fujifilm [Global]",
-    "source_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBUd2JxMUxxeldsYUFyT1dLN0g0YU54RHkxbE1NNjA0OTZNM3VNcFpBV1BTV1N0TmpsSFN1RGFic2NUbTdkOFkzRF91Wlc3YkZ3cHl1VVNSMUxEQQ?oc=5",
-    "published_at": "2026-08-04",
-    "country": "日本",
-    "language": "ja",
-    "brands": [],
-    "topics": [
-      "新品發表"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
-  },
-  {
-    "id": "0795116a3d5ca107",
-    "title": "＜画像1 / 3＞プロの朗読付き！天井や壁に投影する“絵本読み聞かせ”プロジェクター発売へ - ウォーカープラス",
-    "title_zh_tw": "＜画像1 / 3＞プロの朗読付き！天花板や壁に投影する“絵本読み聞かせ”投影機開賣へ",
-    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「＜画像1 / 3＞プロの朗読付き！天井や壁に投影する“絵本読み聞かせ”プロジェクター発売へ - ウォーカープラス」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "ウォーカープラス",
-    "source_url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBjeGFOQ01YSDBmaFBlMWY1bnVvN2RsT3gzODlXcF8yRjR6NzVpRWJOWVNER1o2WC01bkhvWXAzTE8xbUEteDdGOWk4RXJWcFV2bmJ2NG5OX055NkFKdER5TTlQMHByY2s?oc=5",
-    "published_at": "2026-08-04",
-    "country": "日本",
-    "language": "ja",
-    "brands": [],
-    "topics": [
-      "新品發表"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
-  },
-  {
-    "id": "cae3180cd533e179",
-    "title": "天井に投影される楽しい学びコンテンツで、毎晩の育児負担を軽減！開発者に聞く、寝かしつけプロジェクター「Astrum」誕生秘話 - ウォーカープラス",
-    "title_zh_tw": "天花板に投影される楽しい学びコンテンツで、毎晩の育児負担を軽減！開発者に聞く、寝かしつけ投影機「Astrum」誕生秘話",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「天井に投影される楽しい学びコンテンツで、毎晩の育児負担を軽減！開発者に聞く、寝かしつけプロジェクター「Astrum」誕生秘話 - ウォーカープラス」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "ウォーカープラス",
-    "source_url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEb1Q5TUZuOThUTzBIZjJUVV9GOXYzbXZidkdhWDloMXpQOFdCZGFiMWdQT3ZKQ2tXdks3Qk1kVm1TclQtWmZCSGtlMEhBZEdqV0pZTmNn0gFbQVVfeXFMT2V3WHV0bWFKSjF4bEE4dVo2Z3NiUU1pTk1kNG9PUmRLLTBHX0Z0R0tpdlQwTUR1V3AtbjR2elVtS21SNGVPZG5zcUtjMlpfWjl1V3E4a0tJVTdJTQ?oc=5",
-    "published_at": "2026-08-04",
-    "country": "日本",
-    "language": "ja",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
-  },
-  {
-    "id": "177bf1532fe2a18e",
-    "title": "富士フイルム、高輝度12,000lm・高精細4K対応のレンズ交換式プロジェクター発売。屈曲型回転レンズとの組み合わせで自由自在な空間演出 - pronews.com",
-    "title_zh_tw": "富士フイルム、高亮度12,000lm・高精細支援 4Kのレンズ交換式投影機開賣。屈曲型回転レンズとの組み合わせで自由自在な空間演出",
-    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「富士フイルム、高輝度12,000lm・高精細4K対応のレンズ交換式プロジェクター発売。屈曲型回転レンズとの組み合わせで自由自在な空間演出 - pronews.com」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "pronews.com",
-    "source_url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFB6aDJlY0Fpd0J6RXlla3VGNWhIckxMOUNyaWNFMzNoS2drd2NrcUdaMi04WjNKT3VNYmRtZ2ZLem51eklRZGhGQTJUUXdlRFBwUW80TjZFaWVaT01XdUtyRw?oc=5",
-    "published_at": "2026-08-04",
-    "country": "日本",
-    "language": "ja",
-    "brands": [],
-    "topics": [
-      "新品發表"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
-  },
-  {
-    "id": "4cc380c60082ce76",
-    "title": "フジフイルム、レンズ交換式4Kプロジェクター「ZUH12000」を8/6に発売。最大輝度12000ルーメンを実現（PHILE WEB） - Yahoo!ニュース",
-    "title_zh_tw": "フジフイルム、レンズ交換式4K投影機「ZUH12000」を8/6に開賣。最大亮度12000ルーメンを實現（PHILE WEB）",
-    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「フジフイルム、レンズ交換式4Kプロジェクター「ZUH12000」を8/6に発売。最大輝度12000ルーメンを実現（PHILE WEB） - Yahoo!ニュース」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "Yahoo!ニュース",
-    "source_url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFAydW9yWU1mSUU3V2xNU1d3bFZBc1dkbHVDUkxuNG5HYW92WE9jN0IwOTB6THJwLU9DNU8ydGVYY0RFa0NXTWJQbjY5Y3o0emRDSThSSVlZWUJlcDE2VzVXM3Q4R1l6LXhRNE84RWxXM1NfWEpFb3dhVmttY2RzaWM?oc=5",
-    "published_at": "2026-08-04",
-    "country": "日本",
-    "language": "ja",
-    "brands": [],
-    "topics": [
-      "新品發表"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
-  },
-  {
-    "id": "a38b5255d485072a",
-    "title": "最大200インチで240Hz駆動、ハイセンスがゲーミング対応の超短焦点プロジェクター「PX4 Pro」を発売 - 財経新聞",
-    "title_zh_tw": "最大200インチで240Hz駆動、ハイセンスがゲーミング対応の超短焦投影機「PX4 Pro」を開賣",
-    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「最大200インチで240Hz駆動、ハイセンスがゲーミング対応の超短焦点プロジェクター「PX4 Pro」を発売 - 財経新聞」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "財経新聞",
-    "source_url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBEX1RzNWI3a1M2bXZuRXdBV0JydGo0S2VjWF9xMHVjVk5tSVQzYmNPNVh6clpHbWVNa1oyTW5VWGJhQ3hYcHZGaFBBcW5tR1d5bS11VF90bjUyUm8zbTMtRWtua9IBaEFVX3lxTE9TQTlJd25oZkcweW5pUjNoVzV4b2JYNFo0bEx6MTBDTVVyTHBwSVlid2N3YmwzNkRkY3dTU2RMUXZBN3d3ZElFNWpOVG1RdzB1c2lTZXA2aEhsWkZWTG1xVkU3R0UxdDRr?oc=5",
-    "published_at": "2026-08-04",
-    "country": "日本",
-    "language": "ja",
-    "brands": [],
-    "topics": [
-      "新品發表"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
-  },
-  {
-    "id": "516d9028d7396795",
-    "title": "富士フイルム、レンズ交換式プロジェクター「FUJIFILM PROJECTOR ZUH12000」を発売 - 日本経済新聞",
-    "title_zh_tw": "富士フイルム、レンズ交換式投影機「FUJIFILM PROJECTOR ZUH12000」を開賣",
-    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「富士フイルム、レンズ交換式プロジェクター「FUJIFILM PROJECTOR ZUH12000」を発売 - 日本経済新聞」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "日本経済新聞",
-    "source_url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9Yc3A2VFhnU2tHRnphMDFYNGZIYUxYX2FjeG5iVHZaZW9xR25ONjFpaDB6VE1hQWNZak5ydGUwQlNPbkpkYlRBRllWbWE0S2NNb0VVOUhPamdja2d0dEw0b0IwTGpnTWVWMnN1Qw?oc=5",
-    "published_at": "2026-08-04",
-    "country": "日本",
-    "language": "ja",
-    "brands": [],
-    "topics": [
-      "新品發表"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
-  },
-  {
-    "id": "91084d625f65922f",
-    "title": "借り物なのに返したくない。4Kプロジェクター「AWOL Valerion Pro 2」レビュー - ガルマックス",
-    "title_zh_tw": "借り物なのに返したくない。4K投影機「AWOL Valerion Pro 2」評測",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「借り物なのに返したくない。4Kプロジェクター「AWOL Valerion Pro 2」レビュー - ガルマックス」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "ガルマックス",
-    "source_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1Sc0syTHowOXpqLUJLMkF3a0RUSjA4WDRlZ1Rzb0hmcjVTSUZfMXJRaXJ4b1FiejhfcjY1cWNrUkRzZFk5OWViekZXZTZHREoyQWdjVDRNc0xudw?oc=5",
-    "published_at": "2026-08-04",
-    "country": "日本",
-    "language": "ja",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
-  },
-  {
-    "id": "d67b84576f1741ef",
-    "title": "Settings I change to make even the cheapest projector look expensive - Pocket-lint",
-    "title_zh_tw": "Settings I change to make even the cheapest projector look expensive - Pocket-lint",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「Settings I change to make even the cheapest projector look expensive - Pocket-lint」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "Pocket-lint",
-    "source_url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOcEVCMWNYaXNOZ3dGYTFDbUpXZ0NKMTRZZkJiekpJTkc5akVlM2k5T3JwaFdFVXJkXy1IY2d0NERVckMzWFNxZG1CcjNmdUxJV21GSGlRX1Y4amkwcGluRlp2NTVoaEFvQkJsejNRT29xdl9wV2g4WjFlaGpfUGNqc3NuYXBmSmtFbjdvYkZ3RmhPTGIweWc?oc=5",
-    "published_at": "2026-08-04",
-    "country": "美國",
-    "language": "en-US",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
-  },
-  {
-    "id": "7fec96967595b002",
-    "title": "Fujifilm Australia Launches 12,000-Lumen 4K Projector With Interchangeable Lens System - SMBtech",
-    "title_zh_tw": "Fujifilm Australia Launches 12,000-Lumen 4K Projector With Interchangeable Lens System",
-    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「Fujifilm Australia Launches 12,000-Lumen 4K Projector With Interchangeable Lens System - SMBtech」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "SMBtech",
-    "source_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPMHkxMUdYRmZ4elRRSWFnY1BwS05vYXRJVkt4VTF5azRWOU81OHV2ai0xX2tUMzFSR0ZSajktWjA0Nm5XelFmalVCc2kyNTgycW1VMEw4MDlVMnV5cEpZRE0tOERsUWxveG9QZ0I4OUE3akxBNFV1VHprVG41REg4bU1LS3pvd0NCOU1PeFBmVHRVN0UtX0NFWlhnNmVTZ3U0bDJSX1FxQTZXbUZRNVZn?oc=5",
-    "published_at": "2026-08-04",
-    "country": "美國",
-    "language": "en-US",
-    "brands": [],
-    "topics": [
-      "新品發表"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
-  },
-  {
-    "id": "567c9211d60df9c1",
-    "title": "The 8 Best Projectors of 2026 - rtings.com",
-    "title_zh_tw": "The 8 Best Projectors of 2026",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「The 8 Best Projectors of 2026 - rtings.com」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "rtings.com",
-    "source_url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9JMEJZQXNmRzlyX1RmMWtVTzNhcjlTYWdNWGdUMUtmUmZKZ21KUHozSVoyRDJlN202OTRIUklGcmNjekV0V082UWdNMkpfemluSGZKY0Iwa2JlWV9IVHZPcTRDYnpIUQ?oc=5",
-    "published_at": "2026-08-04",
-    "country": "美國",
-    "language": "en-US",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
-  },
-  {
-    "id": "0fad5bb810aa04c6",
-    "title": "Cinematic Saves: Take $170 Off With This Anker Nebula Portable Projector Deal - PCMag",
-    "title_zh_tw": "Cinematic Saves: Take $170 Off With This Anker Nebula Portable Projector Deal",
-    "summary_zh_tw": "此則消息的可辨識重點為 Anker Nebula、產業動態，原始標題為「Cinematic Saves: Take $170 Off With This Anker Nebula Portable Projector Deal - PCMag」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "PCMag",
-    "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxObjhLdC1aSldfYmp6RVgzTmgxNy1RRWplLXdIaW94N2JMc3RWMVA0QXBGclJIaFYzWEVSVnNIS25RdUJ4OW9MZUVTUFZQVkZHLXBzOEE1SHRJSHlKU3lJdk9UUFVaTlhQdW5tS0JYTFp0YUNrX2VScFdvUjF3ekZFdGZKcEZtbk1RQW5ab1dpTGgyX2VlUUFQUg?oc=5",
-    "published_at": "2026-08-04",
-    "country": "美國",
-    "language": "en-US",
-    "brands": [
-      "Anker Nebula"
-    ],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
-  },
-  {
-    "id": "de879b77a33ce179",
-    "title": "Fujifilm Launches FUJIFILM PROJECTOR ZUH12000 - Fujifilm [Global]",
-    "title_zh_tw": "Fujifilm Launches FUJIFILM PROJECTOR ZUH12000",
-    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「Fujifilm Launches FUJIFILM PROJECTOR ZUH12000 - Fujifilm [Global]」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "Fujifilm [Global]",
-    "source_url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9KT01tT1hhNFRkYUJfY2xMTFdsbXpWWnRyY0F0N2xBaXhMeEpUazRXd3NtTk1BV0RJOTVPWExEUzlleTYtTmVLRFFOaUZ1WnhrbmxlU082UQ?oc=5",
-    "published_at": "2026-08-04",
-    "country": "美國",
-    "language": "en-US",
-    "brands": [],
-    "topics": [
-      "新品發表"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
-  },
-  {
-    "id": "59c9b6b6fbd2e4b0",
-    "title": "Affordable Xiaomi projector launches with ToF sensor and 120-inch screen support - Notebookcheck",
-    "title_zh_tw": "Affordable Xiaomi projector launches with ToF sensor and 120-inch screen support",
-    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「Affordable Xiaomi projector launches with ToF sensor and 120-inch screen support - Notebookcheck」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "Notebookcheck",
-    "source_url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQYjR2R2RRQVlBYWtuSnFiRHJqZWtmWlg0LXJDaEUyVDkycXRiZjlscGtMNXgweHM2Tnd5dmtSeENDWVM3aTYyZWlUWXhicDBlZ1VpcHNXZEhMX1NlUlRXeTdiYk84MkFkWUVvcEs4YUo5SlJtcFlXbXB3cU96R3dydEtvRUwxTkVRR1hEaVMyaXh5RVZLT1NDeTBXdUJjdlZpS0pVSjYxa2xVQ3ViaXdIRmRONGZRZUg2amxtSng1VjQwQTQ?oc=5",
-    "published_at": "2026-08-04",
-    "country": "美國",
-    "language": "en-US",
-    "brands": [],
-    "topics": [
-      "新品發表"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
-  },
-  {
-    "id": "c3cf1ba46f0bcf39",
-    "title": "Xiaomi Unveils Affordable Projectors With Up to 120 Inches Projection - ProPakistani",
-    "title_zh_tw": "Xiaomi Unveils Affordable Projectors With Up to 120 Inches Projection",
-    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「Xiaomi Unveils Affordable Projectors With Up to 120 Inches Projection - ProPakistani」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "ProPakistani",
-    "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQZ09QcTUybFMtVVpPYTlMVEhnY2VxYk80b24wYnlVeWdzdV9pSGpMYVc5VTZJSmp5S2NVeW9sVTJKSnR2a2JnT3lUNElpYl9FTDVSQkZwcVpScFlPeTZmcTl0V0xFN0J6ZHZDWEhyWFdZNEdITEpoclhnRGZzZVJLbWd6QUNhbUR2Yk5uc1prV1dILUhETGVQX3IwS294bFBPUnZsMFZRVnnSAa4BQVVfeXFMTTRuNVdNak5PVTUwMUxTbHBVY0JBRTN3UFJvaldTaGdyUG1wR0hvVWlDWWxsVUJZMk5kV3pVdjdjNTh6NERHbVFDaFpPdXJHSUZaRXBhdGZ1ZTgyN19qdE05RVNCbW9JRERuWlMzQWZ5UXZPRnlDNllVbzV1VkVfN3ZRcGd2aE9QRm53UjBZZzVXRjRYNDJ0a1RLM0x4WnVqdU8zbS1jR2tJcDEyM1R3?oc=5",
-    "published_at": "2026-08-04",
-    "country": "美國",
-    "language": "en-US",
-    "brands": [],
-    "topics": [
-      "新品發表"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
-  },
-  {
-    "id": "f868142295b16294",
-    "title": "Panasonic Projector & Display Americas Powers Refik Anadol’s “Smithsonian Dreams” Immersive Public Art Experience - Live Design Online",
-    "title_zh_tw": "Panasonic Projector & Display Americas Powers Refik Anadol’s “Smithsonian Dreams” Immersive Public Art Experience",
-    "summary_zh_tw": "此則消息的可辨識重點為 Panasonic、產業動態，原始標題為「Panasonic Projector & Display Americas Powers Refik Anadol’s “Smithsonian Dreams” Immersive Public Art Experience - Live Design Online」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "Live Design Online",
-    "source_url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQZ0dWWk9FcjNWaENfd3FKcVlobjhmZEptdkw0TVJlOVJiMk1sanN2dVlwWXBEcXV2ZTdkOV9EMVNDdU1ZcGV3X000MWVnOEtZLUY2eGhsR1FwUkUwTTVQVzJGaVhtSlpsQTlxVkxEb1AtNVMwckdDbnlZMXZyaXhqRDdqeFVtNkQzNU1IcVVON0dhcmh5c0pXQzRLSzZGc1lwZlpwMi1iZnZ4RW9ZYWF3TFJ3Y2F6X3cxSGpPWDU5WGtidUNWU29MM3Vjdw?oc=5",
-    "published_at": "2026-08-04",
-    "country": "美國",
-    "language": "en-US",
-    "brands": [
-      "Panasonic"
-    ],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
-  },
-  {
-    "id": "3b9478090d7f3ccc",
-    "title": "Should you buy a projector or a big-screen TV in 2026? Here’s what we think - inkl",
-    "title_zh_tw": "Should you buy a projector or a big-screen TV in 2026? Here’s what we think",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「Should you buy a projector or a big-screen TV in 2026? Here’s what we think - inkl」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "inkl",
-    "source_url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQb195dWlSQnctcWRvcVBBc0hVRVhoLU1MT1V2QUNQSkd5V3N0TEh0OFRFWnMxeFJmSUZITGk4aHJvZV9DeE90RkM1LUxTMl81bkgtZ2F4MDZVaTR6OGZXZ1V6di1fTHpFTEp4NmMwMGp4c3FCb1BaNFBNNWxfN1R0VDZTS1dxUjFRcW85VnJFamdnYkJlV3ZMczBMYUM0T2Yx?oc=5",
-    "published_at": "2026-08-04",
-    "country": "美國",
-    "language": "en-US",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
-  },
-  {
-    "id": "a61307141e053ae4",
-    "title": "小米推出价格亲民的投影仪，配备ToF传感器并支持120英寸画面 - Notebookcheck CN",
-    "title_zh_tw": "小米推出價格亲民的投影機，配备ToF传感器并支持120英寸画面",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「小米推出价格亲民的投影仪，配备ToF传感器并支持120英寸画面 - Notebookcheck CN」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "Notebookcheck CN",
-    "source_url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9JMzViRzhPSVhmeVNwSGIyREt5eHpUa1BtanNCLVMwcEJxbnBRQVcwNkR3Y0xmSmJXZFFfSDdLSjYxT1hGT2JWdC04TnotOFNXYzUyWXdKR3FqMFloblRFS1M4b3cxQQ?oc=5",
-    "published_at": "2026-08-04",
-    "country": "中國",
-    "language": "zh-CN",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
-  },
-  {
-    "id": "d00cdb87d576f6dd",
-    "title": "终结选择困难：6686体育官网下载智能投影仪，颜值、画质与自由全都要-TGBUS - 电玩巴士",
-    "title_zh_tw": "终结選择困难：6686體育官網下載智慧投影機，颜值、画質與自由全都要-TGBUS",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「终结选择困难：6686体育官网下载智能投影仪，颜值、画质与自由全都要-TGBUS - 电玩巴士」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "电玩巴士",
-    "source_url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBsd0IyYlVNOFdQdkRqTE0zZFB3V0UzVDJ5SHpOazJyRHZoN041TDdJT0hoaG14VHhHTjJ1ZlRNTUlEaHF2c2l2RDRDZlJhV2hM?oc=5",
-    "published_at": "2026-08-04",
-    "country": "中國",
-    "language": "zh-CN",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
-  },
-  {
-    "id": "b94d1839dcbcd86d",
-    "title": "投影仪推荐家用3000左右 高亮护眼款成同档首选 - 驱动之家",
-    "title_zh_tw": "投影機推荐家用3000左右 高亮护眼款成同档首選",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「投影仪推荐家用3000左右 高亮护眼款成同档首选 - 驱动之家」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "驱动之家",
-    "source_url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBEX3FuRVVBb1pYckcweXJtMXlIejBnTTIxMGZMQnFsZkdUR3hXVmgtdWdvclRzSk1ic1dnUkZqTXB6dExMQWZsTzY3aFZWWkhzOUIxdDg2cHU?oc=5",
-    "published_at": "2026-08-04",
-    "country": "中國",
-    "language": "zh-CN",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
-  },
-  {
-    "id": "1368edaf4427e960",
-    "title": "从金年汇app官方网站下载看2026年投影仪选购：超七成用户更看重售后与渠道信任-TGBUS - 电玩巴士",
-    "title_zh_tw": "从金年汇app官方網站下載看2026年投影機選购：超七成用户更看重售後與渠道信任-TGBUS",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「从金年汇app官方网站下载看2026年投影仪选购：超七成用户更看重售后与渠道信任-TGBUS - 电玩巴士」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "电玩巴士",
-    "source_url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBjQlRQUnJRZmd4Q1VqVmhlX0I4MzhLOU0xSVRCeTZ2LVo5SDNyN3ZKeWFGTnh4Wm16dWhVbUxqY2Q0R1ZESmR5enp6LTJJV2JtUUw4Vw?oc=5",
-    "published_at": "2026-08-04",
-    "country": "中國",
-    "language": "zh-CN",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
-  },
-  {
-    "id": "575448b51e5895b7",
-    "title": "REDMI投影仪5 - 驱动之家",
-    "title_zh_tw": "REDMI投影機5",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「REDMI投影仪5 - 驱动之家」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "驱动之家",
-    "source_url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9icTVIbkZfczU3SjFTTkxKSXV6b1FHMHJfUUowSWM3Qkx5bnFTcm9nR2RVQk9HZ2s5QzF6ZDVNRlk3U1YzUGNsZ0hJc2Q3V1AzalBDa0Q0TEtfd21XMmE4Ujl4MV9RaVE?oc=5",
-    "published_at": "2026-08-04",
-    "country": "中國",
-    "language": "zh-CN",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
-  },
-  {
-    "id": "23a23894559ddae1",
-    "title": "河豚体育app官方下载深度评测：2026年旗舰投影仪的性能与体验全解析- TGBUS - 电玩巴士",
-    "title_zh_tw": "河豚體育app官方下載深度评測：2026年旗舰投影機的性能與體驗全解析- TGBUS",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「河豚体育app官方下载深度评测：2026年旗舰投影仪的性能与体验全解析- TGBUS - 电玩巴士」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "电玩巴士",
-    "source_url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOVHFZVTJRUTBsMFcxNEh6R0pRSUZrenZyT1FqVVY0a250MzVUZUtISEZnano4WGljOXkzSlN5NUhDOXY3TEZoaHM1VWhOTW02NFlLWWVIMXNySWxSaFBuVWpuUGM4SFVkbmtER3NCUFFEMDFLb3liX3g3R0N1R0Ria0NDOHpxeTg?oc=5",
-    "published_at": "2026-08-04",
-    "country": "中國",
-    "language": "zh-CN",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
-  },
-  {
-    "id": "f1cfb42350dbf52f",
-    "title": "家中有這款投影機快停用！台灣品牌宣布全球召回 電池恐過熱起火 - 自由電子報3C科技",
-    "title_zh_tw": "家中有這款投影機快停用！台灣品牌宣布全球召回 電池恐過熱起火",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「家中有這款投影機快停用！台灣品牌宣布全球召回 電池恐過熱起火 - 自由電子報3C科技」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "自由電子報3C科技",
-    "source_url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE1kREVVVVoxZjZFVkVsR3ZuUXJ3VTZENVE5a1JZY3RYR0w4Z2NQR21kTndQM0xxXzFTODZKdjhtY2xSSnFwczNz?oc=5",
-    "published_at": "2026-08-04",
-    "country": "台灣",
-    "language": "zh-TW",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
-  },
-  {
-    "id": "901045f809bfb413",
-    "title": "投影機傳起火風險！BenQ 緊急召回、開放免費維修或升級 - ETtoday新聞雲",
-    "title_zh_tw": "投影機傳起火風險！BenQ 緊急召回、開放免費維修或升級",
-    "summary_zh_tw": "此則消息的可辨識重點為 BenQ、產業動態，原始標題為「投影機傳起火風險！BenQ 緊急召回、開放免費維修或升級 - ETtoday新聞雲」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "ETtoday新聞雲",
-    "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1TdnpjSEpGNTB3MTZ3VThfUmU0dTlSLTE2dGFuM2RsYlZqZ2lZMTVJaHNwN1ZoWEFjQklfVW4xaVRub252WENIRXA0VnhFQzFTT3pOTW5RTTJhdGxxUXfSAUtBVV95cUxPUHF0U3c4aXJyVmxCWHh6Q2FrUzJTV25ycXF3VjBxTTlNUVF2YU8xbzgtYnNRVUwzUW80US1Bc2FCQUgxWnF3UkNnc00?oc=5",
-    "published_at": "2026-08-04",
-    "country": "台灣",
-    "language": "zh-TW",
-    "brands": [
-      "BenQ"
-    ],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
-  },
-  {
-    "id": "eb32b6e34581f5d9",
-    "title": "yibo体育最新版入口投影仪全方位评测：2026年家庭与办公投影新标杆- TGBUS - 电玩巴士",
-    "title_zh_tw": "yibo體育最新版入口投影機全方位评測：2026年家庭與办公投影新标杆- TGBUS",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「yibo体育最新版入口投影仪全方位评测：2026年家庭与办公投影新标杆- TGBUS - 电玩巴士」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "电玩巴士",
-    "source_url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE81S2o0NkxWRnVZODllQzhXdFEyR2JCb3Y1RDBBUjZkSU90Y3RuOHUzdjktOENwSTNNbVhOdDB5MS03ajIyRVpUeHJ5SEZkZE4wZW9HcEd3?oc=5",
-    "published_at": "2026-08-04",
-    "country": "中國",
-    "language": "zh-CN",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
-  },
-  {
-    "id": "7157a91e7f061aa3",
-    "title": "中端价值天花板：酷影X10投影仪播放足球必发指数深度体验 - 电玩巴士",
-    "title_zh_tw": "中端價值天花板：酷影X10投影機播放足球必發指數深度體驗",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「中端价值天花板：酷影X10投影仪播放足球必发指数深度体验 - 电玩巴士」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "电玩巴士",
-    "source_url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE0tQTk5SDYyMFo0MTE0dVJ3d2wwQUJEeFFxZUJkLU1HeTVFbkU5S3Z3Y3ZNbGl4OWo0aEpJc1BEVi1wSkFiX2tPS2I1aHlwRWNzay02clpmcGhUUkRsUGp6NU8ydkljWGc?oc=5",
-    "published_at": "2026-08-04",
-    "country": "中國",
-    "language": "zh-CN",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
-  },
-  {
-    "id": "88340e5a0d91b101",
-    "title": "Xiaomi launches affordable Redmi Projector 5 with 1080p resolution & built-in gimbal - Gizmochina",
-    "title_zh_tw": "Xiaomi launches affordable Redmi Projector 5 with 1080p resolution & built-in gimbal",
-    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「Xiaomi launches affordable Redmi Projector 5 with 1080p resolution & built-in gimbal - Gizmochina」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "Gizmochina",
-    "source_url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOcGpQQWt4Z3JzLWtVYzNQcm5CZnlCNHhmVXg1WUpodFY0a213RXdQbV81UWhrRnpab2ZkWDNrMzNYeTFxSkZCdUF1U0ZISUJiM2IyRW1OUFpGSjlPajRjbWFZaTM5V0J0SXF4VDV4NE9TYlZDU2Uwb1pMUUt6ZUpMOEZNQU04X2lfZTMzMg?oc=5",
-    "published_at": "2026-08-04",
-    "country": "美國",
-    "language": "en-US",
-    "brands": [],
-    "topics": [
-      "新品發表"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-05T04:08:04+00:00"
-  },
-  {
     "id": "83bd5ff905c34c03",
     "title": "SheremArt AstraVision Reviews: Does SheremArt Night Light Projector Meet User’s Reality - financialcontent.com",
     "title_zh_tw": "SheremArt AstraVision Reviews: Does SheremArt Night Light Projector Meet User’s Reality",
@@ -875,12 +1351,12 @@
     "collected_at": "2026-08-05T04:08:04+00:00"
   },
   {
-    "id": "f3016565b620dce9",
+    "id": "619529c4d960d7ec",
     "title": "Why is Audio lower when using Netlfix on my GV Projector? - BenQ",
     "title_zh_tw": "Why is Audio lower when using Netlfix on my GV Projector?",
     "summary_zh_tw": "此則消息的可辨識重點為 BenQ、產業動態，原始標題為「Why is Audio lower when using Netlfix on my GV Projector? - BenQ」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
     "source": "BenQ",
-    "source_url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNUmRYY1FLbHRtZGw0cUdwdDh4UVViNi1ZdFg3bFpVVWg0WUdYOGxDMnNuNlRRYTNHVDNKdHlsWWlWRE5WVklDaTItcFh0Y2ZEcDFlR1JYUkpHSFgtb2k0TlJPdFM5QzdHd0pMYVg2NDFUT3hwR2J5V0V2OUp4V0V4S0tmV0tCQzBIX3VNNVFn?oc=5",
+    "source_url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPeS1CcWVZaXQzemUtYkc2RlVmRmM1UlNhaWxldDNFRGpTWlZLSmM2Y2x0aWhIRldOUVM1OHRsNF9kYnVhTGhSNTBxZWpqZnAyTnpzNkRJNVZ4cFpoTUxKaDYxZTZBcVFGazRRTGdRTlZTZ2xhZ3k0YWNQZEpTdzJCQXJjODNzYnZxWDFFdU53?oc=5",
     "published_at": "2026-08-03",
     "country": "全球",
     "language": "en-US",
@@ -892,7 +1368,7 @@
     ],
     "is_official": true,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:24+00:00"
+    "collected_at": "2026-08-07T03:48:41+00:00"
   },
   {
     "id": "9c77309213990ed6",
@@ -910,7 +1386,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "d3ad40a6486300cc",
@@ -928,14 +1404,14 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "53f87d6e9fcfbb20",
-    "title": "オモムロニ。さんがレビュー。「いい音と映像にどっぷり浸かれる」〈Shokz〉のオープンイヤーイヤホンと、〈LGエレクトロニクス〉の４Kプロジェクター。 - topics.smt.docomo.ne.jp",
+    "title": "オモムロニ。さんがレビュー。「いい音と映像にどっぷり浸かれる」〈Shokz〉のオープンイヤーイヤホンと、〈LGエレクトロニクス〉の４Kプロジェクター。 - ｄメニューニュース",
     "title_zh_tw": "オモムロニ。さんが評測。「いい音と映像にどっぷり浸かれる」〈Shokz〉のオープンイヤーイヤホンと、〈LGエレクトロニクス〉の４K投影機。",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「オモムロニ。さんがレビュー。「いい音と映像にどっぷり浸かれる」〈Shokz〉のオープンイヤーイヤホンと、〈LGエレクトロニクス〉の４Kプロジェクター。 - topics.smt.docomo.ne.jp」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "topics.smt.docomo.ne.jp",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「オモムロニ。さんがレビュー。「いい音と映像にどっぷり浸かれる」〈Shokz〉のオープンイヤーイヤホンと、〈LGエレクトロニクス〉の４Kプロジェクター。 - ｄメニューニュース」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "ｄメニューニュース",
     "source_url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1waktHNmJFSkJXRm1HcGJZM0FPU2lDQ3ZvVjhzYjFBcndEVXhoeC1HWlNyMS1jS2NncnU1U29JRDMwb3RMRGRIRFROYTdRVVhfZy1OM2FQNHJmQmFGYTlEcFh2aEZYXzdyVUx0VDd5SUpieXpET0Ffc0xiSklHSEnSAYQBQVVfeXFMUENiejRyQ3g5bnZoS0FUanctMTVOQlItUUtlRWRNR1ZrQ3lySTJ2VnJSVlR6UFFvUzd5TUd3NkdhTGpwRzhhUHFMZHppS2g5NVliOGJOYm44UGtpRXllMXlwV3JXbExlY1dkWGJ5Vi1ubmNvV0gwSHM4dTAyOFMwRlBuY200?oc=5",
     "published_at": "2026-08-03",
     "country": "日本",
@@ -946,7 +1422,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "4ccbd1ce34fd9be8",
@@ -967,25 +1443,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
-  },
-  {
-    "id": "03b6dba8507da152",
-    "title": "The 4 Best Home Theater Projectors of 2026 - rtings.com",
-    "title_zh_tw": "The 4 Best Home Theater Projectors of 2026",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「The 4 Best Home Theater Projectors of 2026 - rtings.com」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "rtings.com",
-    "source_url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE0zNnBjZzhsTC1jMUpwZFhwMmtRQmxLNHlVX2JEM2dHZWl2UnBNVExnc3g4N1ZMWGJFV016VnNWMkpWMXJLcWI4N2ViR2xfbEJsVHVsV3dnR0NnXzdsUVlqWm1iX3AtT01RNUE?oc=5",
-    "published_at": "2026-08-03",
-    "country": "美國",
-    "language": "en-US",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "cdf0b652ad28fa54",
@@ -1007,7 +1465,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "c3e91474a77fe04e",
@@ -1027,7 +1485,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "721af1ce7e19385f",
@@ -1048,7 +1506,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "8f9c78b2b9180314",
@@ -1066,7 +1524,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "6b512a1f1ef5e64c",
@@ -1084,7 +1542,46 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "2be5706ba6b987b1",
+    "title": "海信、三色レーザープロジェクター「PX4 Pro」発表 家庭向け映画館市場を開拓 - BigGo ファイナンス",
+    "title_zh_tw": "海信、三色雷射投影機「PX4 Pro」發表 家庭向け電影館市場を開拓",
+    "summary_zh_tw": "此則消息的可辨識重點為 Hisense、雷射光源、供應鏈／市場，原始標題為「海信、三色レーザープロジェクター「PX4 Pro」発表 家庭向け映画館市場を開拓 - BigGo ファイナンス」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "BigGo ファイナンス",
+    "source_url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE54UTJXVnJ6VEktQkFCdVdQOE9zSHdoQUhtS21tWjYxd29rRnh6bktUeWZSUHUwRjlQdEZhcGdockZodWZyY1JlQmlKeEpibGtWS2lwVTFaX2hxT1E0Vk5UZTBvbGI4cUZodTNmVl9CQkQ0MDlz?oc=5",
+    "published_at": "2026-08-03",
+    "country": "日本",
+    "language": "ja",
+    "brands": [
+      "Hisense"
+    ],
+    "topics": [
+      "雷射光源",
+      "供應鏈／市場"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "a558e5af1c862b33",
+    "title": "Xiaomi launches affordable 120Hz projector with 1,000 lumens brightness rating - Notebookcheck",
+    "title_zh_tw": "Xiaomi launches affordable 120Hz projector with 1,000 lumens brightness rating",
+    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「Xiaomi launches affordable 120Hz projector with 1,000 lumens brightness rating - Notebookcheck」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "Notebookcheck",
+    "source_url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNd0RudzRySDYxemdqbXNqeG10N0VYU2NpaHdPRGlsVDhkX2I2YkRZcnc1Z2MzYWw3NWFMSGVZZE1yYnNyeXZKSjI1bDVVczNmajhybGJ6aU9USktQTHJLWUJuWXMtUGowT2ViNDNodnlFSUI3RGNmaTcyV1Nmb3hjbmJhWVBWaU1fdkRUSHVyaldkNDI5RE1xRkFVTmttWmk5WjBFUlNZVUpuYlNBcHZpRldBUGdENDlLU0M1VHpFVm8?oc=5",
+    "published_at": "2026-08-03",
+    "country": "美國",
+    "language": "en-US",
+    "brands": [],
+    "topics": [
+      "新品發表"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "2e98bcf17233dd46",
@@ -1102,7 +1599,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "e7ec557e6a4c3e5b",
@@ -1120,7 +1617,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "485e170f869069e4",
@@ -1138,7 +1635,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "0cadcee0515b0354",
@@ -1156,7 +1653,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "b514dc10c5728e50",
@@ -1174,7 +1671,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "7bcd5b7045840bde",
@@ -1192,7 +1689,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "e279743fe3f4ec01",
@@ -1210,7 +1707,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "ff391f0c40c74a39",
@@ -1228,7 +1725,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "627053243e96bda7",
@@ -1248,7 +1745,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "34465d396aeee819",
@@ -1266,7 +1763,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "befd6b8f9b1c12ec",
@@ -1284,25 +1781,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
-  },
-  {
-    "id": "a7d1607be9b0953c",
-    "title": "999元 REDMI投影仪5发布：1080P、360°调节躺着也能看 - 凤凰网科技",
-    "title_zh_tw": "999元 REDMI投影機5發布：1080P、360°调节躺着也能看",
-    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「999元 REDMI投影仪5发布：1080P、360°调节躺着也能看 - 凤凰网科技」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "凤凰网科技",
-    "source_url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTFBFSDN2RUYtQ1JMbDRNYV85ZFRqdlZTZW9Lc1FqWmFneFpxQnpGV2tvUllhZ1JGOWRYbVgxN0dCWHpuRC1aMEpMSmxqNTU?oc=5",
-    "published_at": "2026-08-03",
-    "country": "中國",
-    "language": "zh-CN",
-    "brands": [],
-    "topics": [
-      "新品發表"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "7c630968d30576de",
@@ -1320,7 +1799,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "86fe9dee79309e27",
@@ -1338,7 +1817,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "10a9a849be487df3",
@@ -1356,7 +1835,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "20771bb98b34bfe1",
@@ -1374,7 +1853,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "588b8d060158dd8f",
@@ -1392,7 +1871,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "3d6aac43a0ba0b25",
@@ -1410,7 +1889,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "fe01675b28058aa7",
@@ -1428,7 +1907,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "cf5024569acca489",
@@ -1446,7 +1925,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "71561b72bb6e9196",
@@ -1464,7 +1943,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "f77ede3755f05258",
@@ -1484,7 +1963,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "8c74af628be12b85",
@@ -1502,7 +1981,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "10394e499a10a4b9",
@@ -1520,7 +1999,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "01d8a1ff110cc2f8",
@@ -1538,14 +2017,14 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "fd069f8f4b1146cb",
-    "title": "海信推出XR10、PX4PRO及L9Q激光投影机，售价从2万3999令吉起 - Newswav",
+    "title": "海信推出XR10、PX4PRO及L9Q激光投影机，售价从2万3999令吉起 - newswav.com",
     "title_zh_tw": "海信推出XR10、PX4PRO及L9Q雷射投影機，售價从2萬3999令吉起",
-    "summary_zh_tw": "此則消息的可辨識重點為 Hisense、雷射光源，原始標題為「海信推出XR10、PX4PRO及L9Q激光投影机，售价从2万3999令吉起 - Newswav」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "Newswav",
+    "summary_zh_tw": "此則消息的可辨識重點為 Hisense、雷射光源，原始標題為「海信推出XR10、PX4PRO及L9Q激光投影机，售价从2万3999令吉起 - newswav.com」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "newswav.com",
     "source_url": "https://news.google.com/rss/articles/CBMiugJBVV95cUxPd2NJQ1JlNTJTbFc0NHJ3bEVvNjhBb1pHWFlQSTdYd3hrUWdmcWVab3BULXJOVklxRGlJcmUtU21tcmJUbUFyMGpMeEhxVlVVb1BQOVI1N1ljQ1d3TUJveHlQVmJ4OHM0Tjh1WjhLdDBSVFp0RXVNdDRaYzNqSFBXT1FFM3V1WkhpQkprUm1na05UUTJFbHZ0VUE4Ry1CRFdiMXMzYmFidjgxVC1QS3c4Q1lwaDBFZFppWFFJYjd1TWYxcHdCOWZRY0lCMmxNWUQ0WlI3NllKSndmN00yc04xbmtRMm9MOFQzQnMtb0h4MnRqQXNfdmozMU1XbWlIeGdmdFV2SXppSmdSSWstVWJOU1JfdUJXbnJVSi04dF9RVjlUZmRidmN1VlF4WURnbFVENWJGOUUyUlRRdw?oc=5",
     "published_at": "2026-08-03",
     "country": "中國",
@@ -1558,7 +2037,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "0ecbec1b66f2a967",
@@ -1578,25 +2057,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
-  },
-  {
-    "id": "862383269ade2bd6",
-    "title": "1899元！REDMI投影仪5 Pro发布：1000 CVIA流明、120Hz高刷 - 搜狐网",
-    "title_zh_tw": "1899元！REDMI投影機5 Pro發布：1000 CVIA流明、120Hz高刷",
-    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「1899元！REDMI投影仪5 Pro发布：1000 CVIA流明、120Hz高刷 - 搜狐网」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "搜狐网",
-    "source_url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5XYi1KOElKWGt3Tk0zX0d2X1ZuM1NsdWpxb2NSYVdUWHhIQjhRcE12ZWRiamxnYXgzaHlGLUdZOXBKcEt2WlhKTGwtV2hXajNnd3c?oc=5",
-    "published_at": "2026-08-03",
-    "country": "中國",
-    "language": "zh-CN",
-    "brands": [],
-    "topics": [
-      "新品發表"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "8666a048e673460b",
@@ -1615,7 +2076,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "4416a3c01e28e1f6",
@@ -1633,45 +2094,61 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
-    "id": "2be5706ba6b987b1",
-    "title": "【海信】PX4 Pro三色雷射投影機登場 搶攻家庭劇院商機 - BigGo ファイナンス",
-    "title_zh_tw": "【海信】PX4 Pro三色雷射投影機登場 搶攻家庭劇院商機",
-    "summary_zh_tw": "此則消息的可辨識重點為 Hisense、雷射光源，原始標題為「【海信】PX4 Pro三色雷射投影機登場 搶攻家庭劇院商機 - BigGo ファイナンス」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "BigGo ファイナンス",
-    "source_url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE54UTJXVnJ6VEktQkFCdVdQOE9zSHdoQUhtS21tWjYxd29rRnh6bktUeWZSUHUwRjlQdEZhcGdockZodWZyY1JlQmlKeEpibGtWS2lwVTFaX2hxT1E0Vk5UZTBvbGI4cUZodTNmVl9CQkQ0MDlz?oc=5",
+    "id": "16b7f2e498300555",
+    "title": "999元 REDMI投影仪5发布：1080P、360°调节躺着也能看 - 驱动之家",
+    "title_zh_tw": "999元 REDMI投影機5發布：1080P、360°调节躺着也能看",
+    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「999元 REDMI投影仪5发布：1080P、360°调节躺着也能看 - 驱动之家」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "驱动之家",
+    "source_url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5LeV9HakQ3MW56eEtQb0RfT2pNYzBKaVRNX2dORUpyQXZWZmtfU0FlbVBQZnI5RWJYZHlhenBMZHhUTEVNWlBBTDVjNDB6RVJWOGgycVR3TEs?oc=5",
     "published_at": "2026-08-03",
-    "country": "日本",
-    "language": "ja",
-    "brands": [
-      "Hisense"
-    ],
-    "topics": [
-      "雷射光源"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-05T04:08:05+00:00"
-  },
-  {
-    "id": "a558e5af1c862b33",
-    "title": "Xiaomi launches affordable 120Hz projector with 1,000 lumens brightness rating - Notebookcheck",
-    "title_zh_tw": "Xiaomi launches affordable 120Hz projector with 1,000 lumens brightness rating",
-    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「Xiaomi launches affordable 120Hz projector with 1,000 lumens brightness rating - Notebookcheck」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "Notebookcheck",
-    "source_url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNd0RudzRySDYxemdqbXNqeG10N0VYU2NpaHdPRGlsVDhkX2I2YkRZcnc1Z2MzYWw3NWFMSGVZZE1yYnNyeXZKSjI1bDVVczNmajhybGJ6aU9USktQTHJLWUJuWXMtUGowT2ViNDNodnlFSUI3RGNmaTcyV1Nmb3hjbmJhWVBWaU1fdkRUSHVyaldkNDI5RE1xRkFVTmttWmk5WjBFUlNZVUpuYlNBcHZpRldBUGdENDlLU0M1VHpFVm8?oc=5",
-    "published_at": "2026-08-03",
-    "country": "美國",
-    "language": "en-US",
+    "country": "中國",
+    "language": "zh-CN",
     "brands": [],
     "topics": [
       "新品發表"
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-04T04:13:07+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
+  },
+  {
+    "id": "355d086df38df58b",
+    "title": "1899元！REDMI投影仪5 Pro发布：1000 CVIA流明、120Hz高刷 - i.ifeng.com",
+    "title_zh_tw": "1899元！REDMI投影機5 Pro發布：1000 CVIA流明、120Hz高刷",
+    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「1899元！REDMI投影仪5 Pro发布：1000 CVIA流明、120Hz高刷 - i.ifeng.com」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "i.ifeng.com",
+    "source_url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBhNHlONll2NzRHZmJUWGZjcndIMTRmOTZHaVQ5Y0pNRUVpdFBRMEVPVGFrNGFVdkdENXkzMjZXVnY4b0NMeEJDVQ?oc=5",
+    "published_at": "2026-08-03",
+    "country": "中國",
+    "language": "zh-CN",
+    "brands": [],
+    "topics": [
+      "新品發表"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:39+00:00"
+  },
+  {
+    "id": "03b6dba8507da152",
+    "title": "The 4 Best Home Theater Projectors of 2026 - rtings.com",
+    "title_zh_tw": "The 4 Best Home Theater Projectors of 2026",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「The 4 Best Home Theater Projectors of 2026 - rtings.com」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "rtings.com",
+    "source_url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE0zNnBjZzhsTC1jMUpwZFhwMmtRQmxLNHlVX2JEM2dHZWl2UnBNVExnc3g4N1ZMWGJFV016VnNWMkpWMXJLcWI4N2ViR2xfbEJsVHVsV3dnR0NnXzdsUVlqWm1iX3AtT01RNUE?oc=5",
+    "published_at": "2026-08-03",
+    "country": "美國",
+    "language": "en-US",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-06T04:11:23+00:00"
   },
   {
     "id": "4f6c06cbcc9d4859",
@@ -1727,7 +2204,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "c7b121f523df9389",
@@ -1747,7 +2224,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "ecef052ccb2f2b8d",
@@ -1768,7 +2245,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "0144869ea89b6d2a",
@@ -1788,14 +2265,14 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "494e8d274fe0e812",
-    "title": "XElectron Techno projector review: Big-screen entertainment on a budget - The Times of India",
+    "title": "XElectron Techno projector review: Big-screen entertainment on a budget - timesofindia.indiatimes.com",
     "title_zh_tw": "XElectron Techno projector review: Big-screen entertainment on a budget",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「XElectron Techno projector review: Big-screen entertainment on a budget - The Times of India」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "The Times of India",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「XElectron Techno projector review: Big-screen entertainment on a budget - timesofindia.indiatimes.com」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "timesofindia.indiatimes.com",
     "source_url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNWXB0ajVrQVFkNFNXRTY4dC1qN1ZHZWV2VkNLTDBiTTVzM19uQU5lVVpZTXJEWUR5dHRYdUU3UXpkVU1Jd0g2S1JERlF0SzVQRmdIWlREQ1gxbks4a1NLbmEyM2UzZ2FfZjVYbERDOHVTX3pDbk0zNS1hY29qVlUzTDN0S0JQYkxENnlSZnlKR19jTWdtUXFfa3RnTnRSdmc5bzQycWV5SWloR3lLSEppRXpuX0c2MUVoZERqaWttZFBnYUxmdWdtUnJUSWJzS01DRE85OU5wNEk4T3l5ZFpPTXAyTmQ3Z9IB6wFBVV95cUxQNTk4TFdHTXFMZHdfb2VLcVFMcTQyWTIwTkkzenJQaGdUWmJYb3BEcExEeU1sTTdmNjFQMlgwYnIwUC1YVkZvVWd2WTNKQzh3QVdlei1hVmFwM05CaF9mYlRTUjNOalUzaVlOUHJOalR2RGdNbDFXejJoOU9SS0ZZYlNSaFN4WDByVGRPVV9LSGRBbTIycWMwLVhZZk5zcTRXU3NnMVo3ai10dk9uQU93WE9zeENNbUp0alZndjJCc1E5aEczM1dVRVRaTzczaXlENlJmR1ZDYTJZajZnQTktcEVVUFNmVXZqa0l3?oc=5",
     "published_at": "2026-08-02",
     "country": "美國",
@@ -1806,7 +2283,25 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "ca6b01527e33f80d",
+    "title": "俺ならテレビよりコレ！ 照明、プロジェクター、高音質スピーカーが一体化した「Alladin X3」 Ederson Atalanta (NCt8qnxiSH) - Mshale",
+    "title_zh_tw": "俺ならテレビよりコレ！ 照明、投影機、高音質スピーカーが一体化した「Alladin X3」 Ederson Atalanta (NCt8qnxiSH)",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「俺ならテレビよりコレ！ 照明、プロジェクター、高音質スピーカーが一体化した「Alladin X3」 Ederson Atalanta (NCt8qnxiSH) - Mshale」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "Mshale",
+    "source_url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBjSnZqVTFudHRKNG85VXEtSkc0bWp0dWtjY24zS0w5QWFYd0RuTkpzdnB1ZlhNRm5mYnptYWUyUkVzWGttVi16SDJoRnNLWDhiWWQzcHBzdjN2R2l6SHVwaw?oc=5",
+    "published_at": "2026-08-02",
+    "country": "日本",
+    "language": "ja",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "9538365231b89a7c",
@@ -1826,14 +2321,14 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "658c9db22f65c54f",
-    "title": "因电池存在起火风险，明基宣布召回部分 GV31 便携式投影仪 - 手机新浪网",
+    "title": "因电池存在起火风险，明基宣布召回部分 GV31 便携式投影仪 - 新浪网",
     "title_zh_tw": "因電池存在起火风险，明基宣布召回部分 GV31 便携式投影機",
-    "summary_zh_tw": "此則消息的可辨識重點為 BenQ、產業動態，原始標題為「因电池存在起火风险，明基宣布召回部分 GV31 便携式投影仪 - 手机新浪网」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "手机新浪网",
+    "summary_zh_tw": "此則消息的可辨識重點為 BenQ、產業動態，原始標題為「因电池存在起火风险，明基宣布召回部分 GV31 便携式投影仪 - 新浪网」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "新浪网",
     "source_url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNZGFVVkhyRTdNOFJNbEFXNWdCZVJBYjduZEFoSUJodHh6cUEzT0UyQ3hoWGF0QlBrcDFKaVhaa21PRDRUZGgtQUQ5Zk1nXy1IbXJBU016bmtvNW96Q2pmM0V6UDF2Vm9TQjFmWHVGQXdITTU3d2lRNXpqbUtfMDJ3TC1IblR5ZWRYdUdiUkdVNHU0ajJC?oc=5",
     "published_at": "2026-08-02",
     "country": "中國",
@@ -1846,7 +2341,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "c5b0b1221b0265ec",
@@ -1864,7 +2359,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "6848eba4039f5710",
@@ -1884,7 +2379,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "49eec73a52a6b907",
@@ -1905,7 +2400,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "8b19621e7dc5ad8d",
@@ -1923,7 +2418,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "a0a0d70f458aa92b",
@@ -1941,7 +2436,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "8d82726ba83fad3c",
@@ -1960,7 +2455,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "5b1329406cc3d0f3",
@@ -1978,7 +2473,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "2ea4b0ee8ac0bd9e",
@@ -1996,7 +2491,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "fe005a2b9c9dd256",
@@ -2014,7 +2509,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "a4e2fb54afa04220",
@@ -2032,7 +2527,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "faaf9bd3f2ab9253",
@@ -2050,7 +2545,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "9e3e886fd1ce29d0",
@@ -2068,7 +2563,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "91bae85f075c008a",
@@ -2086,7 +2581,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "2b864d1af771b5d9",
@@ -2104,7 +2599,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "aeb470dacd86a4e0",
@@ -2122,7 +2617,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "272e871fdae85a84",
@@ -2140,25 +2635,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
-  },
-  {
-    "id": "812ae258a0b29645",
-    "title": "0.1秒延迟，永利娱场城官网首页入口网址智能观赛投影仪即将亮相-TGBUS - 电玩巴士",
-    "title_zh_tw": "0.1秒延迟，永利娱場城官網首页入口網址智慧观赛投影機即将亮相-TGBUS",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「0.1秒延迟，永利娱场城官网首页入口网址智能观赛投影仪即将亮相-TGBUS - 电玩巴士」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "电玩巴士",
-    "source_url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE00ZGVhakRHdThUcjlWVlhYVGpxcDI0aGo0dWhrNndlYkhoMFVfaGs2Sjhsd1RVdTFuUFR0bThvODJuU1IwR0RNQ1pTUEl3eEVyRFQ2Zm8zd1Jjdmpz?oc=5",
-    "published_at": "2026-08-02",
-    "country": "中國",
-    "language": "zh-CN",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "001c671213f397b7",
@@ -2176,7 +2653,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "345fde14add5c86b",
@@ -2194,7 +2671,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "9875cd4b3199a3ac",
@@ -2213,7 +2690,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "e5440ebbe9c2eb66",
@@ -2232,15 +2709,15 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
-    "id": "d1da90c847fb0123",
-    "title": "仅厚12.9mm！VisionMax 4K投影仪让九游・娱乐体育入口官网官方网站纤毫毕现-TGBUS - 电玩巴士",
-    "title_zh_tw": "仅厚12.9mm！VisionMax 4K投影機让九游・娱乐體育入口官網官方網站纤毫毕现-TGBUS",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「仅厚12.9mm！VisionMax 4K投影仪让九游・娱乐体育入口官网官方网站纤毫毕现-TGBUS - 电玩巴士」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "id": "049566b2895b74dd",
+    "title": "初夏夜晚，用一台智能投影仪沉浸式观看南宫娱乐app官网版，把球场搬回家-TGBUS - 电玩巴士",
+    "title_zh_tw": "初夏夜晚，用一台智慧投影機沉浸式观看南宫娱乐app官網版，把球場搬回家-TGBUS",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「初夏夜晚，用一台智能投影仪沉浸式观看南宫娱乐app官网版，把球场搬回家-TGBUS - 电玩巴士」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
     "source": "电玩巴士",
-    "source_url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFB2Ym5vdDNjVkZ5dnRCdTlkTzc1c3pfVEpvTVJsVFRvUGttOXNPZjF4NE92Y1h4OTFUTVdKRWpKc1RvM2hwcS1DTUozNW9fWk5aUWRKSmhvbDRMMDA?oc=5",
+    "source_url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBaN2JlNG9oM2I0TDRlWkFLcTFNdnBCYkxuekZmV01nR1U5RWFGb3V4Z09KdDBQemJNZWs4bEt5c0pTYUdPR19zRjVlMmZQQQ?oc=5",
     "published_at": "2026-08-02",
     "country": "中國",
     "language": "zh-CN",
@@ -2250,15 +2727,15 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
-    "id": "049566b2895b74dd",
-    "title": "初夏夜晚，用一台智能投影仪沉浸式观看南宫娱乐app官网版，把球场搬回家-TGBUS - 电玩巴士",
-    "title_zh_tw": "初夏夜晚，用一台智慧投影機沉浸式观看南宫娱乐app官網版，把球場搬回家-TGBUS",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「初夏夜晚，用一台智能投影仪沉浸式观看南宫娱乐app官网版，把球场搬回家-TGBUS - 电玩巴士」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "id": "812ae258a0b29645",
+    "title": "0.1秒延迟，永利娱场城官网首页入口网址智能观赛投影仪即将亮相-TGBUS - 电玩巴士",
+    "title_zh_tw": "0.1秒延迟，永利娱場城官網首页入口網址智慧观赛投影機即将亮相-TGBUS",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「0.1秒延迟，永利娱场城官网首页入口网址智能观赛投影仪即将亮相-TGBUS - 电玩巴士」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
     "source": "电玩巴士",
-    "source_url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBaN2JlNG9oM2I0TDRlWkFLcTFNdnBCYkxuekZmV01nR1U5RWFGb3V4Z09KdDBQemJNZWs4bEt5c0pTYUdPR19zRjVlMmZQQQ?oc=5",
+    "source_url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE00ZGVhakRHdThUcjlWVlhYVGpxcDI0aGo0dWhrNndlYkhoMFVfaGs2Sjhsd1RVdTFuUFR0bThvODJuU1IwR0RNQ1pTUEl3eEVyRFQ2Zm8zd1Jjdmpz?oc=5",
     "published_at": "2026-08-02",
     "country": "中國",
     "language": "zh-CN",
@@ -2283,24 +2760,6 @@
     "brands": [],
     "topics": [
       "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-05T04:08:04+00:00"
-  },
-  {
-    "id": "dfdcbd2cccebdf49",
-    "title": "终结选择困难：178体育苹果版官网入口新品投影仪颜值、画质与自由兼得-TGBUS - 电玩巴士",
-    "title_zh_tw": "终结選择困难：178體育苹果版官網入口新品投影機颜值、画質與自由兼得-TGBUS",
-    "summary_zh_tw": "此則消息的可辨識重點為 新品發表，原始標題為「终结选择困难：178体育苹果版官网入口新品投影仪颜值、画质与自由兼得-TGBUS - 电玩巴士」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "电玩巴士",
-    "source_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE10LXdMVHpPcnBBeGkxekpzbXNteVVCazBQN3U3b3R2LTQweF9nY195MndUM1ZvR2E3UUIwbmdCTW8yLTRzMndKRFJkTEo2TElZQVpoNXlDTXZ4aUREeVNj?oc=5",
-    "published_at": "2026-08-02",
-    "country": "中國",
-    "language": "zh-CN",
-    "brands": [],
-    "topics": [
-      "新品發表"
     ],
     "is_official": false,
     "summary_mode": "rules",
@@ -2394,7 +2853,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "fa38e298345b53fa",
@@ -2415,7 +2874,25 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "9ad323e01b0e140d",
+    "title": "TCL A1s プロジェクター 実機レビュー | Google TV・Netflix対応の5万円台フルHDプロジェクター - TikGadget",
+    "title_zh_tw": "TCL A1s 投影機 実機評測 | Google TV・Netflix対応の5万円台フルHD投影機",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「TCL A1s プロジェクター 実機レビュー | Google TV・Netflix対応の5万円台フルHDプロジェクター - TikGadget」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "TikGadget",
+    "source_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5YeWNfZENQM3c5bElpLUt1U1Q4eGZXRHZRQk5TVXVsSkNORVZYLUUzSzlUNTc4cmwxOF9JcFFDMW5EZW45MFZoejhsX0hnbERQTUVvcm9FS0U4emhFOF9n?oc=5",
+    "published_at": "2026-08-01",
+    "country": "日本",
+    "language": "ja",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "b4a404e79d13a33e",
@@ -2545,14 +3022,14 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "ed2b8422273e8def",
-    "title": "REGZAのテレビ／プロジェクターも活用。東京シティビューの『薬屋のひとりごと』コラボイベントを一足先に体験 - topics.smt.docomo.ne.jp",
+    "title": "REGZAのテレビ／プロジェクターも活用。東京シティビューの『薬屋のひとりごと』コラボイベントを一足先に体験 - ｄメニューニュース",
     "title_zh_tw": "REGZAのテレビ／投影機も活用。東京シティビューの『薬屋のひとりごと』コラボイベントを一足先に體驗",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「REGZAのテレビ／プロジェクターも活用。東京シティビューの『薬屋のひとりごと』コラボイベントを一足先に体験 - topics.smt.docomo.ne.jp」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "topics.smt.docomo.ne.jp",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「REGZAのテレビ／プロジェクターも活用。東京シティビューの『薬屋のひとりごと』コラボイベントを一足先に体験 - ｄメニューニュース」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "ｄメニューニュース",
     "source_url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNVFg4UmVfRElyNFdTYjdjZ01OTUktQVg4U3VnVzNnTlVQQnA2UGxaWmdsbUt4a1VpVWxiQWNHQjJqd3MxeWFIU01aNExYY0F2ckVLOGJvb1hIVURDMk1YaVVjMjVrWkFmSXpOOUFwZlhzNmRkWllxWTVFNDNNODFnQUhnR3F4ODdKMmhlTnZGX1JxUdIBjgFBVV95cUxQNGN0S2VpSUlWSWx2aEF3NlQtSXB2TndmSE03RU05bkN6T0R3ZzF3bWRQVkNud0xZVzFBSXBxOVpUZTVjVWFyd1ZKMVJIWEIzemxWaks2X1E2WFhPdmU1Rjh5RExNM2o0eWhRWWVuSjU1Zlh4NVo4TUp2WnVUbDFZUU55RWlxazd6S19sdXN3?oc=5",
     "published_at": "2026-07-31",
     "country": "日本",
@@ -2563,7 +3040,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "f1bf7f2de7d9b222",
@@ -2583,7 +3060,7 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
   },
   {
     "id": "46f1efe229865ee1",
@@ -2603,7 +3080,43 @@
     ],
     "is_official": false,
     "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "cfa2848ca5ab0ec7",
+    "title": "画像ページ (9/10) 【Amazonタイムセール】ラピッドトリガー搭載ゲーミングキーボードが23800円→10800円に。家庭用プロジェクターは39%オフ、モニターアームは23%オフ - ファミ通",
+    "title_zh_tw": "画像ページ (9/10) 【Amazonタイムセール】ラピッドトリガー搭載ゲーミングキーボードが23800円→10800円に。家庭用投影機は39%オフ、モニターアームは23%オフ",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「画像ページ (9/10) 【Amazonタイムセール】ラピッドトリガー搭載ゲーミングキーボードが23800円→10800円に。家庭用プロジェクターは39%オフ、モニターアームは23%オフ - ファミ通」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "ファミ通",
+    "source_url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9HaC1fRGhnbC1HNE16amdWeDFmQ1ltVHZvZWpGMWdlSTNiczcza2thdzhrUnVnaUtJSG8weXNCQk1QaDYyTjFoX3doblM0YXZLRHhoM3g1LUxlZ1U4dXpwRmxOdVo3MzhvNWc?oc=5",
+    "published_at": "2026-07-31",
+    "country": "日本",
+    "language": "ja",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:40+00:00"
+  },
+  {
+    "id": "48ac9a6981724b46",
+    "title": "百元投影仪新王者：哈趣Q1 Pro 百元带来的千元投影仪体验 - 驱动之家",
+    "title_zh_tw": "百元投影機新王者：哈趣Q1 Pro 百元帶来的千元投影機體驗",
+    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「百元投影仪新王者：哈趣Q1 Pro 百元带来的千元投影仪体验 - 驱动之家」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
+    "source": "驱动之家",
+    "source_url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5RLUJSb2EzRVVmTlBwTWtXVzV5WDNGRnRZTk1YM3ZPT0xaSGZpZ3hGcEhLVE5SVlBuVTJsX2hHN0VINzVvdkpPenpHekRhZmJoano5bTZzR3Q?oc=5",
+    "published_at": "2026-07-31",
+    "country": "中國",
+    "language": "zh-CN",
+    "brands": [],
+    "topics": [
+      "產業動態"
+    ],
+    "is_official": false,
+    "summary_mode": "rules",
+    "collected_at": "2026-08-07T03:48:39+00:00"
   },
   {
     "id": "4b3163d86e243428",
@@ -2642,24 +3155,6 @@
     "is_official": false,
     "summary_mode": "rules",
     "collected_at": "2026-08-06T04:11:23+00:00"
-  },
-  {
-    "id": "48ac9a6981724b46",
-    "title": "百元投影仪新王者：哈趣Q1 Pro 百元带来的千元投影仪体验 - 驱动之家",
-    "title_zh_tw": "百元投影機新王者：哈趣Q1 Pro 百元帶来的千元投影機體驗",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「百元投影仪新王者：哈趣Q1 Pro 百元带来的千元投影仪体验 - 驱动之家」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "驱动之家",
-    "source_url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5RLUJSb2EzRVVmTlBwTWtXVzV5WDNGRnRZTk1YM3ZPT0xaSGZpZ3hGcEhLVE5SVlBuVTJsX2hHN0VINzVvdkpPenpHekRhZmJoano5bTZzR3Q?oc=5",
-    "published_at": "2026-07-31",
-    "country": "中國",
-    "language": "zh-CN",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:22+00:00"
   },
   {
     "id": "9ef1d231f2cb7897",
@@ -2892,44 +3387,6 @@
     "is_official": true,
     "summary_mode": "rules",
     "collected_at": "2026-08-01T04:20:16+00:00"
-  },
-  {
-    "id": "8c1cad128e034625",
-    "title": "【最大50%OFF】Ankerが「TIME SALE」を開催中〜ポタ電・プロジェクターなど130製品以上が対象 - touchlab.jp",
-    "title_zh_tw": "【最大50%OFF】Ankerが「TIME SALE」を開催中〜ポタ電・投影機など130製品以上が対象",
-    "summary_zh_tw": "此則消息的可辨識重點為 Anker Nebula、產業動態，原始標題為「【最大50%OFF】Ankerが「TIME SALE」を開催中〜ポタ電・プロジェクターなど130製品以上が対象 - touchlab.jp」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "touchlab.jp",
-    "source_url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5MWXpaYU9iUGdydVNQTEZnZmZvNl8tMy1WR1hoWmtsRTBFSVFPQlpIYThkbjk2ZldQSkhLWlJTN2FSVFhfRnRveEFhaXRzMnRqd2ZTbFRJaC1VdTZHN25wY2VR?oc=5",
-    "published_at": "2026-07-30",
-    "country": "日本",
-    "language": "ja",
-    "brands": [
-      "Anker Nebula"
-    ],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
-  },
-  {
-    "id": "f36268d2675e1fd1",
-    "title": "俺ならテレビよりコレ！ 照明、プロジェクター、高音質スピーカーが一体化した「Alladin X3」 Ederson Atalanta (NCt8qnxiSH) - Mshale",
-    "title_zh_tw": "俺ならテレビよりコレ！ 照明、投影機、高音質スピーカーが一体化した「Alladin X3」 Ederson Atalanta (NCt8qnxiSH)",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「俺ならテレビよりコレ！ 照明、プロジェクター、高音質スピーカーが一体化した「Alladin X3」 Ederson Atalanta (NCt8qnxiSH) - Mshale」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "Mshale",
-    "source_url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5hTnNOa3ZralliSE9aNzk4Q3FRcWUxbDNGT1pDbDFRSUpnSEpxVHBJdklpcjkwelczMlBNQ2VBMVR6ZTZ4RDI2Sk01WVo2ZkZYaklIYkdRUS05amM?oc=5",
-    "published_at": "2026-07-30",
-    "country": "日本",
-    "language": "ja",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-06T04:11:23+00:00"
   },
   {
     "id": "927f634cfba0304e",
@@ -3769,24 +4226,6 @@
     "is_official": false,
     "summary_mode": "rules",
     "collected_at": "2026-08-04T04:13:07+00:00"
-  },
-  {
-    "id": "dd3ca31891d8ccc2",
-    "title": "【Amazonタイムセール】ラピッドトリガー搭載ゲーミングキーボードが23800円→10800円に。家庭用プロジェクターは39%オフ、モニターアームは23%オフ - ファミ通",
-    "title_zh_tw": "【Amazonタイムセール】ラピッドトリガー搭載ゲーミングキーボードが23800円→10800円に。家庭用投影機は39%オフ、モニターアームは23%オフ",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「【Amazonタイムセール】ラピッドトリガー搭載ゲーミングキーボードが23800円→10800円に。家庭用プロジェクターは39%オフ、モニターアームは23%オフ - ファミ通」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "ファミ通",
-    "source_url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5ld0lsNjIxRGxsdnAxZ0VNd01ndkhuODNkRGl3Y1JubEI1WDZhZklaY0VQYjlDemVBNUd4cXVzdlo5RnowbXhmVFZiOURrY3dsOTBsbEMyZw?oc=5",
-    "published_at": "2026-07-28",
-    "country": "日本",
-    "language": "ja",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-08-03T04:28:50+00:00"
   },
   {
     "id": "8ccf1f9d3af17371",
@@ -14675,24 +15114,6 @@
     "collected_at": "2026-06-30T08:16:14+00:00"
   },
   {
-    "id": "9ad323e01b0e140d",
-    "title": "TCL A1s プロジェクター 実機レビュー | Google TV・Netflix対応の5万円台フルHDプロジェクター - TikGadget",
-    "title_zh_tw": "TCL A1s 投影機 実機評測 | Google TV・Netflix対応の5万円台フルHD投影機",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「TCL A1s プロジェクター 実機レビュー | Google TV・Netflix対応の5万円台フルHDプロジェクター - TikGadget」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "TikGadget",
-    "source_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5YeWNfZENQM3c5bElpLUt1U1Q4eGZXRHZRQk5TVXVsSkNORVZYLUUzSzlUNTc4cmwxOF9JcFFDMW5EZW45MFZoejhsX0hnbERQTUVvcm9FS0U4emhFOF9n?oc=5",
-    "published_at": "2026-06-24",
-    "country": "日本",
-    "language": "ja",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-06-30T08:16:14+00:00"
-  },
-  {
     "id": "cc78b46eb5f12b96",
     "title": "JMGO、画質／設置性／価格のバランスを追求した4Kレーザープロジェクター「N3 4K」。軽量フルHDモデル「N3 SE」も - Yahoo!ニュース",
     "title_zh_tw": "JMGO、画質／設置性／価格のバランスを追求した4K雷射投影機「N3 4K」。輕量フルHD機型「N3 SE」も",
@@ -18409,425 +18830,5 @@
     "is_official": false,
     "summary_mode": "rules",
     "collected_at": "2026-06-17T06:39:30+00:00"
-  },
-  {
-    "id": "cf822ffddd08462c",
-    "title": "【ミニレビュー】 真上から“推し”に見守られる新体験。“機械音痴”がプロジェクターデビューしてみた - AV Watch",
-    "title_zh_tw": "【ミニ評測】 真上から“推し”に見守られる新體驗。“機械音痴”が投影機デビューしてみた",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「【ミニレビュー】 真上から“推し”に見守られる新体験。“機械音痴”がプロジェクターデビューしてみた - AV Watch」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "AV Watch",
-    "source_url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE96S0VBY0F2dVZKaDNqTlVIY0p6MF9idXh0dndxckUzaGNvMXE2Wng1RFN0TFZodW1oc2VpVzRBdlE0MkpmZkNhMnliT2x2SGc3TmVtamR4RTVsa1JjT0xMNXhqekkzUkJwUFktVUJQa2UybVpq?oc=5",
-    "published_at": "2026-06-10",
-    "country": "日本",
-    "language": "ja",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-06-17T06:39:30+00:00"
-  },
-  {
-    "id": "d4dcec7db79631ef",
-    "title": "BenQ×三田天然温泉「寿ノ湯」 スポーツ観戦への注目が高まるこの時期に極上のリラックス状態で大画面を体感！最新4K短焦点プロジェクターを体験する期間限定コラボを実施 - PR TIMES",
-    "title_zh_tw": "BenQ×三田天然温泉「寿ノ湯」 スポーツ観戦への注目が高まるこの時期に極上のリラックス状態で大畫面を体感！最新4K短焦投影機を體驗する期間限定コラボを実施",
-    "summary_zh_tw": "此則消息的可辨識重點為 BenQ、產業動態，原始標題為「BenQ×三田天然温泉「寿ノ湯」 スポーツ観戦への注目が高まるこの時期に極上のリラックス状態で大画面を体感！最新4K短焦点プロジェクターを体験する期間限定コラボを実施 - PR TIMES」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "PR TIMES",
-    "source_url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5kcFdEejFOeE5QUGNUejhWbkM0XzgzRU9uLVdTVmNMdGdWcmdOdEVLN3ZmbU4wMUZjN0prdU9sUEllY2ljWFhEeldRVWJ3Wks0LWx5VUhPa0ZGdFVqODM4U2QwYlhoS0xQVWc?oc=5",
-    "published_at": "2026-06-10",
-    "country": "日本",
-    "language": "ja",
-    "brands": [
-      "BenQ"
-    ],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-06-17T06:39:30+00:00"
-  },
-  {
-    "id": "5617006508555ff4",
-    "title": "AWOL Vision Brings Valerion Into core projector portfolio - insideci.co.uk",
-    "title_zh_tw": "AWOL Vision Brings Valerion Into core projector portfolio",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「AWOL Vision Brings Valerion Into core projector portfolio - insideci.co.uk」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "insideci.co.uk",
-    "source_url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNYm5aNWtqZ0dlbkxtbFNnZTJnSFJxTzdYXzN6N0haRndYSzBpT0FWcFgwb25tNl9SSFg4Z0JlUVVvb1lDM0tIN0Mzd1lRT0d3MjNqRFJaZnBwRTQzcFp1WHA0X0x5YzFxYzFQVFlvdGJzaUMzM0ZrLTlBS1l2N3pGV1l0U0NvVWtfazZVaWwyTGJ6Mmc0Q3NxOXNR?oc=5",
-    "published_at": "2026-06-10",
-    "country": "美國",
-    "language": "en-US",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-06-17T06:39:30+00:00"
-  },
-  {
-    "id": "7b13b3f9dd5d122f",
-    "title": "2026年千元投影仪，闭眼冲当贝D7X，三色激光越级 - 中华网",
-    "title_zh_tw": "2026年千元投影機，闭眼冲当贝D7X，三色雷射越級",
-    "summary_zh_tw": "此則消息的可辨識重點為 Dangbei、雷射光源，原始標題為「2026年千元投影仪，闭眼冲当贝D7X，三色激光越级 - 中华网」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "中华网",
-    "source_url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9OMy11V2w2aWkzdkJySTFaRHRPM3MxaFFnYUxFNGRmRnhSZWVqYjM0ZXhnemViSUFLVklDWUFCWTE3QjYtaXFSZU44Y0draTFMMklHb2tmV3VoeGFocUp3NXZXWnVvcTN3ckRJbFR3?oc=5",
-    "published_at": "2026-06-10",
-    "country": "中國",
-    "language": "zh-CN",
-    "brands": [
-      "Dangbei"
-    ],
-    "topics": [
-      "雷射光源"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-06-17T06:39:29+00:00"
-  },
-  {
-    "id": "97f9143887476a61",
-    "title": "【2万円オフ】最大120インチの画面で大迫力のゲーム体験を。Ankerのモバイルプロジェクター・ネビュラ カプセル3【楽天スーパーセール】 - 電撃オンライン",
-    "summary_zh_tw": "此則消息的可辨識重點為 Anker Nebula、產業動態，原始標題為「【2万円オフ】最大120インチの画面で大迫力のゲーム体験を。Ankerのモバイルプロジェクター・ネビュラ カプセル3【楽天スーパーセール】 - 電撃オンライン」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "電撃オンライン",
-    "source_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5wSnNqbjRzYmtiTHhjMmhFQnFjYUVVUGdxUEtSZng3Q2MyZE5YcTliSmY1RWE5aUtrSVU2VEpCdnNIVzF0aVVNTksybWFNYzdxTndTLWNJU0laUQ?oc=5",
-    "published_at": "2026-06-10",
-    "country": "日本",
-    "language": "ja",
-    "brands": [
-      "Anker Nebula"
-    ],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-06-12T03:26:10+00:00",
-    "title_zh_tw": "【2万円オフ】最大120インチの畫面で大迫力のゲーム體驗を。Ankerのモバイル投影機・ネビュラ カプセル3【楽天スーパーセール】"
-  },
-  {
-    "id": "8c42571af68e9d95",
-    "title": "AI眼镜赛道“群雄逐鹿”，上游AR光机成行业破局关键 - 新浪财经",
-    "summary_zh_tw": "此則消息的可辨識重點為 光機／光學引擎，原始標題為「AI眼镜赛道“群雄逐鹿”，上游AR光机成行业破局关键 - 新浪财经」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "新浪财经",
-    "source_url": "https://news.google.com/rss/articles/CBMi5gRBVV95cUxNNklONVF5QWZ6NzVzQmxwejMxcUY3XzBqbE5SNnJFdmRQaThSV3FJWTdRaF9DcWxGMzdvZGdqMnh5Mi1YQXUtQzRmeEVfUzlPWVV0ZkRHM1FUWDA5MGNhMnJ1dTJmU01tbGhnem5MSk5uMFJCdXYxbWM3V0pscnY4d2lOaldvS3pabWg0WjBFMGFERVhfcXhJSE5Jd2dkYXFBa1N1V3RfSnBINVJvTzhQMUphR3JLY05CeGNHYU0zVHRWTzZBUGNjck90QVd0NktURUZjb3JfbWVfZ240UmVpUzUtem1yWTU2dUltS3lZRm1mWWltZ1ZaRmpnYXJDbUN0cEYwZU05LXQ5TEVOR1ZEOEhmM1l1dnJyZnY5ZGJlTDloSFFFeWZUWFF0eTFaWVVFd3I0eG5VLWlxWHVmTjhUNDAwYUZHQXJyQmN1d1NyU2V3bUJpTmdMZjhtMUpTbS16c2ZDZGxnSnJNSkdXMEVhaHBvMjN3U0FHc2Vtd0dxWHU1SDlTdU9xa09CZ2ttN1pDenFNWVB0WS1CcVpSeEt2XzNSNVF0em5oMkFzNGEzWldwaVJNWkI1a1JZUWZ2Vzh3SVJOVGNfTDZRQlFMZGZ4emRqMVdMLUQ0RG5Kek5ZSmJXcFRKa1dneXcwMWR4UXlzR1hrTi1RUkZtemllaElYSlNuQnVXVjBnZ3h3d1NUaDJmLXlhYUloODBiaGpzNHFIZmVSWUcyT1ctRDRvdXN6ZGtQZDE2ZFp5eERRZmhPdFVJbzJ3ZV9oc2F2RHhZbzhWWkNXVWd5SXhjSHRRYUthbEpkdGdyZw?oc=5",
-    "published_at": "2026-06-10",
-    "country": "中國",
-    "language": "zh-CN",
-    "brands": [],
-    "topics": [
-      "光機／光學引擎"
-    ],
-    "is_official": false,
-    "collected_at": "2026-06-12T03:22:32+00:00",
-    "summary_mode": "rules",
-    "title_zh_tw": "AI眼鏡赛道“群雄逐鹿”，上游AR光機成行業破局关键"
-  },
-  {
-    "id": "2cffc54cc603decc",
-    "title": "プロジェクタースクリーン市場：種類、素材、設置方式、機構、画面アスペクト比、用途、流通チャネル別―2026年～2032年の世界市場予測 - アットプレス",
-    "title_zh_tw": "投影機螢幕市場：種類、素材、設置方式、機構、畫面アスペクト比、用途、流通チャネル別―2026年～2032年の世界市場預測",
-    "summary_zh_tw": "此則消息的可辨識重點為 供應鏈／市場，原始標題為「プロジェクタースクリーン市場：種類、素材、設置方式、機構、画面アスペクト比、用途、流通チャネル別―2026年～2032年の世界市場予測 - アットプレス」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "アットプレス",
-    "source_url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5CSkZkVjU1NDJIQ2NRRFlWTkxLZHo1X05UeEsxNzhkSFUxRnRHRWV6REdIaTMzNm5yUDkwbU1lTkZ4NDdBeWFhcVBCQ1ZVLXM?oc=5",
-    "published_at": "2026-06-09",
-    "country": "日本",
-    "language": "ja",
-    "brands": [],
-    "topics": [
-      "供應鏈／市場"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-06-17T06:39:30+00:00"
-  },
-  {
-    "id": "c1fc406cddf80564",
-    "title": "カラオケBanBan蘇我駅前店がリニューアル、プロジェクタールーム新設と割引クーポン配布開始 - J-CAST ニュース",
-    "title_zh_tw": "カラオケBanBan蘇我駅前店がリニューアル、投影機ルーム新設と折扣クーポン配布開始 - J-CAST 新聞",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「カラオケBanBan蘇我駅前店がリニューアル、プロジェクタールーム新設と割引クーポン配布開始 - J-CAST ニュース」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "J-CAST ニュース",
-    "source_url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5kamg5X3h4WWlYUkY5dnpjVDJRSVBEcDhUWk1CX0IxZlJsWWVHUWpHLVUtbnJKaGQtbmRsVjBMYlg3anNmUHpwaXM4TzdCYU9jNzRZU1RscTktclV0amM4RXJPaVhOdw?oc=5",
-    "published_at": "2026-06-09",
-    "country": "日本",
-    "language": "ja",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-06-17T06:39:30+00:00"
-  },
-  {
-    "id": "7a278194f0d2d89d",
-    "title": "FD研修会「VRプロジェクター・動画の教育への利活用」 ―龍谷IP事業「龍谷大学だからこその3キャンパス共通オンライン授業の展開」を通じて― | ニュース - ryukoku.ac.jp",
-    "title_zh_tw": "FD研修会「VR投影機・動画の教育への利活用」 ―龍谷IP事業「龍谷大学だからこその3キャンパス共通オンライン授業の展開」を通じて― | 新聞",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「FD研修会「VRプロジェクター・動画の教育への利活用」 ―龍谷IP事業「龍谷大学だからこその3キャンパス共通オンライン授業の展開」を通じて― | ニュース - ryukoku.ac.jp」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "ryukoku.ac.jp",
-    "source_url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5rdDJTNU9uX3d3anBKRGgzMWpleWVvNFV6NlpkSkpaY3ZKNnFuQjFkSXVwVHB2Rk1RQXNWMU1SOXU3NV9MRmd5VlNPcW1HdEpJRE52SWR6eU9IcU80cE1j?oc=5",
-    "published_at": "2026-06-09",
-    "country": "日本",
-    "language": "ja",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-06-17T06:39:30+00:00"
-  },
-  {
-    "id": "a10546ac5928bbb9",
-    "title": "Christie laser projectors light Song Dynasty poet Lu You spectacle - LSi Online",
-    "title_zh_tw": "Christie laser projectors light Song Dynasty poet Lu You spectacle",
-    "summary_zh_tw": "此則消息的可辨識重點為 Christie、雷射光源，原始標題為「Christie laser projectors light Song Dynasty poet Lu You spectacle - LSi Online」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "LSi Online",
-    "source_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPYnZ6WHFWRDJCbThqVng1NUNiUVRxYWo1TFZHREVlbW81Z00xS1oxdWxQa1ZjemFtbEJPZWgycHcxbEd2Mkh2RmxhcG9GX3FfZUtaYVZ4OEF5SGxIZzhQeEZxZFhaMjB2T2V5cEFSVEFkYS14UENZc2FkNGx0NHhJUWRkaHBGZHNjYmRuNzJfTEpRNmtGc216eGtQVHg4dDg?oc=5",
-    "published_at": "2026-06-09",
-    "country": "美國",
-    "language": "en-US",
-    "brands": [
-      "Christie"
-    ],
-    "topics": [
-      "雷射光源"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-06-17T06:39:30+00:00"
-  },
-  {
-    "id": "b2f28a0fb44b2dad",
-    "title": "一公尺距離打造89吋大畫面！宏碁全新 Acer Vero 系列SL2520n短焦雷射投影機開賣 - Yahoo新聞",
-    "title_zh_tw": "一公尺距離打造89吋大畫面！宏碁全新 Acer Vero 系列SL2520n短焦雷射投影機開賣",
-    "summary_zh_tw": "此則消息的可辨識重點為 Acer、雷射光源，原始標題為「一公尺距離打造89吋大畫面！宏碁全新 Acer Vero 系列SL2520n短焦雷射投影機開賣 - Yahoo新聞」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "Yahoo新聞",
-    "source_url": "https://news.google.com/rss/articles/CBMisgNBVV95cUxOVjMzbEdhYnF4V3hMV0MyMkx1TWRXMmVqLTFkTXdfUnJnR3FwVl9IR19JWmt0TXRjdFNSNEdqVmw4bjFPMFZxa1RKZEtfcWtNRGZRQ3h5SW95MEV1bE41TXRGNHEzaGpYa2ZzNmV6WGZTU3hFWGk0R093Y0k5X3JETzZ6ZTVWa3hUZFZLRWVfQXg5SDE3M01iUkFpRHI5VzEyVkcwcENUbFhUZDZfbVNfcXdUV0JkV0FWTkFXWDRWSFdtSlExZlVUZmY0UUx2T2RiYkxhYlh1ZS14MkprVjFTNWExNGF5YjJkWVhZcE1QdVFoVU9seS1KVzlDZVAzWEp4czYzS3hLLUNYY2JsOHp3MUotcE9yV2FzRmZRY3RNMDhiNzFpbnoyN1U3MXBHSDhqWC1hTzlDNHlTRW9JMmwxX3JIbUx5bTY2SU9qR1AxOERTVWFVX0hhOE5kVGFDYjRqc2dlS01pMWpoUjZVemZPdG8tSUJEanBORlFIUVlKTjFWU19FTG9NT2pVQlAzR3FSSEVNQ0tpV3l2N196TnVySDAxVmJ5Tngtem53VWF2UjB4UQ?oc=5",
-    "published_at": "2026-06-09",
-    "country": "台灣",
-    "language": "zh-TW",
-    "brands": [
-      "Acer"
-    ],
-    "topics": [
-      "雷射光源"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-06-17T06:39:28+00:00"
-  },
-  {
-    "id": "64f9e42ce643fd1c",
-    "title": "HONOR Magic V6 推出限時盲訂優惠 免費升級 1TB 兼送投影機等多重禮遇 - ePrice.HK",
-    "title_zh_tw": "HONOR Magic V6 推出限時盲訂優惠 免費升級 1TB 兼送投影機等多重禮遇",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「HONOR Magic V6 推出限時盲訂優惠 免費升級 1TB 兼送投影機等多重禮遇 - ePrice.HK」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "ePrice.HK",
-    "source_url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5wR2JKQnlxOThQRWF5NVByOV9IWGFnc0VxcWNrSUhYaXJJdGhwTW1tMDY4dXM1Y3lqYUVpcy1mekN6X3pRbzBqckxqM0drNHZWLW5mXzlwWldrdmdXNHRaOA?oc=5",
-    "published_at": "2026-06-09",
-    "country": "台灣",
-    "language": "zh-TW",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-06-17T06:39:28+00:00"
-  },
-  {
-    "id": "249a43e363c628a0",
-    "title": "科视 Christie 激光投影助力沉浸式水秀 呈现南宋诗人陆游文化之旅 - 飞象网",
-    "summary_zh_tw": "此則消息的可辨識重點為 Christie、雷射光源，原始標題為「科视 Christie 激光投影助力沉浸式水秀 呈现南宋诗人陆游文化之旅 - 飞象网」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "飞象网",
-    "source_url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE05N25QMzB6eUgyZFdMSThSRzRCSFU5V2VRREJWa1F0eGVWYnpoZW9nTGxmUlVWblgzVURZckxXa2NJN0Vhc3dtbjBlcw?oc=5",
-    "published_at": "2026-06-09",
-    "country": "中國",
-    "language": "zh-CN",
-    "brands": [
-      "Christie"
-    ],
-    "topics": [
-      "雷射光源"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-06-12T03:26:09+00:00",
-    "title_zh_tw": "科视 Christie 雷射投影助力沉浸式水秀 呈现南宋诗人陆游文化之旅"
-  },
-  {
-    "id": "838aa372badcdd86",
-    "title": "PowerLite L270F 1080p 3LCD Lamp-Free Laser Projector - Epson",
-    "title_zh_tw": "PowerLite L270F 1080p 3LCD Lamp-Free Laser Projector",
-    "summary_zh_tw": "此則消息的可辨識重點為 Epson、3LCD、雷射光源，原始標題為「PowerLite L270F 1080p 3LCD Lamp-Free Laser Projector - Epson」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "Epson",
-    "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOaGZlU2xtSXJ2QW8xZmRMSEpScXhqakFLUmozaFkyQm52YWFKdnlNTmZaODdwV0tZd3BWMVFPemVrNXRRZHk5Sk11Z1FRcHJZTzkyVnltbUx3dU1lR1A4RmI3VDZkbjVHT09pdDRILUxPR290ZUVUb2NmWEV5RktnWFhCUTVha0lTUnBleGxRZUlPT1dPLUpPQVNNN1lYQzYtWU8zS1drZUZnanVWWjlic09CWQ?oc=5",
-    "published_at": "2026-06-08",
-    "country": "全球",
-    "language": "en-US",
-    "brands": [
-      "Epson"
-    ],
-    "topics": [
-      "3LCD",
-      "雷射光源"
-    ],
-    "is_official": true,
-    "summary_mode": "rules",
-    "collected_at": "2026-06-17T06:39:31+00:00"
-  },
-  {
-    "id": "a4b785b721f4c83e",
-    "title": "施設の質を左右する「BenQ」シミュレーション用プロジェクター、導入理由とは？ - スポーツナビ",
-    "title_zh_tw": "場館の質を左右する「BenQ」シミュレーション用投影機、導入原因とは？",
-    "summary_zh_tw": "此則消息的可辨識重點為 BenQ、產業動態，原始標題為「施設の質を左右する「BenQ」シミュレーション用プロジェクター、導入理由とは？ - スポーツナビ」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "スポーツナビ",
-    "source_url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFA2RmpxdVByVzFGajU2cGNHTGJqWFRxcU93R1B5NTc4WHkweHJDY0JyOUduX0xQWlhHdjNoZG5NZ3hKQm1nUDJYWU5uaUFnUGsyekZVVGNGNllsUGIyaEYxWnZUNk9PSno0ZGFUS1dmMWM?oc=5",
-    "published_at": "2026-06-08",
-    "country": "日本",
-    "language": "ja",
-    "brands": [
-      "BenQ"
-    ],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-06-17T06:39:30+00:00"
-  },
-  {
-    "id": "33fbe04884f8cbd5",
-    "title": "ライカ、4K対応のミニプロジェクター「ライカCine Compact 1」を発売〜最大220インチ相当の大画面に対応可能 - VIDEO SALON",
-    "title_zh_tw": "ライカ、支援 4Kの迷你投影機「ライカCine Compact 1」を開賣〜最大220インチ相当の大畫面に対応可能",
-    "summary_zh_tw": "此則消息的可辨識重點為 Leica、新品發表，原始標題為「ライカ、4K対応のミニプロジェクター「ライカCine Compact 1」を発売〜最大220インチ相当の大画面に対応可能 - VIDEO SALON」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "VIDEO SALON",
-    "source_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBxS25sLTFpcWVQR3M3VGstU3dhTElWM3MzcnltWDlTd204dDlzaHNLQy11WFI2RHF3UEdua3NYbGVXOEhYdV9wQXdQN1dYSVNfS2JDdnR2TkVkUQ?oc=5",
-    "published_at": "2026-06-08",
-    "country": "日本",
-    "language": "ja",
-    "brands": [
-      "Leica"
-    ],
-    "topics": [
-      "新品發表"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-06-17T06:39:30+00:00"
-  },
-  {
-    "id": "f347f2dfa2c8b16a",
-    "title": "Leica Drops the Ultimate Travel-Friendly 4K Smart Projector - Decked Out Magazine",
-    "title_zh_tw": "Leica Drops the Ultimate Travel-Friendly 4K Smart Projector",
-    "summary_zh_tw": "此則消息的可辨識重點為 Leica、產業動態，原始標題為「Leica Drops the Ultimate Travel-Friendly 4K Smart Projector - Decked Out Magazine」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "Decked Out Magazine",
-    "source_url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBiSGZlak43ZWpTQWdPclFrMkhNTEVVbXYtREhSb0kzZ1dIMnZEZlJCTkh5d3ZNRkNhTGFuNnQ3b1ZuZEtkVVRyY1Y1dEU1RF9ES3lCR2M5aWhkVTVUSzlaZkJDRDNQR01rSkI0dDloRXN4bzRJZ2c?oc=5",
-    "published_at": "2026-06-08",
-    "country": "美國",
-    "language": "en-US",
-    "brands": [
-      "Leica"
-    ],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-06-17T06:39:30+00:00"
-  },
-  {
-    "id": "a57a4c7f5f026fe6",
-    "title": "Leica Cine Compact 1 Projector Debuts: 4K RGB Laser Performance in a Smaller Package for $2,000 - eCoustics",
-    "title_zh_tw": "Leica Cine Compact 1 Projector Debuts: 4K RGB Laser Performance in a Smaller Package for $2,000",
-    "summary_zh_tw": "此則消息的可辨識重點為 Leica、雷射光源，原始標題為「Leica Cine Compact 1 Projector Debuts: 4K RGB Laser Performance in a Smaller Package for $2,000 - eCoustics」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "eCoustics",
-    "source_url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFAwY2lmc3VvOXZMT2duZGxiY1Iyek5mcmFWbGhQWGR5c1ByRjdoSFRFMnFhalU5QXZiQ0hvaEhhcEs3Z0lvR05wS2tuWHZtMnpYR2kzTEZKZmNtRG1FRFdpZTVoOEZ1OTQ?oc=5",
-    "published_at": "2026-06-08",
-    "country": "美國",
-    "language": "en-US",
-    "brands": [
-      "Leica"
-    ],
-    "topics": [
-      "雷射光源"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-06-17T06:39:30+00:00"
-  },
-  {
-    "id": "855c6803736cb12d",
-    "title": "Home Projector Market Insights: Transforming Residential Entertainment Experiences - openPR.com",
-    "title_zh_tw": "Home Projector Market Insights: Transforming Residential Entertainment Experiences",
-    "summary_zh_tw": "此則消息的可辨識重點為 供應鏈／市場，原始標題為「Home Projector Market Insights: Transforming Residential Entertainment Experiences - openPR.com」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "openPR.com",
-    "source_url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNUU1FWm5BRDNlWkZFS05aV2JpNjZCUnlySDNzLXNxTW0zWnhYTEE2RUMwX3RrUWZ5YmNVWmIwVEFLQXRrdmhyRmxVZThtV0xsMHRucG9lbmtPTnBveXJOWWQ5RkJWdXllQmhrOHBaV2ZtQXdXbmM1UlJkOW5lekpZZmg5b0hYZm5jQlduOF9qcDBtN184SlE?oc=5",
-    "published_at": "2026-06-08",
-    "country": "美國",
-    "language": "en-US",
-    "brands": [],
-    "topics": [
-      "供應鏈／市場"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-06-17T06:39:30+00:00"
-  },
-  {
-    "id": "b90d7686cf3df807",
-    "title": "Get your living room World Cup ready with these top picks on home projectors - Creative Bloq",
-    "title_zh_tw": "Get your living room World Cup ready with these top picks on home projectors",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「Get your living room World Cup ready with these top picks on home projectors - Creative Bloq」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "Creative Bloq",
-    "source_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQNFNDQzZNUXZvelllcWRyRWkzdmFjSUlaOWhnWWpOOU0xSjJOcDU1c1hCZ0Y5ZGFpV19tOVdjUEJLYTV1akh0NkU0clg1ZnBnWFA0UHM1R1cyajk4TkVGNjltLVdlUGlUZHM3bkNlaTF1V0dUVGd2OHVfNmtsSUs0MGZBdVJHV2VPZnhSVVBjaFlyTGJYNkx3YzB2MjZ5amdoY0hoc3lJMkFJS1luSmZv?oc=5",
-    "published_at": "2026-06-08",
-    "country": "美國",
-    "language": "en-US",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-06-17T06:39:30+00:00"
-  },
-  {
-    "id": "c6e13924b637475e",
-    "title": "DLPプロジェクター市場：タイプ別、光源別、輝度レベル別、解像度別、用途別、流通チャネル別―2026年から2032年までの世界市場予測 - newscast.jp",
-    "title_zh_tw": "DLP投影機市場：タイプ別、依光源、亮度レベル別、解析度別、依用途、流通チャネル別―2026年から2032年までの世界市場預測",
-    "summary_zh_tw": "此則消息的可辨識重點為 DLP／DMD、供應鏈／市場，原始標題為「DLPプロジェクター市場：タイプ別、光源別、輝度レベル別、解像度別、用途別、流通チャネル別―2026年から2032年までの世界市場予測 - newscast.jp」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "newscast.jp",
-    "source_url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1KbVJmbUdGTnlQWnVEb3VzOU9zUnloc19RWWVkZ2lDZGNDNkZMb3Z4Z0s3NFQxSERidVV0VUhQOFlMclYyRFlBVklfTllEZHc?oc=5",
-    "published_at": "2026-06-08",
-    "country": "日本",
-    "language": "ja",
-    "brands": [],
-    "topics": [
-      "DLP／DMD",
-      "供應鏈／市場"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-06-17T06:39:30+00:00"
-  },
-  {
-    "id": "167fbe57a1e2fc46",
-    "title": "28萬的100吋 Micro RGB還送一台四萬投影機跟喇叭 - Mobile01",
-    "title_zh_tw": "28萬的100吋 Micro RGB還送一台四萬投影機跟喇叭",
-    "summary_zh_tw": "此則消息的可辨識重點為 產業動態，原始標題為「28萬的100吋 Micro RGB還送一台四萬投影機跟喇叭 - Mobile01」。目前 RSS 資訊有限，詳細產品規格、技術數據與發布範圍仍應以原文為準。",
-    "source": "Mobile01",
-    "source_url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE8zV21QSkxEaDNhTzVKZlBfWFppOTdZVzczRjZKN1lnTHVLVnRHcVFkV2lJWEE4WWNQdlNCcEctcHVwN001YmhvZHVlTld5XzB1cGpiUWVPZnRtWXpFeXdNd0thcFFXckU?oc=5",
-    "published_at": "2026-06-08",
-    "country": "台灣",
-    "language": "zh-TW",
-    "brands": [],
-    "topics": [
-      "產業動態"
-    ],
-    "is_official": false,
-    "summary_mode": "rules",
-    "collected_at": "2026-06-17T06:39:28+00:00"
   }
 ]
